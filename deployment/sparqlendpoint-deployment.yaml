@@ -1,0 +1,59 @@
+#TODO - Is this file necessary?
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sparqlendpoint
+  namespace: siemens
+  labels:
+    app: sparqlendpoint
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sparqlendpoint
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: sparqlendpoint
+        version: v1
+    spec:
+      containers:
+        - env:
+            - name: ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: fuseki-password-secret
+                  key: ADMIN_PASSWORD
+            - name: ASSEMBLER
+              value: /fuseki-base/configuration/things.ttl
+            - name: ENABLE_UPLOAD
+              value: "true"
+          image: secoresearch/fuseki:4.3.2
+          name: sparqlendpoint
+          volumeMounts:
+            - mountPath: /fuseki-base/configuration
+              name: sparqlendpoint-configuration
+            - mountPath: /fuseki-base/databases
+              name: sparqlendpoint-databases
+            - mountPath: /fuseki-base/config.ttl
+              name: sparqlendpoint-config
+              subPath: ttl-content
+      restartPolicy: Always
+      volumes:
+        - name: sparqlendpoint-configuration
+          persistentVolumeClaim:
+            claimName: sparqlendpoint-configuration
+        - name: sparqlendpoint-databases
+          persistentVolumeClaim:
+            claimName: sparqlendpoint-databases
+        - name: sparqlendpoint-config
+          configMap:
+            name: sparqlendpoint-config
+      nodeSelector:
+        kubernetes.io/hostname: k8s.ext.logilab.fr
+
+status: {}

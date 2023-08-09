@@ -1,0 +1,20 @@
+---
+version: "3.9"
+services:
+  api:
+    build: .
+    network_mode: "host"
+    volumes:
+      - "./config.toml:/tdd-api/config.toml"
+  sparqlendpoint:
+    image: "secoresearch/fuseki:latest"
+    environment:
+      ENABLE_UPLOAD: "true"
+      ADMIN_PASSWORD: "password"
+      ASSEMBLER: "/fuseki-base/configuration/things.ttl"
+    ports:
+      - "3030:3030"
+    volumes:
+      - "./fuseki-docker/configuration:/fuseki-base/configuration"
+      - "./fuseki-docker/databases:/fuseki-base/databases"
+      - "./fuseki-docker/config.ttl:/fuseki-base/config.ttl"

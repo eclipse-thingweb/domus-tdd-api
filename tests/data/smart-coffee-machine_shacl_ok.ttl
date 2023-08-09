@@ -1,0 +1,24 @@
+<urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677>
+        a       <https://www.w3.org/2019/wot/td#Thing> ;
+        <https://www.w3.org/2019/wot/td#definesSecurityScheme>
+                [ a       <https://www.w3.org/2019/wot/security#NoSecurityScheme> ;
+                  <https://www.w3.org/2019/wot/td#hasInstanceConfiguration>
+                          <http://localhost:5000/urn:55f01138-5c96-4b3d-a5d0-81319a2db677/nosec_sc>] ;
+        <https://www.w3.org/2019/wot/td#description>
+                "A smart coffee machine with a range of capabilities.\nA complementary tutorial is available at http://www.thingweb.io/smart-coffee-machine.html." ;
+        <https://www.w3.org/2019/wot/td#hasActionAffordance>
+                [ <https://www.w3.org/2019/wot/td#description>
+                          "Make a drink from available list of beverages. Accepts drink id, size and quantity as uriVariables.\nBrews one medium americano if no uriVariables are specified." ;
+                  <https://www.w3.org/2019/wot/td#hasForm>
+                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
+                                    "application/json" ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
+                                    <https://www.w3.org/2019/wot/td#invokeAction> ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
+                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/actions/makeDrink"
+                            ]
+                  ] ;
+        <https://www.w3.org/2019/wot/td#hasSecurityConfiguration>
+                <http://localhost:5000/urn:55f01138-5c96-4b3d-a5d0-81319a2db677/nosec_sc> ;
+        <https://www.w3.org/2019/wot/td#title>
+                "Smart-Coffee-Machine".

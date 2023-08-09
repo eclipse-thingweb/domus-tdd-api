@@ -1,0 +1,3 @@
+fuseki-docker/databases/*
+__pycache__/
+node_modules/

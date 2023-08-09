@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  namespace: siemens
+  labels:
+    app: api
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+        version: v1
+    spec:
+      containers:
+        - env:
+            - name: TDD__SPARQLENDPOINT_URL
+              value: http://sparqlendpoint:3030/things/
+            - name: TDD__TD_REPO_URL
+              value: https://my.tdd.api
+            - name: TDD__TD_JSONSCHEMA
+              value: /tdd-api/tdd/data/td-json-schema-validation.json
+          image: my.registry/tdd/api:latest
+          name: tdd-api
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: regcred

@@ -1,0 +1,7 @@
+<urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677>
+        a       <https://www.w3.org/2019/wot/td#Thing> ;
+        <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation>
+                [ <https://www.w3.org/2021/wot/discovery#dateCreated>
+                          "2022-03-17T17:03:48.095473+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+                          <https://www.w3.org/2021/wot/discovery#dateModified>
+                          "2022-03-17T18:03:48.095473+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ] .
