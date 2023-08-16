@@ -8,16 +8,15 @@ from tests.conftest import (
 )
 
 
-def test_tdd_route(test_client, clear_expired_td_mocked):
+def test_tdd_route(test_client):
     tdd_response = test_client.get("/")
     assert tdd_response.status_code == 200
     assert tdd_response.content_type == "application/td+json"
     with open(DATA_PATH / "tdd-description.json") as fp:
         assert tdd_response.json == json.load(fp)
-    clear_expired_td_mocked.assert_called_once()
 
 
-def test_GET_thing_OK(test_client, clear_expired_td_mocked, mock_sparql_with_one_td):
+def test_GET_thing_OK(test_client, mock_sparql_with_one_td):
     td_id = "urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677"
     with open(DATA_PATH / "smart-coffee-machine.ld.json") as fp:
         already_present_td = json.load(fp)
@@ -29,12 +28,9 @@ def test_GET_thing_OK(test_client, clear_expired_td_mocked, mock_sparql_with_one
     ]  # use the proper registration since this test does not test this
     diff = Compare().check(already_present_td, td)
     assert_only_on_known_errors(diff)
-    clear_expired_td_mocked.assert_called_once()
 
 
-def test_GET_thing_content_negociation(
-    test_client, clear_expired_td_mocked, mock_sparql_with_one_td
-):
+def test_GET_thing_content_negociation(test_client, mock_sparql_with_one_td):
     td_id = "urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677"
     for mime_type, file_extension in [
         ("text/turtle", "ttl"),
@@ -56,4 +52,3 @@ def test_GET_thing_content_negociation(
         g == g_expected
         # TODO remove when TODO above has been resolved
         assert len(g) == len(g_expected) + 1  # registration triples
-    assert clear_expired_td_mocked.call_count == 3

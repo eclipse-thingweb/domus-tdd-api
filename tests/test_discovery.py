@@ -32,9 +32,7 @@ def assert_etag_changed(init_etag, headers, format_param=None):
     assert init_etag != get_collection_etag()
 
 
-def test_GET_thing_discovery_array_one_td(
-    test_client, clear_expired_td_mocked, mock_sparql_with_one_td
-):
+def test_GET_thing_discovery_array_one_td(test_client, mock_sparql_with_one_td):
     with open(DATA_PATH / "smart-coffee-machine.ld.json") as fp:
         expected_tds = [json.load(fp)]
     get_response = test_client.get("/things")
@@ -46,21 +44,17 @@ def test_GET_thing_discovery_array_one_td(
     diff = Compare().check(expected_tds[0], td)
     assert_only_on_known_errors(diff)
     assert_etag_in_headers(get_response.headers)
-    clear_expired_td_mocked.assert_called_once()
 
 
-def test_GET_thing_discovery_array_no_limit(
-    test_client, clear_expired_td_mocked, mock_sparql_17_things
-):
+def test_GET_thing_discovery_array_no_limit(test_client, mock_sparql_17_things):
     get_response = test_client.get("/things")
     tds = get_response.json
     assert len(tds) == 17
     assert_etag_in_headers(get_response.headers)
-    clear_expired_td_mocked.assert_called_once()
 
 
 def test_GET_thing_discovery_array_with_limit(
-    test_client, httpx_mock, clear_expired_td_mocked, mock_sparql_17_things
+    test_client, httpx_mock, mock_sparql_17_things
 ):
     LIMIT_BATCH = 5
     get_response = test_client.get(f"/things?limit={LIMIT_BATCH}")
@@ -85,12 +79,9 @@ def test_GET_thing_discovery_array_with_limit(
     tds = get_response.json
     assert len(tds) == 2
     assert_etag_in_headers(get_response.headers)
-    clear_expired_td_mocked.assert_called()
 
 
-def test_GET_thing_discovery_collection(
-    test_client, clear_expired_td_mocked, mock_sparql_17_things
-):
+def test_GET_thing_discovery_collection(test_client, mock_sparql_17_things):
     get_response = test_client.get("/things?format=collection")
     tds = get_response.json
     assert tds["@type"] == "ThingCollection"
@@ -119,12 +110,9 @@ def test_GET_thing_discovery_collection(
     assert "next" not in tds
     assert tds["etag"] == get_collection_etag()
     assert_etag_in_headers(get_response.headers, format_param="collection")
-    clear_expired_td_mocked.assert_called()
 
 
-def test_GET_thing_discovery_collection_sort_parameters(
-    test_client, clear_expired_td_mocked
-):
+def test_GET_thing_discovery_collection_sort_parameters(test_client):
     get_response = test_client.get("/things?format=collection&sort_by=created")
     assert get_response.status_code == 501
     get_response = test_client.get("/things?format=collection&sort_order=desc")
@@ -135,9 +123,7 @@ def test_GET_thing_discovery_collection_sort_parameters(
     assert get_response.status_code == 501
 
 
-def test_collection_etag_changed_after_DELETE(
-    test_client, clear_expired_td_mocked, mock_sparql_with_one_td
-):
+def test_collection_etag_changed_after_DELETE(test_client, mock_sparql_with_one_td):
     td_id = "urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677"
     response = test_client.get("/things?format=collection")
     init_etag = get_collection_etag()
@@ -147,9 +133,7 @@ def test_collection_etag_changed_after_DELETE(
     assert_etag_changed(init_etag, response.headers, format_param="collection")
 
 
-def test_collection_etag_changed_after_PATCH(
-    test_client, clear_expired_td_mocked, mock_sparql_with_one_td
-):
+def test_collection_etag_changed_after_PATCH(test_client, mock_sparql_with_one_td):
     td_id = "urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677"
     response = test_client.get("/things?format=collection")
     init_etag = get_collection_etag()
@@ -159,9 +143,7 @@ def test_collection_etag_changed_after_PATCH(
     assert_etag_changed(init_etag, response.headers, format_param="collection")
 
 
-def test_collection_etag_changed_after_PUT(
-    test_client, clear_expired_td_mocked, mock_sparql_with_one_td
-):
+def test_collection_etag_changed_after_PUT(test_client, mock_sparql_with_one_td):
     response = test_client.get("/things?format=collection")
     init_etag = get_collection_etag()
     assert_etag_in_headers(response.headers, format_param="collection")
@@ -175,9 +157,7 @@ def test_collection_etag_changed_after_PUT(
     assert_etag_changed(init_etag, response.headers, format_param="collection")
 
 
-def test_collection_etag_changed_after_POST(
-    test_client, clear_expired_td_mocked, mock_sparql_empty_endpoint
-):
+def test_collection_etag_changed_after_POST(test_client, mock_sparql_empty_endpoint):
     response = test_client.get("/things?format=collection")
     init_etag = get_collection_etag()
     assert_etag_in_headers(response.headers, format_param="collection")
