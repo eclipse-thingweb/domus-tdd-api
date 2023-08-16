@@ -112,15 +112,41 @@ def test_GET_thing_discovery_collection(test_client, mock_sparql_17_things):
     assert_etag_in_headers(get_response.headers, format_param="collection")
 
 
-def test_GET_thing_discovery_collection_sort_parameters(test_client):
+def test_GET_thing_discovery_collection_sort_parameters(
+    test_client, mock_sparql_with_one_td
+):
     get_response = test_client.get("/things?format=collection&sort_by=created")
-    assert get_response.status_code == 501
+    assert get_response.status_code == 200
     get_response = test_client.get("/things?format=collection&sort_order=desc")
-    assert get_response.status_code == 501
+    assert get_response.status_code == 200
     get_response = test_client.get(
         "/things?format=collection&sort_order=desc&sort_by=created"
     )
-    assert get_response.status_code == 501
+    assert get_response.status_code == 200
+
+
+def test_GET_thing_discovery_collection_sort_by_desc(
+    test_client, mock_sparql_17_things
+):
+    # rdflib considers language-tagged literals to be order after plain literals
+    # "Hue Sensor"@en comes after "Virtual" in its alphabetical order
+    # this error was not detected in Fuseki or other SPARQL endpoints
+    get_response = test_client.get(
+        "/things?format=collection&sort_by=title&sort_order=desc&limit=2"
+    )
+    tds = get_response.json
+    assert tds["@type"] == "ThingCollection"
+    assert tds["total"] == 17
+    assert len(tds["members"]) == 2
+    assert (
+        tds["@context"]
+        == "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+    )
+    assert "next" in tds
+    assert (
+        tds["next"]
+        == "/things?offset=2&limit=2&sort_order=desc&sort_by=title&format=collection"
+    )
 
 
 def test_collection_etag_changed_after_DELETE(test_client, mock_sparql_with_one_td):

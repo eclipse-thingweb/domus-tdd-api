@@ -21,6 +21,7 @@ KNOWN_KEY_ERRORS = [
     "security",  # str => ["str"]
     "nosec_sc",
 ]
+tdd.CONFIG["LIMIT_BATCH_TDS"] = 15
 
 
 @pytest.fixture(autouse=True)
