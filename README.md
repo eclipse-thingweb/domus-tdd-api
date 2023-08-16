@@ -201,13 +201,16 @@ Go to the Virtuoso administration UI, i.e., http://host:port/conductor
 
 ## Code quality
 
-Run black and flake8 if you modified the Python code before commiting.
+A few quality tests (formatting, linting, testing) have been developed to keep
+this code maintainable.
+Some tests have been developed to test the API's behaviour in python.
+We invite you to modify the tests if you change the behaviour and add
+new tests if you develop new features.
 
 You can do it with tox if you have it installed:
 
 ```bash
-tox -e black-run
-tox -e flake8
+tox -p all
 ```
 
 Or manually if you do not have tox installed:
@@ -215,12 +218,5 @@ Or manually if you do not have tox installed:
 ```bash
 black .
 flake8
-```
-
-Some tests have been developed to test the API's behaviour.
-We invite you to modify the tests if you change the behaviour and add
-new tests if you develop new features.
-
-```bash
 pytests tests
 ```

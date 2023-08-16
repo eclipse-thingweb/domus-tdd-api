@@ -1,6 +1,6 @@
 import sys
 import time
-from flask import Flask, jsonify, request, Response, stream_with_context
+from flask import Flask, request, Response, stream_with_context
 import json
 import json_merge_patch
 import httpx

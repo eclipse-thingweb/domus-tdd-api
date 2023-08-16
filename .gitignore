@@ -1,3 +1,6 @@
 fuseki-docker/databases/*
 __pycache__/
 node_modules/
+.tox
+*.egg-info/
+.pytest_cache

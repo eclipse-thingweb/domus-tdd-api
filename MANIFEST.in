@@ -7,7 +7,7 @@ recursive-include tdd/jsonld *.js
 include ./scripts/*.py
 
 include app.py
-include README.md
+include *.md
 include Dockerfile
 include docker-compose.yml
 include tox.ini
