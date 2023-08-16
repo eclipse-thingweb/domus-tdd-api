@@ -63,6 +63,12 @@ Install the project and it dependencies in the virtual environment by running:
 pip install -e .
 ```
 
+Install the JavaScript dependencies (the project relies on jsonld.js for JSON-LD framing)
+
+```bash
+npm ci
+```
+
 ### Deploy a Fuseki server locally
 
 You can either use a distant SPARQL server or use a SPARQL server locally.
@@ -139,22 +145,23 @@ The `config.toml` file can also be used to define FLask server configuration (c.
 
 ### Configuration variables
 
-| Variable name                 | default value                                 | description                                                                                                                                                    |
-| ----------------------------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [TDD__]TD_REPO_URL        | http://localhost:5000                         | The URL to access the TDD API server                                                                                                                           |
-| [TDD__]SPARQLENDPOINT_URL | http://localhost:3030/things                  | The SPARQL endpoint URL                                                                                                                                        |
+| Variable name             | default value                             | description                                                                                                                                                    |
+| ------------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [TDD__]TD_REPO_URL        | http://localhost:5000                     | The URL to access the TDD API server                                                                                                                           |
+| [TDD__]SPARQLENDPOINT_URL | http://localhost:3030/things              | The SPARQL endpoint URL                                                                                                                                        |
 | [TDD__]TD_JSONSCHEMA      | ./tdd/data/td-json-schema-validation.json | The path to the file containing JSON-Schema to validate the TDs                                                                                                |
-| [TDD__]CHECK_JSON_SCHEMA  | True                                          | Define if TDD API will check the TDs regarding to the `TD_JSONSCHEMA` schema                                                                                   |
-| [TDD__]MAX_TTL            | None                                          | Integer, maximum time-to-live (in seconds) that a TD will be kept on the server (unlimited if None)                                                            |
-| [TDD__]MANDATE_TTL        | False                                         | Boolean value, if set to True, it will only upload TDs having a time-to-live (ttl) value. The server will send a 400 HTTP code if the TD does not contain one. |
-
+| [TDD__]CHECK_JSON_SCHEMA  | True                                      | Define if TDD API will check the TDs regarding to the `TD_JSONSCHEMA` schema                                                                                   |
+| [TDD__]MAX_TTL            | None                                      | Integer, maximum time-to-live (in seconds) that a TD will be kept on the server (unlimited if None)                                                            |
+| [TDD__]MANDATE_TTL        | False                                     | Boolean value, if set to True, it will only upload TDs having a time-to-live (ttl) value. The server will send a 400 HTTP code if the TD does not contain one. |
 
 ## Notes on Virtuoso - TODO Change to a general section about tested Triplestores (Jena, GraphDB, Virtuoso and include this as a subsection)
+
 https://vos.openlinksw.com/owiki/wiki/VOS
 
 `/Applications/Virtuoso Open Source Edition v7.2.app/Contents/virtuoso-opensource/bin` -> `./virtuoso-t +foreground +configfile ../database/virtuoso.ini`
 
 `/Applications/Virtuoso\ Open\ Source\ Edition\ v7.2.app/Contents/virtuoso-opensource/bin/isql localhost:1111 -U dba -P dba`
+
 ```
 GRANT EXECUTE ON DB.DBA.SPARQL_INSERT_DICT_CONTENT TO "SPARQL";
 GRANT EXECUTE ON DB.DBA.SPARQL_DELETE_DICT_CONTENT TO "SPARQL";
@@ -167,22 +174,23 @@ GRANT EXECUTE ON DB.DBA.SPARUL_DROP TO "SPARQL";
 GRANT EXECUTE ON DB.DBA.SPARQL_UPDATE TO "SPARQL";
 ```
 
-http://127.0.0.1:8890/sparql   
+http://127.0.0.1:8890/sparql  
 http://127.0.0.1:8890/conductor
 
-| User Name	| Default Password  | Usage |
-| :---  	| :---              | :--- |
-| dba	    | dba	            | Default Database Administrator account. |
-| dav	    | dav	            | WebDAV Administrator account. |
-| vad	    | vad	            | WebDAV account for internal usage in VAD (disabled by default). |
-| demo	    | demo	            | Default demo user for the demo database. This user is the owner of the Demo catalogue of the demo database. |
-| soap	    | soap	            | SQL User for demonstrating SOAP services. |
-| fori	    | fori	            | SQL user account for 'Forums' tutorial application demonstration in the Demo database. |
+| User Name | Default Password | Usage                                                                                                       |
+| :-------- | :--------------- | :---------------------------------------------------------------------------------------------------------- |
+| dba       | dba              | Default Database Administrator account.                                                                     |
+| dav       | dav              | WebDAV Administrator account.                                                                               |
+| vad       | vad              | WebDAV account for internal usage in VAD (disabled by default).                                             |
+| demo      | demo             | Default demo user for the demo database. This user is the owner of the Demo catalogue of the demo database. |
+| soap      | soap             | SQL User for demonstrating SOAP services.                                                                   |
+| fori      | fori             | SQL user account for 'Forums' tutorial application demonstration in the Demo database.                      |
 
-Problem: Virtuoso 37000 Error SP031: SPARQL compiler: Blank node '_:b0' is not allowed in a constant clause   
+Problem: Virtuoso 37000 Error SP031: SPARQL compiler: Blank node '\_:b0' is not allowed in a constant clause  
 https://github.com/openlink/virtuoso-opensource/issues/126
 
 Go to the Virtuoso administration UI, i.e., http://host:port/conductor
+
 - Log in as user dba
 - Go to System Admin → User Accounts → Users
 - Click the Edit link
