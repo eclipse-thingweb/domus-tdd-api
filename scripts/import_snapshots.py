@@ -18,7 +18,11 @@ def upload_snapshot(filepath):
         tds = ld_content["member"]
         for td in tds:
             td["@context"] = context
-            r = client.post(sys.argv[2], data=json.dumps(td), headers={"Content-Type": "application/json"})
+            r = client.post(
+                sys.argv[2],
+                data=json.dumps(td),
+                headers={"Content-Type": "application/json"},
+            )
             if r.status_code == 201:
                 print(f"ok (id: {r.text})")
             else:
@@ -33,7 +37,11 @@ def upload_snapshots(filespath):
             # TDs to be extracted from snapshot
             if filename.endswith("json"):
                 filepath = os.path.join(root, filename)
-                print("---------------------------------------------------- " + filepath + " ----------------------------------------------------")
+                print(
+                    "---------------------------------------------------- "
+                    + filepath
+                    + " ----------------------------------------------------"
+                )
                 with open(filepath) as fp:
                     ld_content = json.loads(fp.read())
                     context = ld_content["@context"]
@@ -41,14 +49,24 @@ def upload_snapshots(filespath):
                     with concurrent.futures.ThreadPoolExecutor() as executor:
                         for td in tds:
                             executor.submit(send_request, td, context)
-                    #for td in tds:
+                    # for td in tds:
                     #    send_request(td, context)
 
 
 def send_request(td, context):
     td["@context"] = context
-    print("---------------------------------------------------- " + sys.argv[2] + "/" + td["id"] + " ----------------------------------------------------")
-    r = client.put(sys.argv[2] + "/" + td["id"], data=json.dumps(td), headers={"Content-Type": "application/json"})
+    print(
+        "---------------------------------------------------- "
+        + sys.argv[2]
+        + "/"
+        + td["id"]
+        + " ----------------------------------------------------"
+    )
+    r = client.put(
+        sys.argv[2] + "/" + td["id"],
+        data=json.dumps(td),
+        headers={"Content-Type": "application/json"},
+    )
     if r.status_code == 201:
         print(f"ok (id: {r.text})")
     else:
@@ -62,7 +80,6 @@ errors = []
 if os.path.isfile(sys.argv[1]):
     upload_snapshot(sys.argv[1])
 elif os.path.isdir(sys.argv[1]):
-
     upload_snapshots(sys.argv[1])
 else:
     print(f"{sys.argv[1]} not found")

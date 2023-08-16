@@ -16,7 +16,11 @@ def upload_snapshots(filepath):
         tds = ld_content["member"]
         for td in tds:
             td["@context"] = context
-            r = client.post(sys.argv[2], data=json.dumps(td), headers={"Content-Type": "application/json"})
+            r = client.post(
+                sys.argv[2],
+                data=json.dumps(td),
+                headers={"Content-Type": "application/json"},
+            )
             if r.status_code in [200, 201, 204]:
                 print(f"ok (id: {r.headers.get('Location', 'no id')})")
             else:

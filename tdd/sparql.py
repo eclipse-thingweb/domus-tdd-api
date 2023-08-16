@@ -172,11 +172,12 @@ def query(
         with httpx.Client() as client:
             resp = client.post(
                 sparqlendpoint,
-                data={"query": querystring},                                                                    #TODO take care of SPARQL INJECTION
+                data={"query": querystring},  # TODO take care of SPARQL INJECTION
                 headers=headers,
             )
     if request_type == "update":
-        #sparqlendpoint = urljoin(f"{sparqlendpoint}/", "statements")                                           #TODO this line is only necessary for GraphDB, remove for Jena and Virtuoso
+        # sparqlendpoint = urljoin(f"{sparqlendpoint}/", "statements")
+        # TODO this line is only necessary for GraphDB, remove for Jena and Virtuoso
         with httpx.Client() as client:
             resp = client.post(
                 sparqlendpoint,

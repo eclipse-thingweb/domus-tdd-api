@@ -14,7 +14,11 @@ def upload_submodels(filepath):
         submodels = json.loads(fp.read())
         for submodel in submodels:
             submodel["semanticId"]["type"] = "ExternalReference"
-            r = client.post(sys.argv[2], data=json.dumps(submodel), headers={"Content-Type": "application/json"})
+            r = client.post(
+                sys.argv[2],
+                data=json.dumps(submodel),
+                headers={"Content-Type": "application/json"},
+            )
             if r.status_code in [200, 201, 204]:
                 print(f"ok (id: {r.headers.get('Location', 'no id')})")
             else:

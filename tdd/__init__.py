@@ -1,7 +1,6 @@
 import sys
 import time
 from flask import Flask, jsonify, request, Response, stream_with_context
-from flask.helpers import send_from_directory
 import json
 import json_merge_patch
 import httpx
@@ -15,7 +14,6 @@ from tdd.errors import (
     WrongMimeType,
 )
 from tdd.td import (
-    clear_expired_td,
     get_all_tds,
     get_paginated_tds,
     get_total_number,
@@ -74,14 +72,14 @@ def register_error_handler(app):
     @app.errorhandler(AppException)
     def error_response(e):
         lang = request.lang
-        if lang == 'fr':  
-            message = e.to_dict().get("detail_fr")  
-        elif lang == 'de':  
-            message = e.to_dict().get("detail_de")  
-        else:  
+        if lang == "fr":
+            message = e.to_dict().get("detail_fr")
+        elif lang == "de":
+            message = e.to_dict().get("detail_de")
+        else:
             message = e.to_dict().get("detail")
         return Response(
-            jsonify({'error': message}),
+            jsonify({"error": message}),
             content_type="application/problem+json",
             status=e.status_code,
         )
@@ -90,10 +88,11 @@ def register_error_handler(app):
 def register_routes(app):
     @app.before_request
     def before_request():
-        lang = request.accept_languages.best_match(['en', 'fr', 'de'])  
-        request.lang = lang 
-    #TODO code below should run as "daemon" and not here since it is time-costly
-    #def clear_expired_tds_request():
+        lang = request.accept_languages.best_match(["en", "fr", "de"])
+        request.lang = lang
+
+    # TODO code below should run as "daemon" and not here since it is time-costly
+    # def clear_expired_tds_request():
     #    clear_expired_td()
 
     @app.after_request
@@ -230,7 +229,7 @@ def register_routes(app):
 
             def generate():
                 all_tds = get_all_tds(sort_by, sort_order)
-                #all_tds = get_paginated_tds(number_total, 0)
+                # all_tds = get_paginated_tds(number_total, 0)
                 first_td = next(all_tds, None)
                 if first_td is None:
                     yield "[]"

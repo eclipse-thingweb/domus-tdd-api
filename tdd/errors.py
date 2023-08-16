@@ -70,7 +70,14 @@ class AppException(Exception):
     message_de = "Etwas ist schief gelaufen..."
     td_id = None
 
-    def __init__(self, message=None, message_fr=None, message_de=None, status_code=None, payload=None):
+    def __init__(
+        self,
+        message=None,
+        message_fr=None,
+        message_de=None,
+        status_code=None,
+        payload=None,
+    ):
         super().__init__()
         if message is not None:
             self.message = message
@@ -98,6 +105,7 @@ class JSONSchemaError(AppException):
     message = "The input did not pass the JSON Schema Validation"
     message_fr = "L'entrée n'a pas passé la validation du schéma JSON"
     message_de = "Die Eingabe hat die JSON-Schema-Validierung nicht bestanden"
+
     def __init__(self, error, td_id=None):
         super().__init__()
         self.td_id = td_id
@@ -109,22 +117,26 @@ class JSONDecodeError(AppException):
         super().__init__(
             f"The input did not pass the JSON Decoding: {str(error)}",
             f"L'entrée n'a pas passé le décodage JSON: {str(error)}",
-            f"Die Eingabe hat die JSON-Decodierung nicht bestanden: {str(error)}"
+            f"Die Eingabe hat die JSON-Decodierung nicht bestanden: {str(error)}",
         )
 
 
 class IDMismatchError(AppException):
     def __init__(self, ld_content_id, param_id):
         super().__init__(
-            f"TD id '{ld_content_id}' in json and id in route " f"'{param_id}' are not compatible",
-            f"TD id '{ld_content_id}' dans le json et id dans la route " f"'{param_id}' ne sont pas compatibles",
-            f"TD id '{ld_content_id}' in json und id in route " f"'{param_id}' sind nicht kompatibel"
+            f"TD id '{ld_content_id}' in json and id in route "
+            f"'{param_id}' are not compatible",
+            f"TD id '{ld_content_id}' dans le json et id dans la route "
+            f"'{param_id}' ne sont pas compatibles",
+            f"TD id '{ld_content_id}' in json und id in route "
+            f"'{param_id}' sind nicht kompatibel",
         )
 
 
 class FusekiError(AppException):
     title = "SPARQL Endpoint Error"
     status_code = 500
+
     def __init__(self, response):
         super().__init__(response.text)
 
@@ -132,12 +144,14 @@ class FusekiError(AppException):
 class OrderbyError(AppException):
     title = "Order By Error"
     status_code = 500
+
     def __init__(self, order_key):
         super().__init__(f"The key {order_key} is not orderable")
 
 
 class RDFValidationError(AppException):
     title = "RDF triples are not well formatted"
+
     def __init__(self, text, td_id=None, errors=None, td_graph=None):
         super().__init__(text)
         self.td_id = td_id
@@ -150,9 +164,12 @@ class RDFValidationError(AppException):
 class TTLMandatoryError(AppException):
     def __init__(self, ld_content):
         super().__init__(
-            f"TD '{ld_content['id'] or 'anonymous'}' does not contain a mandatory TTL" " value",
-            f"TD '{ld_content['id'] or 'anonymous'}' ne contient pas de valeur TTL obligatoire" " ",
-            f"TD '{ld_content['id'] or 'anonymous'}' enthält keinen obligatorischen TTL" " Wert"
+            f"TD '{ld_content['id'] or 'anonymous'}' does not contain a mandatory TTL"
+            " value",
+            f"TD '{ld_content['id'] or 'anonymous'}' ne contient pas de valeur TTL obligatoire"
+            " ",
+            f"TD '{ld_content['id'] or 'anonymous'}' enthält keinen obligatorischen TTL"
+            " Wert",
         )
 
 
@@ -163,7 +180,9 @@ class IDNotFound(AppException):
 
 class WrongMimeType(AppException):
     title = "Wrong MimeType"
+
     def __init__(self, provided_mimetype):
         super().__init__(
-            f"Provided mimetype '{provided_mimetype}' is not supported. Only " f"{', '.join(POSSIBLE_MIMETYPES)}, application/json are allowed"
+            f"Provided mimetype '{provided_mimetype}' is not supported. Only "
+            f"{', '.join(POSSIBLE_MIMETYPES)}, application/json are allowed"
         )

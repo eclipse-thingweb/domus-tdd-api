@@ -27,6 +27,7 @@ setup(
             "pytest_httpx",
             "jsoncomparison",
             "pytz",
+            "black",
         ],
     },
 )

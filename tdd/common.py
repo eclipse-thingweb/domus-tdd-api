@@ -28,7 +28,10 @@ def delete_id(uri):
 
 
 def json_ld_to_ntriples(ld_content):
-    p = subprocess.Popen(['node', 'tdd/lib/transform-to-nt.js', json.dumps(ld_content)], stdout=subprocess.PIPE)
+    p = subprocess.Popen(
+        ["node", "tdd/lib/transform-to-nt.js", json.dumps(ld_content)],
+        stdout=subprocess.PIPE,
+    )
     nt_content = p.stdout.read()
     return nt_content.decode("utf-8")
 
@@ -68,7 +71,10 @@ def put_rdf_in_sparql(g, uri, context, delete_if_exists, ontology, forced_type=N
 
 
 def frame_nt_content(id, nt_content, frame):
-    p = subprocess.Popen(['node', 'tdd/lib/frame-jsonld.js', nt_content, json.dumps(frame)], stdout=subprocess.PIPE)
+    p = subprocess.Popen(
+        ["node", "tdd/lib/frame-jsonld.js", nt_content, json.dumps(frame)],
+        stdout=subprocess.PIPE,
+    )
     json_ld_compacted = p.stdout.read()
     return json_ld_compacted
 
