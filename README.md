@@ -60,7 +60,7 @@ source .venv/bin/activate
 Install the project and it dependencies in the virtual environment by running:
 
 ```bash
-pip install -e .
+pip install -e .[dev]
 ```
 
 Install the JavaScript dependencies (the project relies on jsonld.js for JSON-LD framing)
@@ -197,3 +197,21 @@ Go to the Virtuoso administration UI, i.e., http://host:port/conductor
 - Set User type to SQL/ODBC Logins and WebDAV
 - From the list of available Account Roles, select SPARQL_UPDATE and click the >> button to add it to the right-hand list
 - Click the Save button
+
+## Code quality
+
+Run black and flake8 if you modified the Python code before commiting.
+
+You can do it with tox if you have it installed:
+
+```bash
+tox -e black-run
+tox -e flake8
+```
+
+Or manually if you do not have tox installed:
+
+```bash
+black .
+flake8
+```

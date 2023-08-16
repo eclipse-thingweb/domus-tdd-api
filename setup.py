@@ -28,6 +28,7 @@ setup(
             "jsoncomparison",
             "pytz",
             "black",
+            "flake8",
         ],
     },
 )
