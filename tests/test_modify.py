@@ -115,7 +115,7 @@ def test_POST_thing_ttl_shacl_validation_ok(test_client, mock_sparql_empty_endpo
 def test_PUT_thing_ttl_shacl_validation_nok(test_client):
     with open(DATA_PATH / "smart-coffee-machine_shacl_nok.ttl") as fp:
         put_response = test_client.put(
-            "/things/urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677",
+            "/things/urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677?check-schema=True",
             data=fp.read(),
             content_type="text/turtle",
         )

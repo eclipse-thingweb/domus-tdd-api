@@ -72,14 +72,8 @@ def register_error_handler(app):
     @app.errorhandler(AppException)
     def error_response(e):
         lang = request.lang
-        if lang == "fr":
-            message = e.to_dict().get("detail_fr")
-        elif lang == "de":
-            message = e.to_dict().get("detail_de")
-        else:
-            message = e.to_dict().get("detail")
         return Response(
-            jsonify({"error": message}),
+            json.dumps(e.to_dict(lang)),
             content_type="application/problem+json",
             status=e.status_code,
         )

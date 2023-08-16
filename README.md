@@ -150,9 +150,10 @@ The `config.toml` file can also be used to define FLask server configuration (c.
 | [TDD__]TD_REPO_URL        | http://localhost:5000                     | The URL to access the TDD API server                                                                                                                           |
 | [TDD__]SPARQLENDPOINT_URL | http://localhost:3030/things              | The SPARQL endpoint URL                                                                                                                                        |
 | [TDD__]TD_JSONSCHEMA      | ./tdd/data/td-json-schema-validation.json | The path to the file containing JSON-Schema to validate the TDs                                                                                                |
-| [TDD__]CHECK_JSON_SCHEMA  | True                                      | Define if TDD API will check the TDs regarding to the `TD_JSONSCHEMA` schema                                                                                   |
+| [TDD__]CHECK_JSON_SCHEMA  | False                                     | Define if TDD API will check the TDs regarding to the `TD_JSONSCHEMA` schema                                                                                   |
 | [TDD__]MAX_TTL            | None                                      | Integer, maximum time-to-live (in seconds) that a TD will be kept on the server (unlimited if None)                                                            |
 | [TDD__]MANDATE_TTL        | False                                     | Boolean value, if set to True, it will only upload TDs having a time-to-live (ttl) value. The server will send a 400 HTTP code if the TD does not contain one. |
+| [TDD__]LIMIT_BATCH_TDS    | 25                                        | Default limit of returned TDs by batch                                                                                                                         |
 
 ## Notes on Virtuoso - TODO Change to a general section about tested Triplestores (Jena, GraphDB, Virtuoso and include this as a subsection)
 
@@ -214,4 +215,12 @@ Or manually if you do not have tox installed:
 ```bash
 black .
 flake8
+```
+
+Some tests have been developed to test the API's behaviour.
+We invite you to modify the tests if you change the behaviour and add
+new tests if you develop new features.
+
+```bash
+pytests tests
 ```

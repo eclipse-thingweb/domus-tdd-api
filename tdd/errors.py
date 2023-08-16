@@ -89,12 +89,15 @@ class AppException(Exception):
             self.status_code = status_code
         self.payload = payload
 
-    def to_dict(self):
+    def to_dict(self, lang):
         rv = dict(self.payload or ())
         rv["title"] = self.title
-        rv["detail"] = self.message
-        rv["detail_fr"] = self.message_fr
-        rv["detail_de"] = self.message_de
+        if lang == "fr":
+            rv["detail"] = self.message_fr
+        elif lang == "de":
+            rv["detail"] = self.message_de
+        else:
+            rv["detail"] = self.message
         rv["status"] = self.status_code
         if self.td_id is not None:
             rv["instance"] = self.td_id
