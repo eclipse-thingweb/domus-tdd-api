@@ -17,7 +17,6 @@ from tdd.errors import IDNotFound
 def delete_id(uri):
     resp = query(
         GET_NAMED_GRAPHS.format(uri=uri),
-        headers={"Accept": "application/json"},
     )
     if resp.status_code == 200:
         results = resp.json()["results"]["bindings"]

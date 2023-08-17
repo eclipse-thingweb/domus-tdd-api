@@ -28,5 +28,4 @@ def delete_metadata(uri):
     query(
         DELETE_METADATA.format(uri=uri),
         request_type="update",
-        headers={},
     )

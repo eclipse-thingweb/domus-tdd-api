@@ -152,7 +152,6 @@ def validate_tds(tds):
 def get_already_existing_td(uri):
     resp = query(
         GET_TD_CREATION_DATE.format(uri=uri),
-        headers={"Accept": "application/json"},
     )
     if resp.status_code == 200:
         if len(resp.json()["results"]["bindings"]) > 0:
