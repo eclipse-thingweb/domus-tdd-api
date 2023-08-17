@@ -16,7 +16,7 @@
                             <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
                                     <https://www.w3.org/2019/wot/td#invokeAction> ;
                             <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/actions/setSchedule"@en
+                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/actions/setSchedule"^^<http://www.w3.org/2001/XMLSchema#anyURI>
                           ] ;
                   <https://www.w3.org/2019/wot/td#hasForm>
                           [ <http://www.w3.org/2011/http#methodName>
@@ -26,17 +26,10 @@
                             <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
                                     <https://www.w3.org/2019/wot/td#invokeAction> ;
                             <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/actions/setSchedule"@en
+                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/actions/setSchedule"^^<http://www.w3.org/2001/XMLSchema#anyURI>
                           ] ;
                   <https://www.w3.org/2019/wot/td#hasInputSchema>
                           [ a       <https://www.w3.org/2019/wot/json-schema#ObjectSchema> ;
-                            <https://www.w3.org/2019/wot/json-schema#properties>
-                                    [ a       <https://www.w3.org/2019/wot/json-schema#StringSchema> ;
-                                      <https://www.w3.org/2019/wot/json-schema#propertyName>
-                                              "drinkId"@en ;
-                                      <https://www.w3.org/2019/wot/td#description>
-                                              "Defines what drink to make, drinkId is one of possibleDrinks property values, e.g. latte."@en
-                                    ] ;
                             <https://www.w3.org/2019/wot/json-schema#properties>
                                     [ a       <https://www.w3.org/2019/wot/json-schema#StringSchema> ;
                                       <https://www.w3.org/2019/wot/json-schema#propertyName>
@@ -47,16 +40,7 @@
                             <https://www.w3.org/2019/wot/json-schema#properties>
                                     [ a       <https://www.w3.org/2019/wot/json-schema#StringSchema> ;
                                       <https://www.w3.org/2019/wot/json-schema#enum>
-                                              "everyWe"@en , "everyMo"@en , "everyFr"@en , "everySun"@en , "once"@en , "everySat"@en , "everyTh"@en , "everyday"@en , "everyTu"@en ;
-                                      <https://www.w3.org/2019/wot/json-schema#propertyName>
-                                              "mode"@en ;
-                                      <https://www.w3.org/2019/wot/td#description>
-                                              "Defines the mode of the scheduled task, e.g. once or everyday. All the possible values are given in the enum field of this Thing Description."@en
-                                    ] ;
-                            <https://www.w3.org/2019/wot/json-schema#properties>
-                                    [ a       <https://www.w3.org/2019/wot/json-schema#StringSchema> ;
-                                      <https://www.w3.org/2019/wot/json-schema#enum>
-                                              "m"@en , "s"@en , "l"@en ;
+                                              "s"@en , "m"@en , "l"@en ;
                                       <https://www.w3.org/2019/wot/json-schema#propertyName>
                                               "size"@en ;
                                       <https://www.w3.org/2019/wot/td#description>
@@ -73,20 +57,36 @@
                                       <https://www.w3.org/2019/wot/td#description>
                                               "Defines how many drinks to make, ranging from 1 to 5."@en
                                     ] ;
+                            <https://www.w3.org/2019/wot/json-schema#properties>
+                                    [ a       <https://www.w3.org/2019/wot/json-schema#StringSchema> ;
+                                      <https://www.w3.org/2019/wot/json-schema#enum>
+                                              "once"@en , "everySun"@en , "everyFr"@en , "everySat"@en , "everyMo"@en , "everyday"@en , "everyTh"@en , "everyTu"@en , "everyWe"@en ;
+                                      <https://www.w3.org/2019/wot/json-schema#propertyName>
+                                              "mode"@en ;
+                                      <https://www.w3.org/2019/wot/td#description>
+                                              "Defines the mode of the scheduled task, e.g. once or everyday. All the possible values are given in the enum field of this Thing Description."@en
+                                    ] ;
+                            <https://www.w3.org/2019/wot/json-schema#properties>
+                                    [ a       <https://www.w3.org/2019/wot/json-schema#StringSchema> ;
+                                      <https://www.w3.org/2019/wot/json-schema#propertyName>
+                                              "drinkId"@en ;
+                                      <https://www.w3.org/2019/wot/td#description>
+                                              "Defines what drink to make, drinkId is one of possibleDrinks property values, e.g. latte."@en
+                                    ] ;
                             <https://www.w3.org/2019/wot/json-schema#required>
-                                    "mode"@en , "time"@en
+                                    "time"@en , "mode"@en
                           ] ;
                   <https://www.w3.org/2019/wot/td#hasOutputSchema>
                           [ a       <https://www.w3.org/2019/wot/json-schema#ObjectSchema> ;
                             <https://www.w3.org/2019/wot/json-schema#properties>
-                                    [ a       <https://www.w3.org/2019/wot/json-schema#StringSchema> ;
-                                      <https://www.w3.org/2019/wot/json-schema#propertyName>
-                                              "message"@en
-                                    ] ;
-                            <https://www.w3.org/2019/wot/json-schema#properties>
                                     [ a       <https://www.w3.org/2019/wot/json-schema#BooleanSchema> ;
                                       <https://www.w3.org/2019/wot/json-schema#propertyName>
                                               "result"@en
+                                    ] ;
+                            <https://www.w3.org/2019/wot/json-schema#properties>
+                                    [ a       <https://www.w3.org/2019/wot/json-schema#StringSchema> ;
+                                      <https://www.w3.org/2019/wot/json-schema#propertyName>
+                                              "message"@en
                                     ] ;
                             <https://www.w3.org/2019/wot/td#description>
                                     "Returns true/false and a message when all invoked promises are resolved (asynchronous)."@en
@@ -102,6 +102,14 @@
                 [ <https://www.w3.org/2019/wot/td#description>
                           "Make a drink from available list of beverages. Accepts drink id, size and quantity as uriVariables.\nBrews one medium americano if no uriVariables are specified."@en ;
                   <https://www.w3.org/2019/wot/td#hasForm>
+                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
+                                    "application/json"@en ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
+                                    <https://www.w3.org/2019/wot/td#invokeAction> ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
+                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/actions/makeDrink"^^<http://www.w3.org/2001/XMLSchema#anyURI>
+                          ] ;
+                  <https://www.w3.org/2019/wot/td#hasForm>
                           [ <http://www.w3.org/2011/http#methodName>
                                     "POST"@en ;
                             <https://www.w3.org/2019/wot/hypermedia#forContentType>
@@ -109,15 +117,7 @@
                             <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
                                     <https://www.w3.org/2019/wot/td#invokeAction> ;
                             <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/actions/makeDrink{?drinkId,size,quantity}"@en
-                          ] ;
-                  <https://www.w3.org/2019/wot/td#hasForm>
-                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
-                                    "application/json"@en ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
-                                    <https://www.w3.org/2019/wot/td#invokeAction> ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/actions/makeDrink"@en
+                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/actions/makeDrink{?drinkId,size,quantity}"^^<http://www.w3.org/2001/XMLSchema#anyURI>
                           ] ;
                   <https://www.w3.org/2019/wot/td#hasOutputSchema>
                           [ a       <https://www.w3.org/2019/wot/json-schema#ObjectSchema> ;
@@ -138,17 +138,9 @@
                           [ <https://www.w3.org/2019/wot/td#description>
                                     "Defines the size of a drink, s = small, m = medium, l = large."@en ;
                             <https://www.w3.org/2019/wot/td#enum>
-                                    "m"@en , "s"@en , "l"@en ;
+                                    "s"@en , "m"@en , "l"@en ;
                             <https://www.w3.org/2019/wot/td#name>
                                     "size"@en ;
-                            <https://www.w3.org/2019/wot/td#type>
-                                    "string"@en
-                          ] ;
-                  <https://www.w3.org/2019/wot/td#hasUriTemplateSchema>
-                          [ <https://www.w3.org/2019/wot/td#description>
-                                    "Defines what drink to make, drinkId is one of possibleDrinks property values, e.g. latte."@en ;
-                            <https://www.w3.org/2019/wot/td#name>
-                                    "drinkId"@en ;
                             <https://www.w3.org/2019/wot/td#type>
                                     "string"@en
                           ] ;
@@ -164,6 +156,14 @@
                             <https://www.w3.org/2019/wot/td#type>
                                     "integer"@en
                           ] ;
+                  <https://www.w3.org/2019/wot/td#hasUriTemplateSchema>
+                          [ <https://www.w3.org/2019/wot/td#description>
+                                    "Defines what drink to make, drinkId is one of possibleDrinks property values, e.g. latte."@en ;
+                            <https://www.w3.org/2019/wot/td#name>
+                                    "drinkId"@en ;
+                            <https://www.w3.org/2019/wot/td#type>
+                                    "string"@en
+                          ] ;
                   <https://www.w3.org/2019/wot/td#isIdempotent>
                           false ;
                   <https://www.w3.org/2019/wot/td#isSafe>
@@ -177,12 +177,10 @@
                   <https://www.w3.org/2019/wot/td#hasForm>
                           [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
                                     "application/json"@en ;
-                            <https://www.w3.org/2019/wot/hypermedia#forSubProtocol>
-                                    "longpoll"@en ;
                             <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
-                                    <https://www.w3.org/2019/wot/td#subscribeEvent> , <https://www.w3.org/2019/wot/td#unsubscribeEvent> ;
+                                    <https://www.w3.org/2019/wot/td#unsubscribeEvent> , <https://www.w3.org/2019/wot/td#subscribeEvent> ;
                             <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/events/outOfResource"@en
+                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/events/outOfResource"^^<http://www.w3.org/2001/XMLSchema#anyURI>
                           ] ;
                   <https://www.w3.org/2019/wot/td#hasForm>
                           [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
@@ -190,15 +188,17 @@
                             <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
                                     <https://www.w3.org/2019/wot/td#subscribeEvent> ;
                             <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "ws://plugfest.thingweb.io:8083/smart-coffee-machine/events/outOfResource"@en
+                                    "ws://plugfest.thingweb.io:8083/smart-coffee-machine/events/outOfResource"^^<http://www.w3.org/2001/XMLSchema#anyURI>
                           ] ;
                   <https://www.w3.org/2019/wot/td#hasForm>
                           [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
                                     "application/json"@en ;
+                            <https://www.w3.org/2019/wot/hypermedia#forSubProtocol>
+                                    "longpoll"@en ;
                             <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
-                                    <https://www.w3.org/2019/wot/td#subscribeEvent> , <https://www.w3.org/2019/wot/td#unsubscribeEvent> ;
+                                    <https://www.w3.org/2019/wot/td#unsubscribeEvent> , <https://www.w3.org/2019/wot/td#subscribeEvent> ;
                             <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/events/outOfResource"@en
+                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/events/outOfResource"^^<http://www.w3.org/2001/XMLSchema#anyURI>
                           ] ;
                   <https://www.w3.org/2019/wot/td#hasNotificationSchema>
                           [ a       <https://www.w3.org/2019/wot/json-schema#StringSchema> ] ;
@@ -209,97 +209,12 @@
                 [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
                           "application/json"@en ;
                   <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
-                          <https://www.w3.org/2019/wot/td#writeAllProperties> , <https://www.w3.org/2019/wot/td#writeMultipleProperties> , <https://www.w3.org/2019/wot/td#readAllProperties> , <https://www.w3.org/2019/wot/td#readMultipleProperties> ;
+                          <https://www.w3.org/2019/wot/td#writeMultipleProperties> , <https://www.w3.org/2019/wot/td#writeAllProperties> , <https://www.w3.org/2019/wot/td#readMultipleProperties> , <https://www.w3.org/2019/wot/td#readAllProperties> ;
                   <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                          "http://plugfest.thingweb.io:8083/smart-coffee-machine/all/properties"@en
-                ] ;
-        <https://www.w3.org/2019/wot/td#hasPropertyAffordance>
-                [ a       <https://www.w3.org/2019/wot/json-schema#IntegerSchema> ;
-                  <https://www.w3.org/2019/wot/json-schema#minimum>
-                          0 ;
-                  <https://www.w3.org/2019/wot/json-schema#readOnly>
-                          false ;
-                  <https://www.w3.org/2019/wot/json-schema#writeOnly>
-                          false ;
-                  <https://www.w3.org/2019/wot/td#description>
-                          "The total number of served beverages."@en ;
-                  <https://www.w3.org/2019/wot/td#hasForm>
-                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
-                                    "application/json"@en ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
-                                    <https://www.w3.org/2019/wot/td#writeProperty> , <https://www.w3.org/2019/wot/td#readProperty> ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/properties/servedCounter"@en
-                          ] ;
-                  <https://www.w3.org/2019/wot/td#hasForm>
-                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
-                                    "application/json"@en ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
-                                    <https://www.w3.org/2019/wot/td#writeProperty> , <https://www.w3.org/2019/wot/td#readProperty> ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/properties/servedCounter"@en
-                          ] ;
-                  <https://www.w3.org/2019/wot/td#isObservable>
-                          false ;
-                  <https://www.w3.org/2019/wot/td#name>
-                          "servedCounter"@en
-                ] ;
-        <https://www.w3.org/2019/wot/td#hasPropertyAffordance>
-                [ a       <https://www.w3.org/2019/wot/json-schema#NumberSchema> ;
-                  <https://www.w3.org/2019/wot/json-schema#readOnly>
-                          false ;
-                  <https://www.w3.org/2019/wot/json-schema#writeOnly>
-                          false ;
-                  <https://www.w3.org/2019/wot/td#description>
-                          "Current level of a particular resource. Requires resource id variable as uriVariables.\nThe property can also be overridden, which also requires resource id as uriVariables."@en ;
-                  <https://www.w3.org/2019/wot/td#hasForm>
-                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
-                                    "application/json"@en ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
-                                    <https://www.w3.org/2019/wot/td#writeProperty> , <https://www.w3.org/2019/wot/td#readProperty> ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/properties/availableResourceLevel"@en
-                          ] ;
-                  <https://www.w3.org/2019/wot/td#hasForm>
-                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
-                                    "application/json"@en ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
-                                    <https://www.w3.org/2019/wot/td#writeProperty> , <https://www.w3.org/2019/wot/td#readProperty> ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/properties/availableResourceLevel{?id}"@en
-                          ] ;
-                  <https://www.w3.org/2019/wot/td#hasUriTemplateSchema>
-                          [ a       <https://www.w3.org/2019/wot/json-schema#StringSchema> ;
-                            <https://www.w3.org/2019/wot/json-schema#enum>
-                                    "water"@en , "coffeeBeans"@en , "milk"@en , "chocolate"@en ;
-                            <https://www.w3.org/2019/wot/td#name>
-                                    "id"@en
-                          ] ;
-                  <https://www.w3.org/2019/wot/td#isObservable>
-                          false ;
-                  <https://www.w3.org/2019/wot/td#name>
-                          "availableResourceLevel"@en
+                          "http://plugfest.thingweb.io:8083/smart-coffee-machine/all/properties"^^<http://www.w3.org/2001/XMLSchema#anyURI>
                 ] ;
         <https://www.w3.org/2019/wot/td#hasPropertyAffordance>
                 [ a       <https://www.w3.org/2019/wot/json-schema#ObjectSchema> ;
-                  <https://www.w3.org/2019/wot/json-schema#properties>
-                          [ a       <https://www.w3.org/2019/wot/json-schema#IntegerSchema> ;
-                            <https://www.w3.org/2019/wot/json-schema#maximum>
-                                    100 ;
-                            <https://www.w3.org/2019/wot/json-schema#minimum>
-                                    0 ;
-                            <https://www.w3.org/2019/wot/json-schema#propertyName>
-                                    "coffeeBeans"@en
-                          ] ;
-                  <https://www.w3.org/2019/wot/json-schema#properties>
-                          [ a       <https://www.w3.org/2019/wot/json-schema#IntegerSchema> ;
-                            <https://www.w3.org/2019/wot/json-schema#maximum>
-                                    100 ;
-                            <https://www.w3.org/2019/wot/json-schema#minimum>
-                                    0 ;
-                            <https://www.w3.org/2019/wot/json-schema#propertyName>
-                                    "chocolate"@en
-                          ] ;
                   <https://www.w3.org/2019/wot/json-schema#properties>
                           [ a       <https://www.w3.org/2019/wot/json-schema#IntegerSchema> ;
                             <https://www.w3.org/2019/wot/json-schema#maximum>
@@ -318,6 +233,24 @@
                             <https://www.w3.org/2019/wot/json-schema#propertyName>
                                     "milk"@en
                           ] ;
+                  <https://www.w3.org/2019/wot/json-schema#properties>
+                          [ a       <https://www.w3.org/2019/wot/json-schema#IntegerSchema> ;
+                            <https://www.w3.org/2019/wot/json-schema#maximum>
+                                    100 ;
+                            <https://www.w3.org/2019/wot/json-schema#minimum>
+                                    0 ;
+                            <https://www.w3.org/2019/wot/json-schema#propertyName>
+                                    "coffeeBeans"@en
+                          ] ;
+                  <https://www.w3.org/2019/wot/json-schema#properties>
+                          [ a       <https://www.w3.org/2019/wot/json-schema#IntegerSchema> ;
+                            <https://www.w3.org/2019/wot/json-schema#maximum>
+                                    100 ;
+                            <https://www.w3.org/2019/wot/json-schema#minimum>
+                                    0 ;
+                            <https://www.w3.org/2019/wot/json-schema#propertyName>
+                                    "chocolate"@en
+                          ] ;
                   <https://www.w3.org/2019/wot/json-schema#readOnly>
                           true ;
                   <https://www.w3.org/2019/wot/json-schema#writeOnly>
@@ -330,7 +263,7 @@
                             <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
                                     <https://www.w3.org/2019/wot/td#readProperty> ;
                             <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/properties/allAvailableResources"@en
+                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/properties/allAvailableResources"^^<http://www.w3.org/2001/XMLSchema#anyURI>
                           ] ;
                   <https://www.w3.org/2019/wot/td#hasForm>
                           [ <http://www.w3.org/2011/http#methodName>
@@ -340,7 +273,7 @@
                             <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
                                     <https://www.w3.org/2019/wot/td#readProperty> ;
                             <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/properties/allAvailableResources"@en
+                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/properties/allAvailableResources"^^<http://www.w3.org/2001/XMLSchema#anyURI>
                           ] ;
                   <https://www.w3.org/2019/wot/td#isObservable>
                           false ;
@@ -354,13 +287,6 @@
                             <https://www.w3.org/2019/wot/json-schema#properties>
                                     [ a       <https://www.w3.org/2019/wot/json-schema#StringSchema> ;
                                       <https://www.w3.org/2019/wot/json-schema#propertyName>
-                                              "drinkId"@en ;
-                                      <https://www.w3.org/2019/wot/td#description>
-                                              "Defines what drink to make, drinkId is one of possibleDrinks property values, e.g. latte."@en
-                                    ] ;
-                            <https://www.w3.org/2019/wot/json-schema#properties>
-                                    [ a       <https://www.w3.org/2019/wot/json-schema#StringSchema> ;
-                                      <https://www.w3.org/2019/wot/json-schema#propertyName>
                                               "time"@en ;
                                       <https://www.w3.org/2019/wot/td#description>
                                               "Defines the time of the scheduled task in 24h format, e.g. 10:00 or 21:00."@en
@@ -368,7 +294,7 @@
                             <https://www.w3.org/2019/wot/json-schema#properties>
                                     [ a       <https://www.w3.org/2019/wot/json-schema#StringSchema> ;
                                       <https://www.w3.org/2019/wot/json-schema#enum>
-                                              "m"@en , "s"@en , "l"@en ;
+                                              "s"@en , "m"@en , "l"@en ;
                                       <https://www.w3.org/2019/wot/json-schema#propertyName>
                                               "size"@en ;
                                       <https://www.w3.org/2019/wot/td#description>
@@ -388,11 +314,18 @@
                             <https://www.w3.org/2019/wot/json-schema#properties>
                                     [ a       <https://www.w3.org/2019/wot/json-schema#StringSchema> ;
                                       <https://www.w3.org/2019/wot/json-schema#enum>
-                                              "everySun"@en , "once"@en , "everySat"@en , "everyMo"@en , "everyWe"@en , "everyTu"@en , "everyday"@en , "everyFr"@en , "everyTh"@en ;
+                                              "everyFr"@en , "everyday"@en , "once"@en , "everyWe"@en , "everyTu"@en , "everyMo"@en , "everySat"@en , "everyTh"@en , "everySun"@en ;
                                       <https://www.w3.org/2019/wot/json-schema#propertyName>
                                               "mode"@en ;
                                       <https://www.w3.org/2019/wot/td#description>
                                               "Defines the mode of the scheduled task, e.g. once or everyday. All the possible values are given in the enum field of this Thing Description."@en
+                                    ] ;
+                            <https://www.w3.org/2019/wot/json-schema#properties>
+                                    [ a       <https://www.w3.org/2019/wot/json-schema#StringSchema> ;
+                                      <https://www.w3.org/2019/wot/json-schema#propertyName>
+                                              "drinkId"@en ;
+                                      <https://www.w3.org/2019/wot/td#description>
+                                              "Defines what drink to make, drinkId is one of possibleDrinks property values, e.g. latte."@en
                                     ]
                           ] ;
                   <https://www.w3.org/2019/wot/json-schema#readOnly>
@@ -402,6 +335,14 @@
                   <https://www.w3.org/2019/wot/td#description>
                           "The list of scheduled tasks."@en ;
                   <https://www.w3.org/2019/wot/td#hasForm>
+                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
+                                    "application/json"@en ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
+                                    <https://www.w3.org/2019/wot/td#readProperty> ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
+                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/properties/schedules"^^<http://www.w3.org/2001/XMLSchema#anyURI>
+                          ] ;
+                  <https://www.w3.org/2019/wot/td#hasForm>
                           [ <http://www.w3.org/2011/http#methodName>
                                     "GET"@en ;
                             <https://www.w3.org/2019/wot/hypermedia#forContentType>
@@ -409,59 +350,12 @@
                             <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
                                     <https://www.w3.org/2019/wot/td#readProperty> ;
                             <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/properties/schedules"@en
-                          ] ;
-                  <https://www.w3.org/2019/wot/td#hasForm>
-                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
-                                    "application/json"@en ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
-                                    <https://www.w3.org/2019/wot/td#readProperty> ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/properties/schedules"@en
+                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/properties/schedules"^^<http://www.w3.org/2001/XMLSchema#anyURI>
                           ] ;
                   <https://www.w3.org/2019/wot/td#isObservable>
                           false ;
                   <https://www.w3.org/2019/wot/td#name>
                           "schedules"@en
-                ] ;
-        <https://www.w3.org/2019/wot/td#hasPropertyAffordance>
-                [ a       <https://www.w3.org/2019/wot/json-schema#BooleanSchema> ;
-                  <https://www.w3.org/2019/wot/json-schema#readOnly>
-                          false ;
-                  <https://www.w3.org/2019/wot/json-schema#writeOnly>
-                          false ;
-                  <https://www.w3.org/2019/wot/td#description>
-                          "Shows whether a maintenance is needed. The property is observable. Automatically set to true when the servedCounter property exceeds 1000."@en ;
-                  <https://www.w3.org/2019/wot/td#hasForm>
-                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
-                                    "application/json"@en ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
-                                    <https://www.w3.org/2019/wot/td#writeProperty> , <https://www.w3.org/2019/wot/td#readProperty> ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/properties/maintenanceNeeded"@en
-                          ] ;
-                  <https://www.w3.org/2019/wot/td#hasForm>
-                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
-                                    "application/json"@en ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
-                                    <https://www.w3.org/2019/wot/td#observeProperty> , <https://www.w3.org/2019/wot/td#writeProperty> , <https://www.w3.org/2019/wot/td#unobserveProperty> , <https://www.w3.org/2019/wot/td#readProperty> ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/properties/maintenanceNeeded"@en
-                          ] ;
-                  <https://www.w3.org/2019/wot/td#hasForm>
-                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
-                                    "application/json"@en ;
-                            <https://www.w3.org/2019/wot/hypermedia#forSubProtocol>
-                                    "longpoll"@en ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
-                                    <https://www.w3.org/2019/wot/td#observeProperty> , <https://www.w3.org/2019/wot/td#unobserveProperty> ;
-                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/properties/maintenanceNeeded/observable"@en
-                          ] ;
-                  <https://www.w3.org/2019/wot/td#isObservable>
-                          true ;
-                  <https://www.w3.org/2019/wot/td#name>
-                          "maintenanceNeeded"@en
                 ] ;
         <https://www.w3.org/2019/wot/td#hasPropertyAffordance>
                 [ a       <https://www.w3.org/2019/wot/json-schema#ArraySchema> ;
@@ -479,7 +373,7 @@
                             <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
                                     <https://www.w3.org/2019/wot/td#readProperty> ;
                             <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/properties/possibleDrinks"@en
+                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/properties/possibleDrinks"^^<http://www.w3.org/2001/XMLSchema#anyURI>
                           ] ;
                   <https://www.w3.org/2019/wot/td#hasForm>
                           [ <http://www.w3.org/2011/http#methodName>
@@ -489,19 +383,128 @@
                             <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
                                     <https://www.w3.org/2019/wot/td#readProperty> ;
                             <https://www.w3.org/2019/wot/hypermedia#hasTarget>
-                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/properties/possibleDrinks"@en
+                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/properties/possibleDrinks"^^<http://www.w3.org/2001/XMLSchema#anyURI>
                           ] ;
                   <https://www.w3.org/2019/wot/td#isObservable>
                           false ;
                   <https://www.w3.org/2019/wot/td#name>
                           "possibleDrinks"@en
                 ] ;
+        <https://www.w3.org/2019/wot/td#hasPropertyAffordance>
+                [ a       <https://www.w3.org/2019/wot/json-schema#NumberSchema> ;
+                  <https://www.w3.org/2019/wot/json-schema#readOnly>
+                          false ;
+                  <https://www.w3.org/2019/wot/json-schema#writeOnly>
+                          false ;
+                  <https://www.w3.org/2019/wot/td#description>
+                          "Current level of a particular resource. Requires resource id variable as uriVariables.\nThe property can also be overridden, which also requires resource id as uriVariables."@en ;
+                  <https://www.w3.org/2019/wot/td#hasForm>
+                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
+                                    "application/json"@en ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
+                                    <https://www.w3.org/2019/wot/td#writeProperty> , <https://www.w3.org/2019/wot/td#readProperty> ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
+                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/properties/availableResourceLevel"^^<http://www.w3.org/2001/XMLSchema#anyURI>
+                          ] ;
+                  <https://www.w3.org/2019/wot/td#hasForm>
+                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
+                                    "application/json"@en ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
+                                    <https://www.w3.org/2019/wot/td#writeProperty> , <https://www.w3.org/2019/wot/td#readProperty> ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
+                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/properties/availableResourceLevel{?id}"^^<http://www.w3.org/2001/XMLSchema#anyURI>
+                          ] ;
+                  <https://www.w3.org/2019/wot/td#hasUriTemplateSchema>
+                          [ a       <https://www.w3.org/2019/wot/json-schema#StringSchema> ;
+                            <https://www.w3.org/2019/wot/json-schema#enum>
+                                    "water"@en , "milk"@en , "coffeeBeans"@en , "chocolate"@en ;
+                            <https://www.w3.org/2019/wot/td#name>
+                                    "id"@en
+                          ] ;
+                  <https://www.w3.org/2019/wot/td#isObservable>
+                          false ;
+                  <https://www.w3.org/2019/wot/td#name>
+                          "availableResourceLevel"@en
+                ] ;
+        <https://www.w3.org/2019/wot/td#hasPropertyAffordance>
+                [ a       <https://www.w3.org/2019/wot/json-schema#IntegerSchema> ;
+                  <https://www.w3.org/2019/wot/json-schema#minimum>
+                          0 ;
+                  <https://www.w3.org/2019/wot/json-schema#readOnly>
+                          false ;
+                  <https://www.w3.org/2019/wot/json-schema#writeOnly>
+                          false ;
+                  <https://www.w3.org/2019/wot/td#description>
+                          "The total number of served beverages."@en ;
+                  <https://www.w3.org/2019/wot/td#hasForm>
+                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
+                                    "application/json"@en ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
+                                    <https://www.w3.org/2019/wot/td#writeProperty> , <https://www.w3.org/2019/wot/td#readProperty> ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
+                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/properties/servedCounter"^^<http://www.w3.org/2001/XMLSchema#anyURI>
+                          ] ;
+                  <https://www.w3.org/2019/wot/td#hasForm>
+                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
+                                    "application/json"@en ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
+                                    <https://www.w3.org/2019/wot/td#writeProperty> , <https://www.w3.org/2019/wot/td#readProperty> ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
+                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/properties/servedCounter"^^<http://www.w3.org/2001/XMLSchema#anyURI>
+                          ] ;
+                  <https://www.w3.org/2019/wot/td#isObservable>
+                          false ;
+                  <https://www.w3.org/2019/wot/td#name>
+                          "servedCounter"@en
+                ] ;
+        <https://www.w3.org/2019/wot/td#hasPropertyAffordance>
+                [ a       <https://www.w3.org/2019/wot/json-schema#BooleanSchema> ;
+                  <https://www.w3.org/2019/wot/json-schema#readOnly>
+                          false ;
+                  <https://www.w3.org/2019/wot/json-schema#writeOnly>
+                          false ;
+                  <https://www.w3.org/2019/wot/td#description>
+                          "Shows whether a maintenance is needed. The property is observable. Automatically set to true when the servedCounter property exceeds 1000."@en ;
+                  <https://www.w3.org/2019/wot/td#hasForm>
+                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
+                                    "application/json"@en ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
+                                    <https://www.w3.org/2019/wot/td#unobserveProperty> , <https://www.w3.org/2019/wot/td#observeProperty> , <https://www.w3.org/2019/wot/td#writeProperty> , <https://www.w3.org/2019/wot/td#readProperty> ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
+                                    "coap://plugfest.thingweb.io:5683/smart-coffee-machine/properties/maintenanceNeeded"^^<http://www.w3.org/2001/XMLSchema#anyURI>
+                          ] ;
+                  <https://www.w3.org/2019/wot/td#hasForm>
+                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
+                                    "application/json"@en ;
+                            <https://www.w3.org/2019/wot/hypermedia#forSubProtocol>
+                                    "longpoll"@en ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
+                                    <https://www.w3.org/2019/wot/td#unobserveProperty> , <https://www.w3.org/2019/wot/td#observeProperty> ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
+                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/properties/maintenanceNeeded/observable"^^<http://www.w3.org/2001/XMLSchema#anyURI>
+                          ] ;
+                  <https://www.w3.org/2019/wot/td#hasForm>
+                          [ <https://www.w3.org/2019/wot/hypermedia#forContentType>
+                                    "application/json"@en ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasOperationType>
+                                    <https://www.w3.org/2019/wot/td#writeProperty> , <https://www.w3.org/2019/wot/td#readProperty> ;
+                            <https://www.w3.org/2019/wot/hypermedia#hasTarget>
+                                    "http://plugfest.thingweb.io:8083/smart-coffee-machine/properties/maintenanceNeeded"^^<http://www.w3.org/2001/XMLSchema#anyURI>
+                          ] ;
+                  <https://www.w3.org/2019/wot/td#isObservable>
+                          true ;
+                  <https://www.w3.org/2019/wot/td#name>
+                          "maintenanceNeeded"@en
+                ] ;
         <https://www.w3.org/2019/wot/td#hasSecurityConfiguration>
                 <http://localhost:5000/urn:55f01138-5c96-4b3d-a5d0-81319a2db677/nosec_sc> ;
         <https://www.w3.org/2019/wot/td#supportContact>
-                "git://github.com/eclipse/thingweb.node-wot.git"@en ;
+                "git://github.com/eclipse/thingweb.node-wot.git"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
         <https://www.w3.org/2019/wot/td#title>
                 "Smart-Coffee-Machine"@en ;
         <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation>
                 [ <https://www.w3.org/2021/wot/discovery#dateCreated>
-                          "2022-03-17T17:03:48.095473+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ] .
+                          "2023-08-17T14:08:08.804272+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+                  <https://www.w3.org/2021/wot/discovery#dateModified>
+                          "2023-08-17T14:08:08.804272+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+                ] .

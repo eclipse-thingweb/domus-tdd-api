@@ -33,7 +33,7 @@ def assert_etag_changed(init_etag, headers, format_param=None):
 
 
 def test_GET_thing_discovery_array_one_td(test_client, mock_sparql_with_one_td):
-    with open(DATA_PATH / "smart-coffee-machine.ld.json") as fp:
+    with open(DATA_PATH / "smart-coffee-machine.td.jsonld") as fp:
         expected_tds = [json.load(fp)]
     get_response = test_client.get("/things")
     assert len(get_response.json) == 1

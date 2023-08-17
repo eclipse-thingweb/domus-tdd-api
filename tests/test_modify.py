@@ -129,24 +129,13 @@ def test_PUT_thing_ttl_shacl_validation_nok(test_client):
         assert put_response.json["validationErrors"] == [
             {
                 "field": "td:title",
-                "description": "Value is not Literal with datatype xsd:string",
+                "description": "Value is not Literal with datatype rdf:langString",
                 "node": "urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677",
                 "value": '"42"^^<http://www.w3.org/2001/XMLSchema#integer>',
             },
             {
-                "field": "td:description",
-                "description": "Value is not Literal with datatype xsd:string",
-                "node": "urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677",
-                "value": '"""A smart coffee machine with a range of capabilities.\n'
-                "A complementary tutorial is available at "
-                'http://www.thingweb.io/smart-coffee-machine.html."""@en',
-            },
-            {
                 "field": "td:hasSecurityConfiguration",
-                "description": (
-                    "Less than 1 values on"
-                    " <urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677>->td:hasSecurityConfiguration"
-                ),
+                "description": "Less than 1 values on <urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677>->td:hasSecurityConfiguration",
                 "node": "urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677",
                 "value": None,
             },
@@ -170,24 +159,13 @@ def test_POST_thing_ttl_shacl_validation_nok(test_client):
         assert put_response.json["validationErrors"] == [
             {
                 "field": "td:title",
-                "description": "Value is not Literal with datatype xsd:string",
+                "description": "Value is not Literal with datatype rdf:langString",
                 "node": "urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677",
                 "value": '"42"^^<http://www.w3.org/2001/XMLSchema#integer>',
             },
             {
-                "field": "td:description",
-                "description": "Value is not Literal with datatype xsd:string",
-                "node": "urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677",
-                "value": '"""A smart coffee machine with a range of capabilities.\n'
-                "A complementary tutorial is available at "
-                'http://www.thingweb.io/smart-coffee-machine.html."""@en',
-            },
-            {
                 "field": "td:hasSecurityConfiguration",
-                "description": (
-                    "Less than 1 values on"
-                    " <urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677>->td:hasSecurityConfiguration"
-                ),
+                "description": "Less than 1 values on <urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677>->td:hasSecurityConfiguration",
                 "node": "urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677",
                 "value": None,
             },
