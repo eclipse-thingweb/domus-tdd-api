@@ -135,7 +135,10 @@ def test_PUT_thing_ttl_shacl_validation_nok(test_client):
             },
             {
                 "field": "td:hasSecurityConfiguration",
-                "description": "Less than 1 values on <urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677>->td:hasSecurityConfiguration",
+                "description": (
+                    "Less than 1 values on "
+                    "<urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677>->td:hasSecurityConfiguration"
+                ),
                 "node": "urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677",
                 "value": None,
             },
@@ -165,7 +168,10 @@ def test_POST_thing_ttl_shacl_validation_nok(test_client):
             },
             {
                 "field": "td:hasSecurityConfiguration",
-                "description": "Less than 1 values on <urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677>->td:hasSecurityConfiguration",
+                "description": (
+                    "Less than 1 values on "
+                    "<urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677>->td:hasSecurityConfiguration"
+                ),
                 "node": "urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677",
                 "value": None,
             },
