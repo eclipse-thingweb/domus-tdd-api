@@ -1,8 +1,8 @@
-# Configuring SparTDD for different SPARQL endpoints
+# Configuring TDD API for different SPARQL endpoints
 
 ## General requirements
 
-You can either use a distant SPARQL server or use a SPARQL server locally.
+You can either use a remote SPARQL server or use a SPARQL server locally.
 
 The SPARQL endpoint you configure must:
 
@@ -11,10 +11,10 @@ The SPARQL endpoint you configure must:
 - Be configured in the manner that the default graph is the union of the named graphs
 - Allow CORS
 
-## Using Apache Jena Fuseki
+## Apache Jena Fuseki
 
 We propose to use Apache Jena Fuseki, which has a nice administration interface.
-Download the Fuseki projet (apache-jena-fuseki-X.Y.Z.zip) from
+Download the Fuseki project (apache-jena-fuseki-X.Y.Z.zip) from
 https://jena.apache.org/download/index.cgi
 
 Then unzip the downloaded archive.
@@ -35,8 +35,8 @@ cp fuseki-docker/configuration/things.ttl path/to/apache-jena-fuseki-X.Y.Z/run/c
 More documentation on Fuseki in this project is available in [fuseki.md](fuseki.md)
 (for further configuration or docker configuration).
 
-## Using Virtuoso
+## OpenLink Software Virtuoso
 
 More documentation on Fuseki in this project is available in [virtuoso.md](virtuoso.md)
 
-## Using GraphDb
+## Ontotext GraphDB
