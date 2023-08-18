@@ -2,7 +2,6 @@ import subprocess
 import json
 
 from flask import Response
-from rdflib import Graph
 
 from tdd.sparql import (
     CONSTRUCT_FROM_GRAPH,
@@ -13,6 +12,8 @@ from tdd.sparql import (
 )
 from tdd.metadata import insert_metadata, delete_metadata
 from tdd.errors import IDNotFound
+
+import re
 
 
 def delete_id(uri):
@@ -85,6 +86,8 @@ def get_id_description(uri, content_type, ontology):
         headers={"Accept": content_type},
     )
     # if no data, send 404
-    if not resp.text.strip() or len(Graph().parse(data=resp.text, format="nt")) == 0:
+    if not resp.text.strip() or not (
+        re.search(r"^[^\#]", resp.text, re.MULTILINE)
+    ):  # because some SPARQL endpoint may send "# Empty file" as response
         raise IDNotFound()
     return resp.text
