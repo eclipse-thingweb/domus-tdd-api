@@ -100,7 +100,7 @@ def register_routes(app):
 
     def get_check_schema_from_url_params(request):
         check_schema_param = request.args.get("check-schema")
-        check_schema = CONFIG["CHECK_JSON_SCHEMA"]
+        check_schema = CONFIG["CHECK_SCHEMA"]
         if check_schema_param in ["false", "False", "0"]:
             check_schema = False
         return check_schema

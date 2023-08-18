@@ -103,7 +103,7 @@ def use_custom_context(ld_content):
     return ld_content
 
 
-def validate_td(td, id=None, check_schema=CONFIG["CHECK_JSON_SCHEMA"]):
+def validate_td(td, id=None, check_schema=CONFIG["CHECK_SCHEMA"]):
     try:
         ld_content = json.loads(td)
     except json.decoder.JSONDecodeError as exc:
@@ -137,7 +137,7 @@ def validate_tds(tds):
     valid_tds = []
     erroneous_tds = {}
     for id, td in enumerate(tds):
-        if CONFIG["CHECK_JSON_SCHEMA"]:
+        if CONFIG["CHECK_SCHEMA"]:
             validated, errors = validate_td_json_schema(td)
             if not validated:
                 id = td.get("id", f"urn:array_id:{id}")

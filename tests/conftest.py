@@ -22,7 +22,7 @@ KNOWN_KEY_ERRORS = [
     "nosec_sc",
 ]
 tdd.CONFIG["LIMIT_BATCH_TDS"] = 15
-tdd.CONFIG["CHECK_JSON_SCHEMA"] = True
+tdd.CONFIG["CHECK_SCHEMA"] = True
 
 
 @pytest.fixture(autouse=True)
