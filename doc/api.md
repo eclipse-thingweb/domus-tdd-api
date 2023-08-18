@@ -32,5 +32,5 @@ The results are listed here:
 
 The list of routes and how they were implemented can be viewed in [routes-diagrams.odg](routes-diagrams.odg).
 
-Some schemas to describe how the JSON and RDF are delt with in SparTDD
+Some schemas to describe how the JSON and RDF are dealt with in the TDD API
 can be found in [schemas.odg](schemas.odg).
