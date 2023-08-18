@@ -1,4 +1,4 @@
-# Fuseki Documentation
+# Apache Jena Fuseki
 
 ## Deployment
 
