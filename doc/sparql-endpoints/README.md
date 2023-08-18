@@ -23,7 +23,7 @@ Read about how to configure and launch your local Fuseki in [fuseki.md](fuseki.m
 ## OpenLink Software Virtuoso
 
 You can use Virtuoso as a SPARQL endpoint by providing the right permissions
-and configuring SparTDD.
+and configuring the TDD API.
 
 Read about how to configure and launch your local Virtuoso in [virtuoso.md](virtuoso.md)
 
