@@ -37,6 +37,13 @@ GRANT "SPARQL_UPDATE" TO "SPARQL";
 DB.DBA.RDF_DEFAULT_USER_PERMS_SET ('nobody', 7);
 ```
 
+If you want to allow for SERVICE queries (querying other SPARQL endpoints), run:
+
+```
+GRANT SELECT ON DB.DBA.SPARQL_SINV_2 TO "SPARQL";
+GRANT EXECUTE ON DB.DBA.SPARQL_SINV_IMP TO "SPARQL";
+```
+
 ## Default users and password of Virtuoso
 
 | User Name | Default Password | Usage                                                                                                       |
