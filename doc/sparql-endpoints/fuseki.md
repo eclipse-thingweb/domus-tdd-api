@@ -1,4 +1,4 @@
-# Fuseki server as SPARQL endpoint
+# Apache Jena Fuseki
 
 We propose to use Apache Jena Fuseki, which has a nice administration interface.
 Download the Fuseki project (apache-jena-fuseki-X.Y.Z.zip) from

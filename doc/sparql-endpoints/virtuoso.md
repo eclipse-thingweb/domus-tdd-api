@@ -1,4 +1,4 @@
-## Setting up a local Virtuoso
+# OpenLink Software Virtuoso
 
 Dowload the latest version https://vos.openlinksw.com/owiki/wiki/VOS
 
