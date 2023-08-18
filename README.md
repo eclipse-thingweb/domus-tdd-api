@@ -47,6 +47,7 @@ The `config.toml` file can also be used to define FLask server configuration (c.
 | [TDD__]MAX_TTL            | None                                      | Integer, maximum time-to-live (in seconds) that a TD will be kept on the server (unlimited if None)                                                            |
 | [TDD__]MANDATE_TTL        | False                                     | Boolean value, if set to True, it will only upload TDs having a time-to-live (ttl) value. The server will send a 400 HTTP code if the TD does not contain one. |
 | [TDD__]LIMIT_BATCH_TDS    | 25                                        | Default limit of returned TDs by batch                                                                                                                         |
+| [TDD__]VIRTUOSO_ENDPOINT  | False                                     | Set to True if you use a Virtuoso Endpoint (see [virtuoso errors](docs/sparql-endpoints/virtuoso.md))                                                          |
 
 ## Deploy to develop on the API
 

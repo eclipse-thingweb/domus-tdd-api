@@ -290,7 +290,6 @@ def frame_td_nt_content(td_id, nt_content, original_context):
 def get_total_number():
     resp_nb = query(
         GET_NUMBER.format(ontology=ONTOLOGY["base"]),
-        headers={"Accept": "application/sparql-results+json"},
     )
 
     if resp_nb.status_code not in [200, 201, 204]:

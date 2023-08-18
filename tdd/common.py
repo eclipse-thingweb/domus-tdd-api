@@ -2,6 +2,7 @@ import subprocess
 import json
 
 from flask import Response
+from rdflib import Graph
 
 from tdd.sparql import (
     CONSTRUCT_FROM_GRAPH,
@@ -84,6 +85,6 @@ def get_id_description(uri, content_type, ontology):
         headers={"Accept": content_type},
     )
     # if no data, send 404
-    if not resp.text.strip():
+    if not resp.text.strip() or len(Graph().parse(data=resp.text, format="nt")) == 0:
         raise IDNotFound()
     return resp.text

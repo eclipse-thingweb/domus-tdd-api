@@ -1,4 +1,23 @@
-# Fuseki Documentation
+# Fuseki server as SPARQL endpoint
+
+We propose to use Apache Jena Fuseki, which has a nice administration interface.
+Download the Fuseki projet (apache-jena-fuseki-X.Y.Z.zip) from
+https://jena.apache.org/download/index.cgi
+
+Then unzip the downloaded archive.
+To launch the server, in the apache-jena-fuseki-X.Y.Z folder, run
+
+```
+./fuseki-server
+```
+
+The server will run on http://localhost:3030.
+If you want to create the dataset with the right configuration, you can copy-paste
+`fuseki-docker/configuration/things.ttl` into `apache-jena-fuseki-X.Y.Z/run/configuration`
+
+```
+cp fuseki-docker/configuration/things.ttl path/to/apache-jena-fuseki-X.Y.Z/run/configuration
+```
 
 ## Deployment
 

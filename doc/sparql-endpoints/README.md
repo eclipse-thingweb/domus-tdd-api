@@ -13,30 +13,18 @@ The SPARQL endpoint you configure must:
 
 ## Using Apache Jena Fuseki
 
-We propose to use Apache Jena Fuseki, which has a nice administration interface.
-Download the Fuseki projet (apache-jena-fuseki-X.Y.Z.zip) from
-https://jena.apache.org/download/index.cgi
+Apache Jena Fuseki is the SPARQL endpoint shipped in the docker-compose file.
+You can also set it locally.
+We provide you with a default configuration so that it meets the general
+requirements for a SPARQL endpoint.
 
-Then unzip the downloaded archive.
-To launch the server, in the apache-jena-fuseki-X.Y.Z folder, run
-
-```
-./fuseki-server
-```
-
-The server will run on http://localhost:3030.
-If you want to create the dataset with the right configuration, you can copy-paste
-`fuseki-docker/configuration/things.ttl` into `apache-jena-fuseki-X.Y.Z/run/configuration`
-
-```
-cp fuseki-docker/configuration/things.ttl path/to/apache-jena-fuseki-X.Y.Z/run/configuration
-```
-
-More documentation on Fuseki in this project is available in [fuseki.md](fuseki.md)
-(for further configuration or docker configuration).
+Read about how to configure and launch your local Fuseki in [fuseki.md](fuseki.md)
 
 ## Using Virtuoso
 
-More documentation on Fuseki in this project is available in [virtuoso.md](virtuoso.md)
+You can use Virtuoso as a SPARQL endpoint by providing the right permissions
+and configuring SparTDD.
 
-## Using GraphDb
+Read about how to configure and launch your local Virtuoso in [virtuoso.md](virtuoso.md)
+
+## Using GraphDB

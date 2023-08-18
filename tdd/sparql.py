@@ -52,6 +52,17 @@ INSERT_GRAPH = """
     }}
 """
 
+# This can be removed once Virtuoso 8 is Open Edition
+# https://github.com/openlink/virtuoso-opensource/issues/126
+if CONFIG["VIRTUOSO_ENDPOINT"]:
+    INSERT_GRAPH = """
+        INSERT {{
+            GRAPH <{uri}> {{
+                {content}
+            }}
+        }}
+    """
+
 CLEAR_INSERT_GRAPH = """CLEAR SILENT GRAPH <{uri}>;""" + INSERT_GRAPH
 
 
@@ -189,4 +200,4 @@ def query(
 
 
 def delete_named_graph(named_graph):
-    query(f"DROP GRAPH <{named_graph}>", request_type="update")
+    query(f"DROP SILENT GRAPH <{named_graph}>", request_type="update")
