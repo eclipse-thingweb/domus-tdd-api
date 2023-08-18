@@ -1,4 +1,4 @@
-# SparTDD
+# TDD API
 
 A Python and SPARQL based Thing Description Directory API compliant to:
 https://www.w3.org/TR/wot-discovery/
@@ -79,7 +79,7 @@ npm ci
 
 ### Deploy a SPARQL endpoint
 
-SparTDD relies uses a SPARQL endpoint as database.
+The TDD API relies on a SPARQL endpoint as database connection.
 You need to set up one before you run the project.
 
 In the [SPARQL endpoint documentation](doc/sparql-endpoints/README.md) we provide
