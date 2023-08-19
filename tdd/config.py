@@ -8,8 +8,9 @@ _default_config = {
     "TD_JSONSCHEMA": "./tdd/data/td-json-schema-validation.json",
     "TD_ONTOLOGY": "./tdd/data/td.ttl",
     "TD_SHACL_VALIDATOR": "./tdd/data/td-validation.ttl",
+    "VIRTUOSO_ENDPOINT": False,
     "LIMIT_BATCH_TDS": 25,
-    "CHECK_JSON_SCHEMA": False,
+    "CHECK_SCHEMA": False,
     "MAX_TTL": None,
     "MANDATE_TTL": False,
 }
@@ -42,7 +43,8 @@ def _cast_to_int(value):
 
 
 CONFIG["LIMIT_BATCH_TDS"] = _cast_to_int(CONFIG["LIMIT_BATCH_TDS"])
-CONFIG["CHECK_JSON_SCHEMA"] = _cast_to_boolean(CONFIG["CHECK_JSON_SCHEMA"])
+CONFIG["CHECK_SCHEMA"] = _cast_to_boolean(CONFIG["CHECK_SCHEMA"])
+CONFIG["VIRTUOSO_ENDPOINT"] = _cast_to_boolean(CONFIG["VIRTUOSO_ENDPOINT"])
 if CONFIG["MAX_TTL"] is not None:
     CONFIG["MAX_TTL"] = _cast_to_int(CONFIG["MAX_TTL"])
 CONFIG["MANDATE_TTL"] = _cast_to_boolean(CONFIG["MANDATE_TTL"])

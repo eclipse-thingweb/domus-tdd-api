@@ -15,8 +15,9 @@ from tdd.context import (
     get_context,
     convert_context_to_array,
     get_all_contexts,
-    overwrite_thing_context,
-    overwrite_discovery_context,
+    overwrite_thing_context,  # not possible to remove it yet,
+    #  because of hasSecurityConfiguration framing
+    # overwrite_discovery_context,
 )
 
 from tdd.errors import (
@@ -97,12 +98,12 @@ def use_custom_context(ld_content):
     overwrite_thing_context(ld_content)
 
     # replace discovery context uri witht the fixed discovery context
-    overwrite_discovery_context(ld_content)
+    # overwrite_discovery_context(ld_content)
 
     return ld_content
 
 
-def validate_td(td, id=None, check_schema=CONFIG["CHECK_JSON_SCHEMA"]):
+def validate_td(td, id=None, check_schema=CONFIG["CHECK_SCHEMA"]):
     try:
         ld_content = json.loads(td)
     except json.decoder.JSONDecodeError as exc:
@@ -136,7 +137,7 @@ def validate_tds(tds):
     valid_tds = []
     erroneous_tds = {}
     for id, td in enumerate(tds):
-        if CONFIG["CHECK_JSON_SCHEMA"]:
+        if CONFIG["CHECK_SCHEMA"]:
             validated, errors = validate_td_json_schema(td)
             if not validated:
                 id = td.get("id", f"urn:array_id:{id}")
@@ -151,7 +152,6 @@ def validate_tds(tds):
 def get_already_existing_td(uri):
     resp = query(
         GET_TD_CREATION_DATE.format(uri=uri),
-        headers={"Accept": "application/json"},
     )
     if resp.status_code == 200:
         if len(resp.json()["results"]["bindings"]) > 0:
@@ -274,7 +274,7 @@ def frame_td_nt_content(td_id, nt_content, original_context):
 
     # no need since the published context is up to date
     overwrite_thing_context(frame)
-    overwrite_discovery_context(frame)
+    # overwrite_discovery_context(frame)
     json_ld_compacted = frame_nt_content(td_id, nt_content, frame)
 
     jsonld_response = json.loads(json_ld_compacted)
@@ -290,7 +290,6 @@ def frame_td_nt_content(td_id, nt_content, original_context):
 def get_total_number():
     resp_nb = query(
         GET_NUMBER.format(ontology=ONTOLOGY["base"]),
-        headers={"Accept": "application/sparql-results+json"},
     )
 
     if resp_nb.status_code not in [200, 201, 204]:
@@ -337,16 +336,24 @@ def get_paginated_tds(limit, offset, sort_by, sort_order):
             else "",
             orderby_direction=sort_order if sort_order else "ASC",
         ),
-        headers={"Accept": "application/json"},                                            #TODO remove for Virtuoso, add for Jena and GraphDB
+        headers={
+            "Accept": "application/json"
+        },  # TODO remove for Virtuoso, add for Jena and GraphDB
     )
     if resp.status_code not in [200, 201, 204]:
         raise FusekiError(resp)
-    
+
     results = resp.json()["results"]["bindings"]
-    
+
     with concurrent.futures.ThreadPoolExecutor() as executor:
         for result in results:
-            tasks.append(executor.submit(send_request, result["id"]["value"], contexts[result["graph"]["value"]]))
+            tasks.append(
+                executor.submit(
+                    send_request,
+                    result["id"]["value"],
+                    contexts[result["graph"]["value"]],
+                )
+            )
 
     return all_tds
 

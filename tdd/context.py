@@ -77,8 +77,6 @@ def get_context(uri, ontology):
     resp = query(
         GET_CONTEXT.format(uri=f'{ontology["prefix"]}:{uri}'),
         "",
-        headers={"Accept": "application/json, application/ld+json"},                                                        #TODO this line is necessary for GraphDB and Virtuoso
-        #headers={},                                                                                                        #     this line is for Jena
         status_codes=(200,),
     )
     results = resp.json()["results"]["bindings"]
@@ -89,8 +87,10 @@ def get_context(uri, ontology):
 def get_all_contexts():
     """Returns a dict of td_id: context as dict"""
     contexts = {}
-    #resp = query(GET_ALL_CONTEXTS, "", headers={}, status_codes=(200,))                                                    #TODO This is for GraphDB and Jena
-    resp = query(GET_ALL_CONTEXTS, "", headers={"Accept": "application/json, application/ld+json"}, status_codes=(200,))    #     and this for Virtuoso
+    resp = query(
+        GET_ALL_CONTEXTS,
+        status_codes=(200,),
+    )  # and this for Virtuoso
     results = resp.json()["results"]["bindings"]
     for result in results:
         id = result["id"]["value"]

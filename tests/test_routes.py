@@ -1,26 +1,28 @@
 import json
 from jsoncomparison import Compare
 from rdflib import Graph
+from rdflib.compare import graph_diff
 
 from tests.conftest import (
     DATA_PATH,
+    add_registration_to_td,
     assert_only_on_known_errors,
 )
 
 
-def test_tdd_route(test_client, clear_expired_td_mocked):
+def test_tdd_route(test_client):
     tdd_response = test_client.get("/")
     assert tdd_response.status_code == 200
     assert tdd_response.content_type == "application/td+json"
     with open(DATA_PATH / "tdd-description.json") as fp:
         assert tdd_response.json == json.load(fp)
-    clear_expired_td_mocked.assert_called_once()
 
 
-def test_GET_thing_OK(test_client, clear_expired_td_mocked, mock_sparql_with_one_td):
+def test_GET_thing_OK(test_client, mock_sparql_with_one_td):
     td_id = "urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677"
-    with open(DATA_PATH / "smart-coffee-machine.ld.json") as fp:
+    with open(DATA_PATH / "smart-coffee-machine.td.jsonld") as fp:
         already_present_td = json.load(fp)
+        add_registration_to_td(already_present_td)
     get_response = test_client.get(f"/things/{td_id}")
     assert get_response.status_code == 200
     td = get_response.json
@@ -29,18 +31,14 @@ def test_GET_thing_OK(test_client, clear_expired_td_mocked, mock_sparql_with_one
     ]  # use the proper registration since this test does not test this
     diff = Compare().check(already_present_td, td)
     assert_only_on_known_errors(diff)
-    clear_expired_td_mocked.assert_called_once()
 
 
-def test_GET_thing_content_negociation(
-    test_client, clear_expired_td_mocked, mock_sparql_with_one_td
-):
+def test_GET_thing_content_negociation(test_client, mock_sparql_with_one_td):
     td_id = "urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677"
     for mime_type, file_extension in [
         ("text/turtle", "ttl"),
         ("application/rdf+xml", "xml"),
         ("text/n3", "n3"),
-        ("application/ld+json", "ld.json"),
     ]:
         with open(DATA_PATH / f"smart-coffee-machine.{file_extension}") as fp:
             already_present_td = fp.read()
@@ -53,5 +51,8 @@ def test_GET_thing_content_negociation(
         g_expected.parse(data=already_present_td, format=mime_type)
         g = Graph()
         g.parse(data=td, format=mime_type)
-        g == g_expected
-    assert clear_expired_td_mocked.call_count == 4
+
+        in_both, only_expected, only_got = graph_diff(g, g_expected)
+        assert len(in_both) == len(g)
+        assert len(only_expected) == 0
+        assert len(only_got) == 0

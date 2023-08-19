@@ -13,11 +13,12 @@ from tdd.sparql import (
 from tdd.metadata import insert_metadata, delete_metadata
 from tdd.errors import IDNotFound
 
+import re
+
 
 def delete_id(uri):
     resp = query(
         GET_NAMED_GRAPHS.format(uri=uri),
-        headers={"Accept": "application/json"},
     )
     if resp.status_code == 200:
         results = resp.json()["results"]["bindings"]
@@ -28,7 +29,10 @@ def delete_id(uri):
 
 
 def json_ld_to_ntriples(ld_content):
-    p = subprocess.Popen(['node', 'tdd/lib/transform-to-nt.js', json.dumps(ld_content)], stdout=subprocess.PIPE)
+    p = subprocess.Popen(
+        ["node", "tdd/lib/transform-to-nt.js", json.dumps(ld_content)],
+        stdout=subprocess.PIPE,
+    )
     nt_content = p.stdout.read()
     return nt_content.decode("utf-8")
 
@@ -68,7 +72,10 @@ def put_rdf_in_sparql(g, uri, context, delete_if_exists, ontology, forced_type=N
 
 
 def frame_nt_content(id, nt_content, frame):
-    p = subprocess.Popen(['node', 'tdd/lib/frame-jsonld.js', nt_content, json.dumps(frame)], stdout=subprocess.PIPE)
+    p = subprocess.Popen(
+        ["node", "tdd/lib/frame-jsonld.js", nt_content, json.dumps(frame)],
+        stdout=subprocess.PIPE,
+    )
     json_ld_compacted = p.stdout.read()
     return json_ld_compacted
 
@@ -79,6 +86,8 @@ def get_id_description(uri, content_type, ontology):
         headers={"Accept": content_type},
     )
     # if no data, send 404
-    if not resp.text.strip():
+    if not resp.text.strip() or not (
+        re.search(r"^[^\#]", resp.text, re.MULTILINE)
+    ):  # because some SPARQL endpoint may send "# Empty file" as response
         raise IDNotFound()
     return resp.text

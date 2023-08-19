@@ -1,1 +1,0 @@
-SPARQLENDPOINT_URL=http://localhost:3030/things docker-compose up

@@ -21,6 +21,8 @@ KNOWN_KEY_ERRORS = [
     "security",  # str => ["str"]
     "nosec_sc",
 ]
+tdd.CONFIG["LIMIT_BATCH_TDS"] = 15
+tdd.CONFIG["CHECK_SCHEMA"] = True
 
 
 @pytest.fixture(autouse=True)
@@ -112,3 +114,10 @@ def assert_only_on_known_errors(diff):
             assert key in KNOWN_KEY_ERRORS
         else:
             assert_only_on_known_errors(diff[key])
+
+
+def add_registration_to_td(td):
+    td["registration"] = {
+        "created": "2022-03-17T17:03:48.095473+01:00",
+        "retrieved": "2022-03-17T17:31:50.469472+01:00",
+    }

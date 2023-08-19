@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="WOT - Proxy API",
+    name="TDD API",
     version="1.0",
     long_description=__doc__,
     packages=find_packages(),
@@ -27,6 +27,8 @@ setup(
             "pytest_httpx",
             "jsoncomparison",
             "pytz",
+            "black",
+            "flake8",
         ],
     },
 )

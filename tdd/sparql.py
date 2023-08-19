@@ -52,6 +52,17 @@ INSERT_GRAPH = """
     }}
 """
 
+# This can be removed once Virtuoso 8 is Open Edition
+# https://github.com/openlink/virtuoso-opensource/issues/126
+if CONFIG["VIRTUOSO_ENDPOINT"]:
+    INSERT_GRAPH = """
+        INSERT {{
+            GRAPH <{uri}> {{
+                {content}
+            }}
+        }}
+    """
+
 CLEAR_INSERT_GRAPH = """CLEAR SILENT GRAPH <{uri}>;""" + INSERT_GRAPH
 
 
@@ -172,11 +183,12 @@ def query(
         with httpx.Client() as client:
             resp = client.post(
                 sparqlendpoint,
-                data={"query": querystring},                                                                    #TODO take care of SPARQL INJECTION
+                data={"query": querystring},  # TODO take care of SPARQL INJECTION
                 headers=headers,
             )
     if request_type == "update":
-        #sparqlendpoint = urljoin(f"{sparqlendpoint}/", "statements")                                           #TODO this line is only necessary for GraphDB, remove for Jena and Virtuoso
+        # sparqlendpoint = urljoin(f"{sparqlendpoint}/", "statements")
+        # TODO this line is only necessary for GraphDB, remove for Jena and Virtuoso
         with httpx.Client() as client:
             resp = client.post(
                 sparqlendpoint,
@@ -188,4 +200,4 @@ def query(
 
 
 def delete_named_graph(named_graph):
-    query(f"DROP GRAPH <{named_graph}>", request_type="update")
+    query(f"DROP SILENT GRAPH <{named_graph}>", request_type="update")
