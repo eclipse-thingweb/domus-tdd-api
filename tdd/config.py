@@ -36,25 +36,36 @@ def check_possible_endpoints():
         return CONFIG["ENDPOINT_TYPE"].upper()
 
 
-def _cast_to_boolean(value):
+def _cast_to_boolean(fieldname):
+    value = CONFIG[fieldname]
+    true_values = ("true", "1", "y")
+    false_values = ("false", "0", "n")
     if isinstance(value, str):
-        return value.lower() not in ("false", "0", "f")
+        if value.lower() in true_values + false_values:
+            return value.lower() not in false_values
+        raise ValueError(
+            f"{fieldname} must be boolean (true or false), case insensitive"
+        )
     elif isinstance(value, bool):
         return value
-    return ValueError()
+    raise ValueError(f"{fieldname} must be boolean (true or false), case insensitive")
 
 
-def _cast_to_int(value):
+def _cast_to_int(fieldname):
+    value = CONFIG[fieldname]
     if isinstance(value, str):
-        return int(value)
+        try:
+            return int(value)
+        except ValueError:
+            raise ValueError(f"{fieldname} must be integer")
     elif isinstance(value, int):
         return value
-    return ValueError()
+    raise ValueError(f"{fieldname} must be integer")
 
 
-CONFIG["LIMIT_BATCH_TDS"] = _cast_to_int(CONFIG["LIMIT_BATCH_TDS"])
-CONFIG["CHECK_SCHEMA"] = _cast_to_boolean(CONFIG["CHECK_SCHEMA"])
+CONFIG["LIMIT_BATCH_TDS"] = _cast_to_int("LIMIT_BATCH_TDS")
+CONFIG["CHECK_SCHEMA"] = _cast_to_boolean("CHECK_SCHEMA")
 if CONFIG["MAX_TTL"] is not None:
-    CONFIG["MAX_TTL"] = _cast_to_int(CONFIG["MAX_TTL"])
-CONFIG["MANDATE_TTL"] = _cast_to_boolean(CONFIG["MANDATE_TTL"])
+    CONFIG["MAX_TTL"] = _cast_to_int("MAX_TTL")
+CONFIG["MANDATE_TTL"] = _cast_to_boolean("MANDATE_TTL")
 CONFIG["ENDPOINT_TYPE"] = check_possible_endpoints()
