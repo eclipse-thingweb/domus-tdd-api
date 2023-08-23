@@ -62,5 +62,5 @@ https://github.com/openlink/virtuoso-opensource/issues/126
 
 This will be solved in Virtuoso V8, which is for now (2023) only available in commercial form.
 
-In the mean time, we provide with an extra configuration parameter `VIRTUOSO_ENDPOINT` that you can set
-to true to workaround this issue.
+In the mean time, we provide a workaround this issue.
+To use the workaround, you need to set the `ENDPOINT_TYPE` configuration variable to `VIRTUOSO` (see how to do so in the main [README](../../README.md)).
