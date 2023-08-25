@@ -336,9 +336,6 @@ def get_paginated_tds(limit, offset, sort_by, sort_order):
             else "",
             orderby_direction=sort_order if sort_order else "ASC",
         ),
-        headers={
-            "Accept": "application/json"
-        },  # TODO remove for Virtuoso, add for Jena and GraphDB
     )
     if resp.status_code not in [200, 201, 204]:
         raise FusekiError(resp)

@@ -54,7 +54,7 @@ INSERT_GRAPH = """
 
 # This can be removed once Virtuoso 8 is Open Edition
 # https://github.com/openlink/virtuoso-opensource/issues/126
-if CONFIG["VIRTUOSO_ENDPOINT"]:
+if CONFIG["ENDPOINT_TYPE"] == "VIRTUOSO":
     INSERT_GRAPH = """
         INSERT {{
             GRAPH <{uri}> {{
@@ -187,8 +187,8 @@ def query(
                 headers=headers,
             )
     if request_type == "update":
-        # sparqlendpoint = urljoin(f"{sparqlendpoint}/", "statements")
-        # TODO this line is only necessary for GraphDB, remove for Jena and Virtuoso
+        if CONFIG["ENDPOINT_TYPE"] == "GRAPHDB":
+            sparqlendpoint = urljoin(f"{sparqlendpoint}/", "statements")
         with httpx.Client() as client:
             resp = client.post(
                 sparqlendpoint,

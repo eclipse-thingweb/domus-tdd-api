@@ -28,3 +28,7 @@ and configuring the TDD API.
 Read about how to configure and launch your local Virtuoso in [virtuoso.md](virtuoso.md)
 
 ## Ontotext GraphDB
+
+You can use GraphDB as a SPARQL endpoint by configuring the TDD API.
+
+Read about how to configure and launch your local Virtuoso in [graphdb.md](graphdb.md)

@@ -8,7 +8,7 @@ _default_config = {
     "TD_JSONSCHEMA": "./tdd/data/td-json-schema-validation.json",
     "TD_ONTOLOGY": "./tdd/data/td.ttl",
     "TD_SHACL_VALIDATOR": "./tdd/data/td-validation.ttl",
-    "VIRTUOSO_ENDPOINT": False,
+    "ENDPOINT_TYPE": None,
     "LIMIT_BATCH_TDS": 25,
     "CHECK_SCHEMA": False,
     "MAX_TTL": None,
@@ -26,25 +26,46 @@ if CONFIG["SPARQLENDPOINT_URL"][-1] == "/":
     CONFIG["SPARQLENDPOINT_URL"] = CONFIG["SPARQLENDPOINT_URL"][:-1]
 
 
-def _cast_to_boolean(value):
+def check_possible_endpoints():
+    POSSIBLE_ENDPOINT_TYPES = {"VIRTUOSO", "GRAPHDB"}
+    if CONFIG["ENDPOINT_TYPE"]:
+        if CONFIG["ENDPOINT_TYPE"].upper() not in POSSIBLE_ENDPOINT_TYPES:
+            raise ValueError(
+                f"ENDPOINT_TYPE possible values are {', '.join(POSSIBLE_ENDPOINT_TYPES)}"
+            )
+        return CONFIG["ENDPOINT_TYPE"].upper()
+
+
+def _cast_to_boolean(fieldname):
+    value = CONFIG[fieldname]
+    true_values = ("true", "1", "y")
+    false_values = ("false", "0", "n")
     if isinstance(value, str):
-        return value.lower() not in ("false", "0", "f")
+        if value.lower() in true_values + false_values:
+            return value.lower() not in false_values
+        raise ValueError(
+            f"{fieldname} must be boolean (true or false), case insensitive"
+        )
     elif isinstance(value, bool):
         return value
-    return ValueError()
+    raise ValueError(f"{fieldname} must be boolean (true or false), case insensitive")
 
 
-def _cast_to_int(value):
+def _cast_to_int(fieldname):
+    value = CONFIG[fieldname]
     if isinstance(value, str):
-        return int(value)
+        try:
+            return int(value)
+        except ValueError:
+            raise ValueError(f"{fieldname} must be integer")
     elif isinstance(value, int):
         return value
-    return ValueError()
+    raise ValueError(f"{fieldname} must be integer")
 
 
-CONFIG["LIMIT_BATCH_TDS"] = _cast_to_int(CONFIG["LIMIT_BATCH_TDS"])
-CONFIG["CHECK_SCHEMA"] = _cast_to_boolean(CONFIG["CHECK_SCHEMA"])
-CONFIG["VIRTUOSO_ENDPOINT"] = _cast_to_boolean(CONFIG["VIRTUOSO_ENDPOINT"])
+CONFIG["LIMIT_BATCH_TDS"] = _cast_to_int("LIMIT_BATCH_TDS")
+CONFIG["CHECK_SCHEMA"] = _cast_to_boolean("CHECK_SCHEMA")
 if CONFIG["MAX_TTL"] is not None:
-    CONFIG["MAX_TTL"] = _cast_to_int(CONFIG["MAX_TTL"])
-CONFIG["MANDATE_TTL"] = _cast_to_boolean(CONFIG["MANDATE_TTL"])
+    CONFIG["MAX_TTL"] = _cast_to_int("MAX_TTL")
+CONFIG["MANDATE_TTL"] = _cast_to_boolean("MANDATE_TTL")
+CONFIG["ENDPOINT_TYPE"] = check_possible_endpoints()
