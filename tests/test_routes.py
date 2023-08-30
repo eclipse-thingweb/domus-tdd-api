@@ -2,6 +2,7 @@ import json
 from jsoncomparison import Compare
 from rdflib import Graph
 from rdflib.compare import graph_diff
+from tdd.td import clear_expired_td
 
 from tests.conftest import (
     DATA_PATH,
@@ -31,6 +32,15 @@ def test_GET_thing_OK(test_client, mock_sparql_with_one_td):
     ]  # use the proper registration since this test does not test this
     diff = Compare().check(already_present_td, td)
     assert_only_on_known_errors(diff)
+
+
+def test_GET_expired_thing(test_client, mock_sparql_with_one_expired_td):
+    td_id = "urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677"
+    get_response = test_client.get(f"/things/{td_id}")
+    assert get_response.status_code == 200
+    clear_expired_td()
+    get_response = test_client.get(f"/things/{td_id}")
+    assert get_response.status_code == 404
 
 
 def test_GET_thing_content_negociation(test_client, mock_sparql_with_one_td):
