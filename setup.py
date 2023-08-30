@@ -29,6 +29,7 @@ setup(
             "pytz",
             "black",
             "flake8",
+            "requests",
         ],
     },
 )
