@@ -23,6 +23,7 @@ KNOWN_KEY_ERRORS = [
 ]
 tdd.CONFIG["LIMIT_BATCH_TDS"] = 15
 tdd.CONFIG["CHECK_SCHEMA"] = True
+tdd.CONFIG["PERIOD_CLEAR_EXPIRE_TD"] = 0
 
 
 @pytest.fixture(autouse=True)

@@ -50,6 +50,7 @@ The `config.toml` file can also be used to define FLask server configuration (c.
 | [TDD__]TD_JSONSCHEMA      | ./tdd/data/td-json-schema-validation.json | The path to the file containing JSON-Schema to validate the TDs                                                                                                |
 | [TDD__]TD_ONTOLOGY        | ./tdd/data/td.ttl                         | The path to the file containing the TD OWL Ontology (only used for SHACL validation)                                                                           |
 | [TDD__]TD_SHACL_VALIDATOR | ./tdd/data/td-validation.ttl              | The path to the file containing the SHACL shapes (only used for SHACL validation)                                                                              |
+| [TDD__]PERIOD_CLEAR_EXPIRE_TD |   3600                                | The number of seconds between each clearing of expired TDs (0 to disable clearing expired TD)                                                                     |
 
 ## Deploy to develop on the API
 

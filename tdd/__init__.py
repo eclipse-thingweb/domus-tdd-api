@@ -1,5 +1,6 @@
 import sys
 import time
+from threading import Thread
 from flask import Flask, request, Response, stream_with_context
 import json
 import json_merge_patch
@@ -14,6 +15,7 @@ from tdd.errors import (
     WrongMimeType,
 )
 from tdd.td import (
+    clear_expired_td,
     get_all_tds,
     get_paginated_tds,
     get_total_number,
@@ -59,12 +61,29 @@ def wait_for_sparqlendpoint():
     sys.exit(1)
 
 
+def thread_clear_expire_td():
+    while True:
+        print("Clearing expired TD ...")
+        clear_expired_td()
+        print(
+            "Expired TDs cleared (next clear in "
+            f"{CONFIG['PERIOD_CLEAR_EXPIRE_TD']} seconds)"
+        )
+        time.sleep(CONFIG["PERIOD_CLEAR_EXPIRE_TD"])
+
+
 def create_app():
     app = Flask(__name__)
     app.config.from_file("../config.toml", load=toml.load)
     wait_for_sparqlendpoint()
     register_error_handler(app)
     register_routes(app)
+
+    # Launch thread to clear expired TDs periodically
+    if CONFIG["PERIOD_CLEAR_EXPIRE_TD"] != 0:
+        t = Thread(target=thread_clear_expire_td)
+        t.start()
+
     return app
 
 
@@ -84,10 +103,6 @@ def register_routes(app):
     def before_request():
         lang = request.accept_languages.best_match(["en", "fr", "de"])
         request.lang = lang
-
-    # TODO code below should run as "daemon" and not here since it is time-costly
-    # def clear_expired_tds_request():
-    #    clear_expired_td()
 
     @app.after_request
     def add_cors_headers(response):
