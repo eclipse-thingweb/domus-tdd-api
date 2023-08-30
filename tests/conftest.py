@@ -30,7 +30,7 @@ tdd.CONFIG["PERIOD_CLEAR_EXPIRE_TD"] = 0
 def patch_datetime_now(monkeypatch):
     class mydatetime(datetime.datetime):
         @classmethod
-        def now(cls):
+        def now(cls, *_):
             return datetime.datetime(2022, 1, 1, 0, 0, 0, tzinfo=timezone("UTC"))
 
         def astimezone(self, tz=timezone("UTC")):
