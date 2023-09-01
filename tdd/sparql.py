@@ -90,7 +90,7 @@ GET_EXPIRED_TD_GRAPHS = """
     PREFIX td: <https://www.w3.org/2019/wot/td#>
     PREFIX schema: <http://schema.org/>
     PREFIX discovery: <https://www.w3.org/2021/wot/discovery#>
-    SELECT ?td WHERE {
+    SELECT ?graph WHERE {
         GRAPH ?graph {
             ?td a td:Thing.
             ?td discovery:hasRegistrationInformation/discovery:expires ?expires_date.

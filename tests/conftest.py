@@ -23,13 +23,14 @@ KNOWN_KEY_ERRORS = [
 ]
 tdd.CONFIG["LIMIT_BATCH_TDS"] = 15
 tdd.CONFIG["CHECK_SCHEMA"] = True
+tdd.CONFIG["PERIOD_CLEAR_EXPIRE_TD"] = 0
 
 
 @pytest.fixture(autouse=True)
 def patch_datetime_now(monkeypatch):
     class mydatetime(datetime.datetime):
         @classmethod
-        def now(cls):
+        def now(cls, *_):
             return datetime.datetime(2022, 1, 1, 0, 0, 0, tzinfo=timezone("UTC"))
 
         def astimezone(self, tz=timezone("UTC")):
@@ -82,6 +83,12 @@ class SparqlGraph:
 @pytest.fixture
 def mock_sparql_with_one_td(httpx_mock):
     graph = SparqlGraph("smart_coffe_machine_init.nquads")
+    httpx_mock.add_callback(graph.custom)
+
+
+@pytest.fixture
+def mock_sparql_with_one_expired_td(httpx_mock):
+    graph = SparqlGraph("smart_coffe_machine_expired.nquads")
     httpx_mock.add_callback(graph.custom)
 
 
