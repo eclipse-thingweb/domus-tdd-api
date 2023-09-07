@@ -31,4 +31,4 @@ Read about how to configure and launch your local Virtuoso in [virtuoso.md](virt
 
 You can use GraphDB as a SPARQL endpoint by configuring the TDD API.
 
-Read about how to configure and launch your local Virtuoso in [graphdb.md](graphdb.md)
+Read about how to configure and launch your local GraphDB in [graphdb.md](graphdb.md)
