@@ -238,7 +238,6 @@ def register_routes(app):
 
             def generate():
                 all_tds = get_all_tds(sort_by, sort_order)
-                # all_tds = get_paginated_tds(number_total, 0)
                 first_td = next(all_tds, None)
                 if first_td is None:
                     yield "[]"
