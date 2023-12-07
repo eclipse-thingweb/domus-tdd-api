@@ -17,7 +17,7 @@ from tdd.context import (
     get_all_contexts,
     overwrite_thing_context,  # not possible to remove it yet,
     #  because of hasSecurityConfiguration framing
-    # overwrite_discovery_context,
+    overwrite_discovery_context,
 )
 
 from tdd.errors import (
@@ -98,7 +98,7 @@ def use_custom_context(ld_content):
     overwrite_thing_context(ld_content)
 
     # replace discovery context uri witht the fixed discovery context
-    # overwrite_discovery_context(ld_content)
+    overwrite_discovery_context(ld_content)
 
     return ld_content
 
@@ -274,7 +274,7 @@ def frame_td_nt_content(td_id, nt_content, original_context):
 
     # no need since the published context is up to date
     overwrite_thing_context(frame)
-    # overwrite_discovery_context(frame)
+    overwrite_discovery_context(frame)
     json_ld_compacted = frame_nt_content(td_id, nt_content, frame)
 
     jsonld_response = json.loads(json_ld_compacted)

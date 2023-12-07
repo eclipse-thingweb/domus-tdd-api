@@ -14,6 +14,7 @@ _default_config = {
     "MAX_TTL": None,
     "MANDATE_TTL": False,
     "PERIOD_CLEAR_EXPIRE_TD": 3600,
+    "OVERWRITE_DISCOVERY": False,
 }
 
 CONFIG = ConfigurationSet(
@@ -71,3 +72,4 @@ if CONFIG["MAX_TTL"] is not None:
 CONFIG["MANDATE_TTL"] = _cast_to_boolean("MANDATE_TTL")
 CONFIG["ENDPOINT_TYPE"] = check_possible_endpoints()
 CONFIG["PERIOD_CLEAR_EXPIRE_TD"] = _cast_to_int("PERIOD_CLEAR_EXPIRE_TD")
+CONFIG["OVERWRITE_DISCOVERY"] = _cast_to_boolean("OVERWRITE_DISCOVERY")

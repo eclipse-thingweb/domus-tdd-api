@@ -502,9 +502,9 @@
                 "git://github.com/eclipse/thingweb.node-wot.git"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
         <https://www.w3.org/2019/wot/td#title>
                 "Smart-Coffee-Machine"@en ;
-        <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation>
-                [ <https://www.w3.org/2021/wot/discovery#dateCreated>
+        <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation>
+                [ <https://www.w3.org/2022/wot/discovery-ontology#dateCreated>
                           "2023-08-17T14:08:08.804272+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
-                  <https://www.w3.org/2021/wot/discovery#dateModified>
+                  <https://www.w3.org/2022/wot/discovery-ontology#dateModified>
                           "2023-08-17T14:08:08.804272+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime>
                 ] .

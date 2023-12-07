@@ -1,4 +1,4 @@
-<https://plugfest.webthings.io/things/virtual-things-19> <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation> _:B8275f1efX2D253eX2D4accX2Dba3eX2D5a2d398b13fb <td:https://plugfest.webthings.io/things/virtual-things-19> .
+<https://plugfest.webthings.io/things/virtual-things-19> <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation> _:B8275f1efX2D253eX2D4accX2Dba3eX2D5a2d398b13fb <td:https://plugfest.webthings.io/things/virtual-things-19> .
 <https://plugfest.webthings.io/things/virtual-things-19> <https://www.w3.org/2019/wot/td#hasForm> _:B74378723X2D3bcfX2D4adcX2Dae02X2Dd19432e156eb <td:https://plugfest.webthings.io/things/virtual-things-19> .
 <https://plugfest.webthings.io/things/virtual-things-19> <https://www.w3.org/2019/wot/td#hasLink> _:B8473b1eeX2Df506X2D42feX2D9067X2Def10efbb33c4 <td:https://plugfest.webthings.io/things/virtual-things-19> .
 <https://plugfest.webthings.io/things/virtual-things-19> <https://www.w3.org/2019/wot/td#href> "/things/virtual-things-19" <td:https://plugfest.webthings.io/things/virtual-things-19> .
@@ -13,8 +13,8 @@
 <https://plugfest.webthings.io/things/virtual-things-19> <https://www.w3.org/2019/wot/td#selectedCapability> "Camera" <td:https://plugfest.webthings.io/things/virtual-things-19> .
 <https://plugfest.webthings.io/things/virtual-things-19> <https://www.w3.org/2019/wot/td#title> "Virtual Camera" <td:https://plugfest.webthings.io/things/virtual-things-19> .
 <https://plugfest.webthings.io/things/virtual-things-19> <https://www.w3.org/2019/wot/td#layoutIndex> "17"^^<http://www.w3.org/2001/XMLSchema#integer> <td:https://plugfest.webthings.io/things/virtual-things-19> .
-_:B8275f1efX2D253eX2D4accX2Dba3eX2D5a2d398b13fb <https://www.w3.org/2021/wot/discovery#dateModified> "2022-10-21T11:18:39.173912+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-19> .
-_:B8275f1efX2D253eX2D4accX2Dba3eX2D5a2d398b13fb <https://www.w3.org/2021/wot/discovery#dateCreated> "2022-10-21T11:18:39.173912+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-19> .
+_:B8275f1efX2D253eX2D4accX2Dba3eX2D5a2d398b13fb <https://www.w3.org/2022/wot/discovery-ontology#dateModified> "2022-10-21T11:18:39.173912+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-19> .
+_:B8275f1efX2D253eX2D4accX2Dba3eX2D5a2d398b13fb <https://www.w3.org/2022/wot/discovery-ontology#dateCreated> "2022-10-21T11:18:39.173912+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-19> .
 _:B74378723X2D3bcfX2D4adcX2Dae02X2Dd19432e156eb <https://www.w3.org/2019/wot/hypermedia#hasTarget> "/things/virtual-things-19/properties" <td:https://plugfest.webthings.io/things/virtual-things-19> .
 _:B74378723X2D3bcfX2D4adcX2Dae02X2Dd19432e156eb <https://www.w3.org/2019/wot/hypermedia#hasOperationType> <https://www.w3.org/2019/wot/td#readAllProperties> <td:https://plugfest.webthings.io/things/virtual-things-19> .
 _:B6a65e848X2Db2d2X2D4a5dX2Db8c9X2D2a0dc39fed04 <https://www.w3.org/2019/wot/hypermedia#hasTarget> "/things/virtual-things-19/properties/image" <td:https://plugfest.webthings.io/things/virtual-things-19> .
@@ -75,8 +75,8 @@ _:B28b5e307X2Dfc83X2D4b03X2Db730X2D54967b1bdcdf <https://www.w3.org/2019/wot/jso
 _:B28b5e307X2Dfc83X2D4b03X2Db730X2D54967b1bdcdf <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#ObjectSchema> <td:urn:dev:ops:32473-HueDaylight-1234> .
 _:B28b5e307X2Dfc83X2D4b03X2Db730X2D54967b1bdcdf <https://www.w3.org/2019/wot/json-schema#properties> _:Bcc2571c1X2D5ea7X2D4c74X2Da3f0X2D6dc26b19ee76 <td:urn:dev:ops:32473-HueDaylight-1234> .
 _:B28b5e307X2Dfc83X2D4b03X2Db730X2D54967b1bdcdf <https://www.w3.org/2019/wot/json-schema#properties> _:Bb4b7c2b3X2De0acX2D4cfeX2DadbaX2D2f0e0dbaefe2 <td:urn:dev:ops:32473-HueDaylight-1234> .
-_:B190b786aX2D4546X2D4351X2Da94dX2D3cbe3814bd6e <https://www.w3.org/2021/wot/discovery#dateModified> "2022-10-21T11:18:41.125838+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueDaylight-1234> .
-_:B190b786aX2D4546X2D4351X2Da94dX2D3cbe3814bd6e <https://www.w3.org/2021/wot/discovery#dateCreated> "2022-10-21T11:18:41.125838+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueDaylight-1234> .
+_:B190b786aX2D4546X2D4351X2Da94dX2D3cbe3814bd6e <https://www.w3.org/2022/wot/discovery-ontology#dateModified> "2022-10-21T11:18:41.125838+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueDaylight-1234> .
+_:B190b786aX2D4546X2D4351X2Da94dX2D3cbe3814bd6e <https://www.w3.org/2022/wot/discovery-ontology#dateCreated> "2022-10-21T11:18:41.125838+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueDaylight-1234> .
 _:B3f616722X2Df047X2D4177X2Dbe1dX2Dfb5589703084 <https://www.w3.org/2019/wot/json-schema#propertyName> "battery"@en <td:urn:dev:ops:32473-HueDaylight-1234> .
 _:B3f616722X2Df047X2D4177X2Dbe1dX2Dfb5589703084 <https://www.w3.org/2019/wot/td#description> "The current battery state in percent, only for battery powered devices. Not present when not provided on creation (CLIP sensors)."@en <td:urn:dev:ops:32473-HueDaylight-1234> .
 _:B3f616722X2Df047X2D4177X2Dbe1dX2Dfb5589703084 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#IntegerSchema> <td:urn:dev:ops:32473-HueDaylight-1234> .
@@ -89,7 +89,7 @@ _:B21254798X2Da979X2D4fa7X2D8af6X2D91ee8a030727 <https://www.w3.org/2019/wot/jso
 _:Bc48414b0X2Df7e7X2D43fbX2D974dX2D0036b14d2227 <https://www.w3.org/2019/wot/json-schema#propertyName> "reachable"@en <td:urn:dev:ops:32473-HueDaylight-1234> .
 _:Bc48414b0X2Df7e7X2D43fbX2D974dX2D0036b14d2227 <https://www.w3.org/2019/wot/td#description> "Indicates whether communication with devices is possible. CLIP Sensors do not yet support reachable verification. Mandatory for all Sensors except ZGPSwitch, Daylight"@en <td:urn:dev:ops:32473-HueDaylight-1234> .
 _:Bc48414b0X2Df7e7X2D43fbX2D974dX2D0036b14d2227 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#BooleanSchema> <td:urn:dev:ops:32473-HueDaylight-1234> .
-<urn:dev:ops:32473-HueDaylight-1234> <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation> _:B190b786aX2D4546X2D4351X2Da94dX2D3cbe3814bd6e <td:urn:dev:ops:32473-HueDaylight-1234> .
+<urn:dev:ops:32473-HueDaylight-1234> <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation> _:B190b786aX2D4546X2D4351X2Da94dX2D3cbe3814bd6e <td:urn:dev:ops:32473-HueDaylight-1234> .
 <urn:dev:ops:32473-HueDaylight-1234> <https://www.w3.org/2019/wot/td#definesSecurityScheme> _:B3a04774fX2Da458X2D4b24X2Da803X2D0e34e68aaa4c <td:urn:dev:ops:32473-HueDaylight-1234> .
 <urn:dev:ops:32473-HueDaylight-1234> <https://www.w3.org/2019/wot/td#hasPropertyAffordance> _:Bf594d2bfX2D9823X2D4226X2Dbc4cX2D41e3b6a196e6 <td:urn:dev:ops:32473-HueDaylight-1234> .
 <urn:dev:ops:32473-HueDaylight-1234> <https://www.w3.org/2019/wot/td#title> "DaylightSensor"@en <td:urn:dev:ops:32473-HueDaylight-1234> .
@@ -199,8 +199,8 @@ _:B2e8a5177X2Dec55X2D4d4eX2Db255X2Dea69486c51e7 <https://www.w3.org/2019/wot/td#
 _:B2e8a5177X2Dec55X2D4d4eX2Db255X2Dea69486c51e7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#BooleanSchema> <td:urn:dev:ops:32473-HueIndoorSensor-1> .
 _:B5a462f03X2D6058X2D4618X2D8dbcX2D01f861eaee38 <https://www.w3.org/2019/wot/json-schema#propertyName> "productname"@en <td:urn:dev:ops:32473-HueIndoorSensor-1> .
 _:B5a462f03X2D6058X2D4618X2D8dbcX2D01f861eaee38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#StringSchema> <td:urn:dev:ops:32473-HueIndoorSensor-1> .
-_:B5ca04e5aX2D96a5X2D4073X2D8deaX2Daac218b59a8e <https://www.w3.org/2021/wot/discovery#dateModified> "2022-10-21T11:18:42.810213+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueIndoorSensor-1> .
-_:B5ca04e5aX2D96a5X2D4073X2D8deaX2Daac218b59a8e <https://www.w3.org/2021/wot/discovery#dateCreated> "2022-10-21T11:18:42.810213+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueIndoorSensor-1> .
+_:B5ca04e5aX2D96a5X2D4073X2D8deaX2Daac218b59a8e <https://www.w3.org/2022/wot/discovery-ontology#dateModified> "2022-10-21T11:18:42.810213+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueIndoorSensor-1> .
+_:B5ca04e5aX2D96a5X2D4073X2D8deaX2Daac218b59a8e <https://www.w3.org/2022/wot/discovery-ontology#dateCreated> "2022-10-21T11:18:42.810213+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueIndoorSensor-1> .
 _:Bc029441bX2D9e11X2D46eaX2Db73aX2D6614829a2339 <https://www.w3.org/2019/wot/json-schema#propertyName> "swversion"@en <td:urn:dev:ops:32473-HueIndoorSensor-1> .
 _:Bc029441bX2D9e11X2D46eaX2Db73aX2D6614829a2339 <https://www.w3.org/2019/wot/td#description> "This parameter uniquely identifies the software version running in the hardware."@en <td:urn:dev:ops:32473-HueIndoorSensor-1> .
 _:Bc029441bX2D9e11X2D46eaX2Db73aX2D6614829a2339 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#StringSchema> <td:urn:dev:ops:32473-HueIndoorSensor-1> .
@@ -308,7 +308,7 @@ _:B9d20ae33X2De028X2D468aX2D9ed8X2De54ce18702ae <http://www.w3.org/1999/02/22-rd
 <urn:dev:ops:32473-HueIndoorSensor-1> <https://www.w3.org/2019/wot/td#definesSecurityScheme> _:B92384300X2D3155X2D4c44X2D81daX2Dff121540e143 <td:urn:dev:ops:32473-HueIndoorSensor-1> .
 <urn:dev:ops:32473-HueIndoorSensor-1> <https://www.w3.org/2019/wot/td#hasPropertyAffordance> _:B7956e7faX2D5b70X2D4869X2Dbf2eX2Deb0a0878d60b <td:urn:dev:ops:32473-HueIndoorSensor-1> .
 <urn:dev:ops:32473-HueIndoorSensor-1> <https://www.w3.org/2019/wot/td#description> "Hue Sensor for indoor applications that can measure temperature, light level and presence of motion"@en <td:urn:dev:ops:32473-HueIndoorSensor-1> .
-<urn:dev:ops:32473-HueIndoorSensor-1> <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation> _:B5ca04e5aX2D96a5X2D4073X2D8deaX2Daac218b59a8e <td:urn:dev:ops:32473-HueIndoorSensor-1> .
+<urn:dev:ops:32473-HueIndoorSensor-1> <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation> _:B5ca04e5aX2D96a5X2D4073X2D8deaX2Daac218b59a8e <td:urn:dev:ops:32473-HueIndoorSensor-1> .
 <urn:dev:ops:32473-HueIndoorSensor-1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/td#Thing> <td:urn:dev:ops:32473-HueIndoorSensor-1> .
 <urn:dev:ops:32473-HueIndoorSensor-1> <https://www.w3.org/2019/wot/td#hasPropertyAffordance> _:B84063501X2Df004X2D4f04X2Daa54X2Db78eed807c75 <td:urn:dev:ops:32473-HueIndoorSensor-1> .
 <urn:dev:ops:32473-HueIndoorSensor-1> <https://www.w3.org/2019/wot/td#hasPropertyAffordance> _:Bc60612baX2Dde45X2D4c36X2Da389X2D2926950589d3 <td:urn:dev:ops:32473-HueIndoorSensor-1> .
@@ -374,8 +374,8 @@ _:Bceff0cabX2D7502X2D40a3X2Da068X2Da4cdb7ded40e <https://www.w3.org/2019/wot/jso
 _:Bceff0cabX2D7502X2D40a3X2Da068X2Da4cdb7ded40e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#ObjectSchema> <td:urn:dev:ops:32473-HueIndoorSensor-2> .
 _:Bceff0cabX2D7502X2D40a3X2Da068X2Da4cdb7ded40e <https://www.w3.org/2019/wot/json-schema#properties> _:Bc780b102X2Da12dX2D42baX2D9946X2De035b157324d <td:urn:dev:ops:32473-HueIndoorSensor-2> .
 _:Bceff0cabX2D7502X2D40a3X2Da068X2Da4cdb7ded40e <https://www.w3.org/2019/wot/json-schema#properties> _:Bcc85d3b1X2D1c4dX2D4e74X2Db0e4X2Dafd86f1edc46 <td:urn:dev:ops:32473-HueIndoorSensor-2> .
-_:B9819db86X2D43d8X2D4056X2D9527X2Dcc6bb783c40f <https://www.w3.org/2021/wot/discovery#dateModified> "2022-10-21T11:18:36.738228+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueIndoorSensor-2> .
-_:B9819db86X2D43d8X2D4056X2D9527X2Dcc6bb783c40f <https://www.w3.org/2021/wot/discovery#dateCreated> "2022-10-21T11:18:36.738228+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueIndoorSensor-2> .
+_:B9819db86X2D43d8X2D4056X2D9527X2Dcc6bb783c40f <https://www.w3.org/2022/wot/discovery-ontology#dateModified> "2022-10-21T11:18:36.738228+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueIndoorSensor-2> .
+_:B9819db86X2D43d8X2D4056X2D9527X2Dcc6bb783c40f <https://www.w3.org/2022/wot/discovery-ontology#dateCreated> "2022-10-21T11:18:36.738228+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueIndoorSensor-2> .
 _:Bc23e4234X2D1a31X2D456aX2D98dcX2D2b078d5a6581 <https://www.w3.org/2019/wot/json-schema#propertyName> "swversion"@en <td:urn:dev:ops:32473-HueIndoorSensor-2> .
 _:Bc23e4234X2D1a31X2D456aX2D98dcX2D2b078d5a6581 <https://www.w3.org/2019/wot/td#description> "This parameter uniquely identifies the software version running in the hardware."@en <td:urn:dev:ops:32473-HueIndoorSensor-2> .
 _:Bc23e4234X2D1a31X2D456aX2D98dcX2D2b078d5a6581 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#StringSchema> <td:urn:dev:ops:32473-HueIndoorSensor-2> .
@@ -541,7 +541,7 @@ _:B4ec75978X2D3cb2X2D43f3X2D8224X2Dd74348825f28 <http://www.w3.org/1999/02/22-rd
 <urn:dev:ops:32473-HueIndoorSensor-2> <https://www.w3.org/2019/wot/td#baseURI> "https://esiremotelab.esi.ei.tum.de:8081/LabLocal/api/17AvYQeLM2T8Z3r0e3BiEvb9Qdwt36yU2BudTxrn/sensors/"@en <td:urn:dev:ops:32473-HueIndoorSensor-2> .
 <urn:dev:ops:32473-HueIndoorSensor-2> <https://www.w3.org/2019/wot/td#description> "Hue Sensor for indoor applications that can measure temperature, light level and presence of motion"@en <td:urn:dev:ops:32473-HueIndoorSensor-2> .
 <urn:dev:ops:32473-HueIndoorSensor-2> <https://www.w3.org/2019/wot/td#hasPropertyAffordance> _:B32063d38X2Db1c4X2D4968X2D9adcX2Dc45986cc5f29 <td:urn:dev:ops:32473-HueIndoorSensor-2> .
-<urn:dev:ops:32473-HueIndoorSensor-2> <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation> _:B9819db86X2D43d8X2D4056X2D9527X2Dcc6bb783c40f <td:urn:dev:ops:32473-HueIndoorSensor-2> .
+<urn:dev:ops:32473-HueIndoorSensor-2> <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation> _:B9819db86X2D43d8X2D4056X2D9527X2Dcc6bb783c40f <td:urn:dev:ops:32473-HueIndoorSensor-2> .
 <urn:dev:ops:32473-HueIndoorSensor-2> <https://www.w3.org/2019/wot/td#title> "Hue Indoor Sensor 2"@en <td:urn:dev:ops:32473-HueIndoorSensor-2> .
 <urn:dev:ops:32473-HueIndoorSensor-2> <https://www.w3.org/2019/wot/td#definesSecurityScheme> _:B71e431f7X2D0fcbX2D4428X2D9506X2Dee34df53ba6f <td:urn:dev:ops:32473-HueIndoorSensor-2> .
 _:B7475c458X2Df20eX2D474bX2D9957X2Dc69d5fffff59 <https://www.w3.org/2019/wot/json-schema#propertyName> "capabilities"@en <td:urn:dev:ops:32473-HueIndoorSensor-2> .
@@ -662,8 +662,8 @@ _:B66a0d02dX2Dce86X2D4569X2Db1a0X2D064c66d18cc3 <https://www.w3.org/2019/wot/jso
 _:B66a0d02dX2Dce86X2D4569X2Db1a0X2D064c66d18cc3 <https://www.w3.org/2019/wot/json-schema#propertyName> "bri"@en <td:urn:dev:ops:32473-HueLight-2> .
 _:B66a0d02dX2Dce86X2D4569X2Db1a0X2D064c66d18cc3 <https://www.w3.org/2019/wot/td#description> "brightness level"@en <td:urn:dev:ops:32473-HueLight-2> .
 _:B66a0d02dX2Dce86X2D4569X2Db1a0X2D064c66d18cc3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#IntegerSchema> <td:urn:dev:ops:32473-HueLight-2> .
-_:Bc947cf21X2D278eX2D420aX2D9cd1X2D616fbc185162 <https://www.w3.org/2021/wot/discovery#dateModified> "2022-10-21T11:18:42.094390+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueLight-2> .
-_:Bc947cf21X2D278eX2D420aX2D9cd1X2D616fbc185162 <https://www.w3.org/2021/wot/discovery#dateCreated> "2022-10-21T11:18:42.094390+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueLight-2> .
+_:Bc947cf21X2D278eX2D420aX2D9cd1X2D616fbc185162 <https://www.w3.org/2022/wot/discovery-ontology#dateModified> "2022-10-21T11:18:42.094390+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueLight-2> .
+_:Bc947cf21X2D278eX2D420aX2D9cd1X2D616fbc185162 <https://www.w3.org/2022/wot/discovery-ontology#dateCreated> "2022-10-21T11:18:42.094390+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueLight-2> .
 _:B9b6b2717X2Dcdf0X2D4724X2Db374X2Dcd4aa7779288 <https://www.w3.org/2019/wot/json-schema#propertyName> "on"@en <td:urn:dev:ops:32473-HueLight-2> .
 _:B9b6b2717X2Dcdf0X2D4724X2Db374X2Dcd4aa7779288 <https://www.w3.org/2019/wot/td#description> "On/Off state of the light. On=true, Off=false"@en <td:urn:dev:ops:32473-HueLight-2> .
 _:B9b6b2717X2Dcdf0X2D4724X2Db374X2Dcd4aa7779288 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#BooleanSchema> <td:urn:dev:ops:32473-HueLight-2> .
@@ -852,7 +852,7 @@ _:Bcaffd40cX2D7a94X2D431fX2D9d8aX2D8ab213efa318 <https://www.w3.org/2019/wot/jso
 _:Bcaffd40cX2D7a94X2D431fX2D9d8aX2D8ab213efa318 <https://www.w3.org/2019/wot/td#description> "Already provided transitiontime"@en <td:urn:dev:ops:32473-HueLight-2> .
 _:Bcaffd40cX2D7a94X2D431fX2D9d8aX2D8ab213efa318 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#IntegerSchema> <td:urn:dev:ops:32473-HueLight-2> .
 <urn:dev:ops:32473-HueLight-2> <https://www.w3.org/2019/wot/td#hasActionAffordance> _:B7ede0dbaX2Df18dX2D47e0X2D877cX2Da0f6107f2f71 <td:urn:dev:ops:32473-HueLight-2> .
-<urn:dev:ops:32473-HueLight-2> <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation> _:Bc947cf21X2D278eX2D420aX2D9cd1X2D616fbc185162 <td:urn:dev:ops:32473-HueLight-2> .
+<urn:dev:ops:32473-HueLight-2> <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation> _:Bc947cf21X2D278eX2D420aX2D9cd1X2D616fbc185162 <td:urn:dev:ops:32473-HueLight-2> .
 <urn:dev:ops:32473-HueLight-2> <https://www.w3.org/2019/wot/td#definesSecurityScheme> _:Bc2ddfb7cX2D44bdX2D45baX2D9298X2D2ce900de0425 <td:urn:dev:ops:32473-HueLight-2> .
 <urn:dev:ops:32473-HueLight-2> <https://www.w3.org/2019/wot/td#hasPropertyAffordance> _:B27db411eX2D8633X2D41c2X2Dba9fX2D462539543519 <td:urn:dev:ops:32473-HueLight-2> .
 <urn:dev:ops:32473-HueLight-2> <https://www.w3.org/2019/wot/td#title> "Hue Color Lamp 2"@en <td:urn:dev:ops:32473-HueLight-2> .
@@ -924,7 +924,7 @@ _:B1fd64416X2Df216X2D45a6X2D8fc9X2D802aa0545bfc <https://www.w3.org/2019/wot/jso
 _:B1fd64416X2Df216X2D45a6X2D8fc9X2D802aa0545bfc <https://www.w3.org/2019/wot/td#description> "Indicates if a light can be reached by the bridge"@en <td:urn:dev:ops:32473-HueLight-1> .
 _:B1fd64416X2Df216X2D45a6X2D8fc9X2D802aa0545bfc <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#BooleanSchema> <td:urn:dev:ops:32473-HueLight-1> .
 <urn:dev:ops:32473-HueLight-1> <https://www.w3.org/2019/wot/td#hasActionAffordance> _:B129dceecX2D759eX2D42caX2D888dX2Df273e5b19a5e <td:urn:dev:ops:32473-HueLight-1> .
-<urn:dev:ops:32473-HueLight-1> <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation> _:Bfd17fbd1X2DbcbeX2D4a60X2Db9fbX2Daf73100ecf89 <td:urn:dev:ops:32473-HueLight-1> .
+<urn:dev:ops:32473-HueLight-1> <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation> _:Bfd17fbd1X2DbcbeX2D4a60X2Db9fbX2Daf73100ecf89 <td:urn:dev:ops:32473-HueLight-1> .
 <urn:dev:ops:32473-HueLight-1> <https://www.w3.org/2019/wot/td#definesSecurityScheme> _:B20232489X2D5888X2D4dd8X2D9678X2Dd02a625083e4 <td:urn:dev:ops:32473-HueLight-1> .
 <urn:dev:ops:32473-HueLight-1> <https://www.w3.org/2019/wot/td#hasPropertyAffordance> _:Be4c702deX2D67dfX2D419dX2D811dX2D3aa4d1e809e2 <td:urn:dev:ops:32473-HueLight-1> .
 <urn:dev:ops:32473-HueLight-1> <https://www.w3.org/2019/wot/td#title> "Hue Color Lamp 1"@en <td:urn:dev:ops:32473-HueLight-1> .
@@ -1131,8 +1131,8 @@ _:B2f2734c6X2Dd0ddX2D49cfX2D8be0X2D7e6adf66354f <http://www.w3.org/1999/02/22-rd
 _:Bdb08da37X2D37e5X2D4058X2DbceeX2Dbff28058de4c <https://www.w3.org/2019/wot/json-schema#maximum> "1"^^<http://www.w3.org/2001/XMLSchema#integer> <td:urn:dev:ops:32473-HueLight-1> .
 _:Bdb08da37X2D37e5X2D4058X2DbceeX2Dbff28058de4c <https://www.w3.org/2019/wot/json-schema#minimum> "-1"^^<http://www.w3.org/2001/XMLSchema#integer> <td:urn:dev:ops:32473-HueLight-1> .
 _:Bdb08da37X2D37e5X2D4058X2DbceeX2Dbff28058de4c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#NumberSchema> <td:urn:dev:ops:32473-HueLight-1> .
-_:Bfd17fbd1X2DbcbeX2D4a60X2Db9fbX2Daf73100ecf89 <https://www.w3.org/2021/wot/discovery#dateModified> "2022-10-21T11:18:37.581730+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueLight-1> .
-_:Bfd17fbd1X2DbcbeX2D4a60X2Db9fbX2Daf73100ecf89 <https://www.w3.org/2021/wot/discovery#dateCreated> "2022-10-21T11:18:37.581730+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueLight-1> .
+_:Bfd17fbd1X2DbcbeX2D4a60X2Db9fbX2Daf73100ecf89 <https://www.w3.org/2022/wot/discovery-ontology#dateModified> "2022-10-21T11:18:37.581730+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueLight-1> .
+_:Bfd17fbd1X2DbcbeX2D4a60X2Db9fbX2Daf73100ecf89 <https://www.w3.org/2022/wot/discovery-ontology#dateCreated> "2022-10-21T11:18:37.581730+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueLight-1> .
 _:B129dceecX2D759eX2D42caX2D888dX2Df273e5b19a5e <https://www.w3.org/2019/wot/td#hasForm> _:B9d3566dbX2D3418X2D43f0X2D9b57X2Df76f1fa23a86 <td:urn:dev:ops:32473-HueLight-1> .
 _:B129dceecX2D759eX2D42caX2D888dX2Df273e5b19a5e <https://www.w3.org/2019/wot/td#hasOutputSchema> _:B1e929088X2D31adX2D42ccX2D83e2X2D28dd512a31b5 <td:urn:dev:ops:32473-HueLight-1> .
 _:B129dceecX2D759eX2D42caX2D888dX2Df273e5b19a5e <https://www.w3.org/2019/wot/td#hasInputSchema> _:Ba9d057ddX2D1396X2D4806X2Dac81X2Deece464ca2cf <td:urn:dev:ops:32473-HueLight-1> .
@@ -1177,8 +1177,8 @@ _:Ba11d847eX2Dd7b1X2D4512X2D9499X2D47e1f02642b4 <https://www.w3.org/2019/wot/jso
 _:Bd2287845X2Db131X2D4999X2Dba74X2D5aaeeb3da4fb <https://www.w3.org/2019/wot/hypermedia#hasTarget> "/things/virtual-things-2/properties" <td:https://plugfest.webthings.io/things/virtual-things-2> .
 _:Bd2287845X2Db131X2D4999X2Dba74X2D5aaeeb3da4fb <https://www.w3.org/2019/wot/hypermedia#hasOperationType> <https://www.w3.org/2019/wot/td#writeMultipleProperties> <td:https://plugfest.webthings.io/things/virtual-things-2> .
 _:Bd2287845X2Db131X2D4999X2Dba74X2D5aaeeb3da4fb <https://www.w3.org/2019/wot/hypermedia#hasOperationType> <https://www.w3.org/2019/wot/td#readAllProperties> <td:https://plugfest.webthings.io/things/virtual-things-2> .
-_:Ba74087dfX2D4ebbX2D4dbbX2D8c3aX2D770a5ed0ffde <https://www.w3.org/2021/wot/discovery#dateModified> "2022-10-21T11:18:44.240447+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-2> .
-_:Ba74087dfX2D4ebbX2D4dbbX2D8c3aX2D770a5ed0ffde <https://www.w3.org/2021/wot/discovery#dateCreated> "2022-10-21T11:18:44.240447+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-2> .
+_:Ba74087dfX2D4ebbX2D4dbbX2D8c3aX2D770a5ed0ffde <https://www.w3.org/2022/wot/discovery-ontology#dateModified> "2022-10-21T11:18:44.240447+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-2> .
+_:Ba74087dfX2D4ebbX2D4dbbX2D8c3aX2D770a5ed0ffde <https://www.w3.org/2022/wot/discovery-ontology#dateCreated> "2022-10-21T11:18:44.240447+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-2> .
 _:Bcf5530a5X2Dd720X2D4f61X2Db3b1X2D6b9d37aae618 <https://www.w3.org/2019/wot/security#scopes> "/things" <td:https://plugfest.webthings.io/things/virtual-things-2> .
 _:Bcf5530a5X2Dd720X2D4f61X2Db3b1X2D6b9d37aae618 <https://www.w3.org/2019/wot/security#scopes> "/things:readwrite" <td:https://plugfest.webthings.io/things/virtual-things-2> .
 _:Bcf5530a5X2Dd720X2D4f61X2Db3b1X2D6b9d37aae618 <https://www.w3.org/2019/wot/security#scopes> "/things/virtual-things-2:readwrite" <td:https://plugfest.webthings.io/things/virtual-things-2> .
@@ -1225,7 +1225,7 @@ _:Bfd05588eX2Dfb07X2D420dX2D8c33X2De3bd8c6e552a <http://www.w3.org/1999/02/22-rd
 <https://plugfest.webthings.io/things/virtual-things-2> <https://www.w3.org/2019/wot/td#definesSecurityScheme> _:Bcf5530a5X2Dd720X2D4f61X2Db3b1X2D6b9d37aae618 <td:https://plugfest.webthings.io/things/virtual-things-2> .
 <https://plugfest.webthings.io/things/virtual-things-2> <https://www.w3.org/2019/wot/td#title> "Virtual Dimmable Color Light" <td:https://plugfest.webthings.io/things/virtual-things-2> .
 <https://plugfest.webthings.io/things/virtual-things-2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/td#Thing> <td:https://plugfest.webthings.io/things/virtual-things-2> .
-<https://plugfest.webthings.io/things/virtual-things-2> <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation> _:Ba74087dfX2D4ebbX2D4dbbX2D8c3aX2D770a5ed0ffde <td:https://plugfest.webthings.io/things/virtual-things-2> .
+<https://plugfest.webthings.io/things/virtual-things-2> <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation> _:Ba74087dfX2D4ebbX2D4dbbX2D8c3aX2D770a5ed0ffde <td:https://plugfest.webthings.io/things/virtual-things-2> .
 <https://plugfest.webthings.io/things/virtual-things-2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/td#ColorControl> <td:https://plugfest.webthings.io/things/virtual-things-2> .
 <https://plugfest.webthings.io/things/virtual-things-2> <https://www.w3.org/2019/wot/td#baseURI> "https://plugfest.webthings.io/" <td:https://plugfest.webthings.io/things/virtual-things-2> .
 _:B2d9e76aaX2Da788X2D4b0fX2D9865X2Dd8414e75704a <https://www.w3.org/2019/wot/json-schema#readOnly> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> <td:https://plugfest.webthings.io/things/virtual-things-2> .
@@ -1272,7 +1272,7 @@ _:Bd94e7901X2D5882X2D4a15X2D9b1aX2Dcb2643071b9d <https://www.w3.org/2019/wot/sec
 _:Bd94e7901X2D5882X2D4a15X2D9b1aX2Dcb2643071b9d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/security#OAuth2SecurityScheme> <td:https://plugfest.webthings.io/things/virtual-things-4> .
 <https://plugfest.webthings.io/things/virtual-things-4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/td#Thing> <td:https://plugfest.webthings.io/things/virtual-things-4> .
 <https://plugfest.webthings.io/things/virtual-things-4> <https://www.w3.org/2019/wot/td#href> "/things/virtual-things-4" <td:https://plugfest.webthings.io/things/virtual-things-4> .
-<https://plugfest.webthings.io/things/virtual-things-4> <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation> _:Ba7feb143X2D7c21X2D4eddX2D8718X2D263b5c536756 <td:https://plugfest.webthings.io/things/virtual-things-4> .
+<https://plugfest.webthings.io/things/virtual-things-4> <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation> _:Ba7feb143X2D7c21X2D4eddX2D8718X2D263b5c536756 <td:https://plugfest.webthings.io/things/virtual-things-4> .
 <https://plugfest.webthings.io/things/virtual-things-4> <https://www.w3.org/2019/wot/td#hasForm> _:Bdbcf7802X2D5a18X2D4be9X2Dab70X2Dff55de905abc <td:https://plugfest.webthings.io/things/virtual-things-4> .
 <https://plugfest.webthings.io/things/virtual-things-4> <https://www.w3.org/2019/wot/td#hasPropertyAffordance> _:B82f93ea9X2D9c14X2D4855X2Da290X2D60c876cfc616 <td:https://plugfest.webthings.io/things/virtual-things-4> .
 <https://plugfest.webthings.io/things/virtual-things-4> <https://www.w3.org/2019/wot/td#definesSecurityScheme> _:Bd94e7901X2D5882X2D4a15X2D9b1aX2Dcb2643071b9d <td:https://plugfest.webthings.io/things/virtual-things-4> .
@@ -1296,8 +1296,8 @@ _:B82f93ea9X2D9c14X2D4855X2Da290X2D60c876cfc616 <http://www.w3.org/1999/02/22-rd
 _:B2a62bcf9X2D2030X2D4db2X2Dbfb0X2Dcee22dcee49c <https://www.w3.org/2019/wot/hypermedia#hasTarget> "/things/virtual-things-4" <td:https://plugfest.webthings.io/things/virtual-things-4> .
 _:B2a62bcf9X2D2030X2D4db2X2Dbfb0X2Dcee22dcee49c <https://www.w3.org/2019/wot/hypermedia#hasRelationType> <https://www.w3.org/2019/wot/hypermedia#alternate> <td:https://plugfest.webthings.io/things/virtual-things-4> .
 _:B2a62bcf9X2D2030X2D4db2X2Dbfb0X2Dcee22dcee49c <https://www.w3.org/2019/wot/hypermedia#hintsAtMediaType> "text/html" <td:https://plugfest.webthings.io/things/virtual-things-4> .
-_:Ba7feb143X2D7c21X2D4eddX2D8718X2D263b5c536756 <https://www.w3.org/2021/wot/discovery#dateModified> "2022-10-21T11:18:40.181009+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-4> .
-_:Ba7feb143X2D7c21X2D4eddX2D8718X2D263b5c536756 <https://www.w3.org/2021/wot/discovery#dateCreated> "2022-10-21T11:18:40.181009+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-4> .
+_:Ba7feb143X2D7c21X2D4eddX2D8718X2D263b5c536756 <https://www.w3.org/2022/wot/discovery-ontology#dateModified> "2022-10-21T11:18:40.181009+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-4> .
+_:Ba7feb143X2D7c21X2D4eddX2D8718X2D263b5c536756 <https://www.w3.org/2022/wot/discovery-ontology#dateCreated> "2022-10-21T11:18:40.181009+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-4> .
 _:Bdbcf7802X2D5a18X2D4be9X2Dab70X2Dff55de905abc <https://www.w3.org/2019/wot/hypermedia#hasTarget> "/things/virtual-things-4/properties" <td:https://plugfest.webthings.io/things/virtual-things-4> .
 _:Bdbcf7802X2D5a18X2D4be9X2Dab70X2Dff55de905abc <https://www.w3.org/2019/wot/hypermedia#hasOperationType> <https://www.w3.org/2019/wot/td#readAllProperties> <td:https://plugfest.webthings.io/things/virtual-things-4> .
 _:B07483d84X2Df7e6X2D4650X2D8c05X2Da2a1e2903e52 <https://www.w3.org/2019/wot/json-schema#required> "numberInput" <td:https://plugfest.webthings.io/things/virtual-things-10> .
@@ -1385,7 +1385,7 @@ _:B46fb780fX2D07b0X2D4fe2X2D9deeX2D330011120a20 <https://www.w3.org/2019/wot/td#
 <https://plugfest.webthings.io/things/virtual-things-10> <https://www.w3.org/2019/wot/td#hasForm> _:B70d2d40fX2D40afX2D4227X2Dbe17X2D3f0968916c7f <td:https://plugfest.webthings.io/things/virtual-things-10> .
 <https://plugfest.webthings.io/things/virtual-things-10> <https://www.w3.org/2019/wot/td#hasEventAffordance> _:B803cc626X2D5504X2D4539X2D862aX2D4fca3e7afae1 <td:https://plugfest.webthings.io/things/virtual-things-10> .
 <https://plugfest.webthings.io/things/virtual-things-10> <https://www.w3.org/2019/wot/td#title> "Virtual Actions & Events Thing" <td:https://plugfest.webthings.io/things/virtual-things-10> .
-<https://plugfest.webthings.io/things/virtual-things-10> <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation> _:B904f28b0X2D0d71X2D4d95X2D9aa1X2D0d89f0255345 <td:https://plugfest.webthings.io/things/virtual-things-10> .
+<https://plugfest.webthings.io/things/virtual-things-10> <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation> _:B904f28b0X2D0d71X2D4d95X2D9aa1X2D0d89f0255345 <td:https://plugfest.webthings.io/things/virtual-things-10> .
 <https://plugfest.webthings.io/things/virtual-things-10> <https://www.w3.org/2019/wot/td#definesSecurityScheme> _:B4e4ef67eX2D4105X2D411dX2Db477X2Dd19f45a3ba28 <td:https://plugfest.webthings.io/things/virtual-things-10> .
 <https://plugfest.webthings.io/things/virtual-things-10> <https://www.w3.org/2019/wot/td#hasLink> _:B11dd305aX2D6ca2X2D4655X2Dafa2X2D8a718abf85e1 <td:https://plugfest.webthings.io/things/virtual-things-10> .
 <https://plugfest.webthings.io/things/virtual-things-10> <https://www.w3.org/2019/wot/td#hasForm> _:B2356c790X2D9a1fX2D4497X2Daff4X2D5f7757e95072 <td:https://plugfest.webthings.io/things/virtual-things-10> .
@@ -1394,8 +1394,8 @@ _:B83d7331cX2D02d2X2D4b9cX2Dbdc9X2D72aec9d4d5e6 <https://www.w3.org/2019/wot/td#
 _:B83d7331cX2D02d2X2D4b9cX2Dbdc9X2D72aec9d4d5e6 <https://www.w3.org/2019/wot/td#name> "single" <td:https://plugfest.webthings.io/things/virtual-things-10> .
 _:B83d7331cX2D02d2X2D4b9cX2Dbdc9X2D72aec9d4d5e6 <https://www.w3.org/2019/wot/td#title> "Single Input" <td:https://plugfest.webthings.io/things/virtual-things-10> .
 _:B83d7331cX2D02d2X2D4b9cX2Dbdc9X2D72aec9d4d5e6 <https://www.w3.org/2019/wot/td#description> "An action with a single, non-object input" <td:https://plugfest.webthings.io/things/virtual-things-10> .
-_:B904f28b0X2D0d71X2D4d95X2D9aa1X2D0d89f0255345 <https://www.w3.org/2021/wot/discovery#dateModified> "2022-10-21T11:18:43.988330+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-10> .
-_:B904f28b0X2D0d71X2D4d95X2D9aa1X2D0d89f0255345 <https://www.w3.org/2021/wot/discovery#dateCreated> "2022-10-21T11:18:43.988330+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-10> .
+_:B904f28b0X2D0d71X2D4d95X2D9aa1X2D0d89f0255345 <https://www.w3.org/2022/wot/discovery-ontology#dateModified> "2022-10-21T11:18:43.988330+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-10> .
+_:B904f28b0X2D0d71X2D4d95X2D9aa1X2D0d89f0255345 <https://www.w3.org/2022/wot/discovery-ontology#dateCreated> "2022-10-21T11:18:43.988330+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-10> .
 _:B11dd305aX2D6ca2X2D4655X2Dafa2X2D8a718abf85e1 <https://www.w3.org/2019/wot/hypermedia#hasTarget> "wss://plugfest.webthings.io/things/virtual-things-10" <td:https://plugfest.webthings.io/things/virtual-things-10> .
 _:B11dd305aX2D6ca2X2D4655X2Dafa2X2D8a718abf85e1 <https://www.w3.org/2019/wot/hypermedia#hasRelationType> <https://www.w3.org/2019/wot/hypermedia#alternate> <td:https://plugfest.webthings.io/things/virtual-things-10> .
 _:B9e09d13dX2De667X2D4f8aX2Da43cX2D2f97b746499f <https://www.w3.org/2019/wot/td#hasForm> _:Be829d532X2Db426X2D4be8X2D908fX2D3895e1339f8b <td:https://plugfest.webthings.io/things/virtual-things-10> .
@@ -1449,7 +1449,7 @@ _:B4e2d1ad4X2D5907X2D48a3X2Da5b8X2Dba5068db4fd2 <https://www.w3.org/2019/wot/hyp
 <https://plugfest.webthings.io/things/virtual-things-21> <https://www.w3.org/2019/wot/td#hasLink> _:Ba8dc2ee0X2D455eX2D42ffX2D92fdX2D279a719b9337 <td:https://plugfest.webthings.io/things/virtual-things-21> .
 <https://plugfest.webthings.io/things/virtual-things-21> <https://www.w3.org/2019/wot/td#baseURI> "https://plugfest.webthings.io/" <td:https://plugfest.webthings.io/things/virtual-things-21> .
 <https://plugfest.webthings.io/things/virtual-things-21> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/td#Alarm> <td:https://plugfest.webthings.io/things/virtual-things-21> .
-<https://plugfest.webthings.io/things/virtual-things-21> <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation> _:B464bf3d6X2Df79dX2D49daX2Db734X2Da03abe17d5b2 <td:https://plugfest.webthings.io/things/virtual-things-21> .
+<https://plugfest.webthings.io/things/virtual-things-21> <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation> _:B464bf3d6X2Df79dX2D49daX2Db734X2Da03abe17d5b2 <td:https://plugfest.webthings.io/things/virtual-things-21> .
 <https://plugfest.webthings.io/things/virtual-things-21> <https://www.w3.org/2019/wot/td#hasPropertyAffordance> _:B010651b8X2D3e9eX2D4227X2D9778X2D6b4ca37912b6 <td:https://plugfest.webthings.io/things/virtual-things-21> .
 <https://plugfest.webthings.io/things/virtual-things-21> <https://www.w3.org/2019/wot/td#definesSecurityScheme> _:B69d346ddX2D7063X2D4516X2Dbb47X2D921d3697f6a2 <td:https://plugfest.webthings.io/things/virtual-things-21> .
 <https://plugfest.webthings.io/things/virtual-things-21> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/td#Thing> <td:https://plugfest.webthings.io/things/virtual-things-21> .
@@ -1461,8 +1461,8 @@ _:Ba70efc61X2D22b4X2D4f47X2D8f17X2D8064bb5841e3 <https://www.w3.org/2019/wot/td#
 _:Ba70efc61X2D22b4X2D4f47X2D8f17X2D8064bb5841e3 <https://www.w3.org/2019/wot/td#name> "silence" <td:https://plugfest.webthings.io/things/virtual-things-21> .
 _:Ba70efc61X2D22b4X2D4f47X2D8f17X2D8064bb5841e3 <https://www.w3.org/2019/wot/td#title> "Silence" <td:https://plugfest.webthings.io/things/virtual-things-21> .
 _:Ba70efc61X2D22b4X2D4f47X2D8f17X2D8064bb5841e3 <https://www.w3.org/2019/wot/td#description> "Silence alarm" <td:https://plugfest.webthings.io/things/virtual-things-21> .
-_:B464bf3d6X2Df79dX2D49daX2Db734X2Da03abe17d5b2 <https://www.w3.org/2021/wot/discovery#dateModified> "2022-10-21T11:18:44.500724+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-21> .
-_:B464bf3d6X2Df79dX2D49daX2Db734X2Da03abe17d5b2 <https://www.w3.org/2021/wot/discovery#dateCreated> "2022-10-21T11:18:44.500724+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-21> .
+_:B464bf3d6X2Df79dX2D49daX2Db734X2Da03abe17d5b2 <https://www.w3.org/2022/wot/discovery-ontology#dateModified> "2022-10-21T11:18:44.500724+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-21> .
+_:B464bf3d6X2Df79dX2D49daX2Db734X2Da03abe17d5b2 <https://www.w3.org/2022/wot/discovery-ontology#dateCreated> "2022-10-21T11:18:44.500724+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-21> .
 _:Bd860abeeX2D0b91X2D4a25X2Dbe9aX2Dff9b4d1db0bd <https://www.w3.org/2019/wot/hypermedia#hasTarget> "/things/virtual-things-21/actions/trigger" <td:https://plugfest.webthings.io/things/virtual-things-21> .
 _:B33f6bb24X2Dcb0bX2D4fdaX2Da9e1X2D933e914927b3 <https://www.w3.org/2019/wot/hypermedia#hasTarget> "/things/virtual-things-21/events/alarmEvent" <td:https://plugfest.webthings.io/things/virtual-things-21> .
 _:B33f6bb24X2Dcb0bX2D4fdaX2Da9e1X2D933e914927b3 <https://www.w3.org/2019/wot/hypermedia#forSubProtocol> "sse" <td:https://plugfest.webthings.io/things/virtual-things-21> .
@@ -1472,7 +1472,7 @@ _:B1cae12acX2D64ddX2D4192X2Db5cfX2De6f99a82f539 <https://www.w3.org/2019/wot/td#
 _:B1cae12acX2D64ddX2D4192X2Db5cfX2De6f99a82f539 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/td#AlarmEvent> <td:https://plugfest.webthings.io/things/virtual-things-21> .
 _:B1cae12acX2D64ddX2D4192X2Db5cfX2De6f99a82f539 <https://www.w3.org/2019/wot/td#readOnly> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> <td:https://plugfest.webthings.io/things/virtual-things-21> .
 _:B1cae12acX2D64ddX2D4192X2Db5cfX2De6f99a82f539 <https://www.w3.org/2019/wot/td#type> "string" <td:https://plugfest.webthings.io/things/virtual-things-21> .
-<urn:wot:context:WyJodHRwczovL3d3dy53My5vcmcvMjAxOS93b3QvdGQvdjEiLCAiaHR0cHM6Ly93d3cudzMub3JnLzIwMjIvd290L3RkL3YxLjEiLCB7IkBsYW5ndWFnZSI6ICJlbiJ9LCAiaHR0cHM6Ly93M2MuZ2l0aHViLmlvL3dvdC1kaXNjb3ZlcnkvY29udGV4dC9kaXNjb3ZlcnktY29udGV4dC5qc29ubGQiXQ==> <urn:wot:relation:context_content> "[\"https://www.w3.org/2019/wot/td/v1\", \"https://www.w3.org/2022/wot/td/v1.1\", {\"@language\": \"en\"}, \"https://w3c.github.io/wot-discovery/context/discovery-context.jsonld\"]" <urn:tdd:metadata> .
+<urn:wot:context:WyJodHRwczovL3d3dy53My5vcmcvMjAxOS93b3QvdGQvdjEiLCAiaHR0cHM6Ly93d3cudzMub3JnLzIwMjIvd290L3RkL3YxLjEiLCB7IkBsYW5ndWFnZSI6ICJlbiJ9LCAiaHR0cHM6Ly93M2MuZ2l0aHViLmlvL3dvdC1kaXNjb3ZlcnkvY29udGV4dC9kaXNjb3ZlcnktY29udGV4dC5qc29ubGQiXQ==> <urn:wot:relation:context_content> "[\"https://www.w3.org/2019/wot/td/v1\", \"https://www.w3.org/2022/wot/td/v1.1\", {\"@language\": \"en\"}, \"https://www.w3.org/2022/wot/discovery\"]" <urn:tdd:metadata> .
 <td:https://plugfest.webthings.io/things/virtual-things-26> <urn:wot:relation:has_context> <urn:wot:context:WyJodHRwczovL3d3dy53My5vcmcvMjAyMi93b3QvdGQvdjEuMSIsICJodHRwczovL3czYy5naXRodWIuaW8vd290LWRpc2NvdmVyeS9jb250ZXh0L2Rpc2NvdmVyeS1jb250ZXh0Lmpzb25sZCJd> <urn:tdd:metadata> .
 <td:https://plugfest.webthings.io/things/virtual-things-26> <urn:tdd:describes> <https://plugfest.webthings.io/things/virtual-things-26> <urn:tdd:metadata> .
 <td:https://plugfest.webthings.io/things/virtual-things-26> <urn:tdd:expressedIn> <https://www.w3.org/2019/wot/td> <urn:tdd:metadata> .
@@ -1512,7 +1512,7 @@ _:B1cae12acX2D64ddX2D4192X2Db5cfX2De6f99a82f539 <https://www.w3.org/2019/wot/td#
 <td:https://plugfest.webthings.io/things/virtual-things-28> <urn:wot:relation:has_context> <urn:wot:context:WyJodHRwczovL3d3dy53My5vcmcvMjAyMi93b3QvdGQvdjEuMSIsICJodHRwczovL3czYy5naXRodWIuaW8vd290LWRpc2NvdmVyeS9jb250ZXh0L2Rpc2NvdmVyeS1jb250ZXh0Lmpzb25sZCJd> <urn:tdd:metadata> .
 <td:https://plugfest.webthings.io/things/virtual-things-28> <urn:tdd:describes> <https://plugfest.webthings.io/things/virtual-things-28> <urn:tdd:metadata> .
 <td:https://plugfest.webthings.io/things/virtual-things-28> <urn:tdd:expressedIn> <https://www.w3.org/2019/wot/td> <urn:tdd:metadata> .
-<urn:wot:context:WyJodHRwczovL3d3dy53My5vcmcvMjAyMi93b3QvdGQvdjEuMSIsICJodHRwczovL3czYy5naXRodWIuaW8vd290LWRpc2NvdmVyeS9jb250ZXh0L2Rpc2NvdmVyeS1jb250ZXh0Lmpzb25sZCJd> <urn:wot:relation:context_content> "[\"https://www.w3.org/2022/wot/td/v1.1\", \"https://w3c.github.io/wot-discovery/context/discovery-context.jsonld\"]" <urn:tdd:metadata> .
+<urn:wot:context:WyJodHRwczovL3d3dy53My5vcmcvMjAyMi93b3QvdGQvdjEuMSIsICJodHRwczovL3czYy5naXRodWIuaW8vd290LWRpc2NvdmVyeS9jb250ZXh0L2Rpc2NvdmVyeS1jb250ZXh0Lmpzb25sZCJd> <urn:wot:relation:context_content> "[\"https://www.w3.org/2022/wot/td/v1.1\", \"https://www.w3.org/2022/wot/discovery\"]" <urn:tdd:metadata> .
 <td:urn:dev:ops:32473-HueDaylight-1234> <urn:wot:relation:has_context> <urn:wot:context:WyJodHRwczovL3d3dy53My5vcmcvMjAxOS93b3QvdGQvdjEiLCAiaHR0cHM6Ly93d3cudzMub3JnLzIwMjIvd290L3RkL3YxLjEiLCB7IkBsYW5ndWFnZSI6ICJlbiJ9LCAiaHR0cHM6Ly93M2MuZ2l0aHViLmlvL3dvdC1kaXNjb3ZlcnkvY29udGV4dC9kaXNjb3ZlcnktY29udGV4dC5qc29ubGQiXQ==> <urn:tdd:metadata> .
 <td:urn:dev:ops:32473-HueDaylight-1234> <urn:tdd:describes> <urn:dev:ops:32473-HueDaylight-1234> <urn:tdd:metadata> .
 <td:urn:dev:ops:32473-HueDaylight-1234> <urn:tdd:expressedIn> <https://www.w3.org/2019/wot/td> <urn:tdd:metadata> .
@@ -1566,7 +1566,7 @@ _:B5ffb0631X2D1839X2D4329X2Dac38X2D70cc6690fb2f <https://www.w3.org/2019/wot/td#
 _:B5ffb0631X2D1839X2D4329X2Dac38X2D70cc6690fb2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#BooleanSchema> <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
 <urn:dev:ops:32473-HueOutdoorSensor-1> <https://www.w3.org/2019/wot/td#hasPropertyAffordance> _:Bfa392a89X2De10fX2D4363X2Da64dX2Dd5b0fceacabc <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
 <urn:dev:ops:32473-HueOutdoorSensor-1> <https://www.w3.org/2019/wot/td#hasPropertyAffordance> _:B33dbb842X2D602bX2D4de3X2Dafd1X2D53b0c3a89456 <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
-<urn:dev:ops:32473-HueOutdoorSensor-1> <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation> _:B342c683dX2D0476X2D44a5X2Da2dfX2D87db110135c6 <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
+<urn:dev:ops:32473-HueOutdoorSensor-1> <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation> _:B342c683dX2D0476X2D44a5X2Da2dfX2D87db110135c6 <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
 <urn:dev:ops:32473-HueOutdoorSensor-1> <https://www.w3.org/2019/wot/td#description> "Hue Sensor for outdoor applications that can measure temperature, light level and presence of motion"@en <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
 <urn:dev:ops:32473-HueOutdoorSensor-1> <https://www.w3.org/2019/wot/td#title> "Hue Outdoor Sensor 1"@en <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
 <urn:dev:ops:32473-HueOutdoorSensor-1> <https://www.w3.org/2019/wot/td#hasSecurityConfiguration> <http://localhost:5000/urn:dev:ops:32473-HueOutdoorSensor-1/basic_sc> <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
@@ -1662,8 +1662,8 @@ _:B08e9be9dX2D5a2eX2D498dX2D815aX2Dec94b0af6164 <http://www.w3.org/1999/02/22-rd
 _:B8a242bbcX2Dd299X2D4a68X2DbabfX2D49d19724d372 <https://www.w3.org/2019/wot/json-schema#propertyName> "daylight"@en <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
 _:B8a242bbcX2Dd299X2D4a68X2DbabfX2D49d19724d372 <https://www.w3.org/2019/wot/td#description> "Indicates if sensor gets daylight"@en <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
 _:B8a242bbcX2Dd299X2D4a68X2DbabfX2D49d19724d372 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#BooleanSchema> <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
-_:B342c683dX2D0476X2D44a5X2Da2dfX2D87db110135c6 <https://www.w3.org/2021/wot/discovery#dateModified> "2022-10-21T11:18:40.433607+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
-_:B342c683dX2D0476X2D44a5X2Da2dfX2D87db110135c6 <https://www.w3.org/2021/wot/discovery#dateCreated> "2022-10-21T11:18:40.433607+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
+_:B342c683dX2D0476X2D44a5X2Da2dfX2D87db110135c6 <https://www.w3.org/2022/wot/discovery-ontology#dateModified> "2022-10-21T11:18:40.433607+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
+_:B342c683dX2D0476X2D44a5X2Da2dfX2D87db110135c6 <https://www.w3.org/2022/wot/discovery-ontology#dateCreated> "2022-10-21T11:18:40.433607+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
 _:B060aa824X2Dd177X2D48e6X2Db91dX2D926724803c1e <https://www.w3.org/2019/wot/json-schema#propertyName> "uniqueid"@en <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
 _:B060aa824X2Dd177X2D48e6X2Db91dX2D926724803c1e <https://www.w3.org/2019/wot/td#description> "Unique id of the sensor. Should be the MAC address of the device."@en <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
 _:B060aa824X2Dd177X2D48e6X2Db91dX2D926724803c1e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#StringSchema> <td:urn:dev:ops:32473-HueOutdoorSensor-1> .
@@ -1801,7 +1801,7 @@ _:Beb529458X2Dc0c0X2D44aaX2D8c03X2D41b228c4fdc2 <https://www.w3.org/2019/wot/hyp
 <https://plugfest.webthings.io/things/virtual-things-8> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/td#Light> <td:https://plugfest.webthings.io/things/virtual-things-8> .
 <https://plugfest.webthings.io/things/virtual-things-8> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/td#OnOffSwitch> <td:https://plugfest.webthings.io/things/virtual-things-8> .
 <https://plugfest.webthings.io/things/virtual-things-8> <https://www.w3.org/2019/wot/td#definesSecurityScheme> _:B915952f4X2Da206X2D456fX2Da7a4X2D893909dee3bf <td:https://plugfest.webthings.io/things/virtual-things-8> .
-<https://plugfest.webthings.io/things/virtual-things-8> <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation> _:Bd87596c1X2Db984X2D4420X2Da91cX2D3bcf32eca0b4 <td:https://plugfest.webthings.io/things/virtual-things-8> .
+<https://plugfest.webthings.io/things/virtual-things-8> <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation> _:Bd87596c1X2Db984X2D4420X2Da91cX2D3bcf32eca0b4 <td:https://plugfest.webthings.io/things/virtual-things-8> .
 <https://plugfest.webthings.io/things/virtual-things-8> <https://www.w3.org/2019/wot/td#title> "Virtual Dimmable Light" <td:https://plugfest.webthings.io/things/virtual-things-8> .
 <https://plugfest.webthings.io/things/virtual-things-8> <https://www.w3.org/2019/wot/td#hasPropertyAffordance> _:B37b2be04X2D488eX2D4c9eX2D9a05X2Da28160f7fa47 <td:https://plugfest.webthings.io/things/virtual-things-8> .
 _:Bf9e7081bX2D75a0X2D4588X2DbebeX2D3595a0537f3b <https://www.w3.org/2019/wot/hypermedia#hasTarget> "/things/virtual-things-8/properties/on" <td:https://plugfest.webthings.io/things/virtual-things-8> .
@@ -1811,13 +1811,13 @@ _:B91ec03c7X2D5081X2D46fdX2Dab92X2Daf7f7e7410ee <https://www.w3.org/2019/wot/td#
 _:B91ec03c7X2D5081X2D46fdX2Dab92X2Daf7f7e7410ee <https://www.w3.org/2019/wot/td#title> "On/Off" <td:https://plugfest.webthings.io/things/virtual-things-8> .
 _:B91ec03c7X2D5081X2D46fdX2Dab92X2Daf7f7e7410ee <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#BooleanSchema> <td:https://plugfest.webthings.io/things/virtual-things-8> .
 _:B91ec03c7X2D5081X2D46fdX2Dab92X2Daf7f7e7410ee <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#OnOffProperty> <td:https://plugfest.webthings.io/things/virtual-things-8> .
-_:Bd87596c1X2Db984X2D4420X2Da91cX2D3bcf32eca0b4 <https://www.w3.org/2021/wot/discovery#dateModified> "2022-10-21T11:18:39.926824+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-8> .
-_:Bd87596c1X2Db984X2D4420X2Da91cX2D3bcf32eca0b4 <https://www.w3.org/2021/wot/discovery#dateCreated> "2022-10-21T11:18:39.926824+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-8> .
+_:Bd87596c1X2Db984X2D4420X2Da91cX2D3bcf32eca0b4 <https://www.w3.org/2022/wot/discovery-ontology#dateModified> "2022-10-21T11:18:39.926824+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-8> .
+_:Bd87596c1X2Db984X2D4420X2Da91cX2D3bcf32eca0b4 <https://www.w3.org/2022/wot/discovery-ontology#dateCreated> "2022-10-21T11:18:39.926824+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-8> .
 _:B48895410X2D23ffX2D4c55X2DacbaX2D8b65e4dd81fe <https://www.w3.org/2019/wot/hypermedia#hasTarget> "/things/virtual-things-23/properties/color" <td:https://plugfest.webthings.io/things/virtual-things-23> .
 _:B75680819X2Dbd14X2D4fb2X2Dbc4eX2D00ac26349bb6 <https://www.w3.org/2019/wot/hypermedia#hasTarget> "/things/virtual-things-23/properties" <td:https://plugfest.webthings.io/things/virtual-things-23> .
 _:B75680819X2Dbd14X2D4fb2X2Dbc4eX2D00ac26349bb6 <https://www.w3.org/2019/wot/hypermedia#hasOperationType> <https://www.w3.org/2019/wot/td#writeMultipleProperties> <td:https://plugfest.webthings.io/things/virtual-things-23> .
 _:B75680819X2Dbd14X2D4fb2X2Dbc4eX2D00ac26349bb6 <https://www.w3.org/2019/wot/hypermedia#hasOperationType> <https://www.w3.org/2019/wot/td#readAllProperties> <td:https://plugfest.webthings.io/things/virtual-things-23> .
-<https://plugfest.webthings.io/things/virtual-things-23> <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation> _:Bda9d3f1fX2D27f8X2D4d58X2Da53eX2Ddcf66002c6a3 <td:https://plugfest.webthings.io/things/virtual-things-23> .
+<https://plugfest.webthings.io/things/virtual-things-23> <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation> _:Bda9d3f1fX2D27f8X2D4d58X2Da53eX2Ddcf66002c6a3 <td:https://plugfest.webthings.io/things/virtual-things-23> .
 <https://plugfest.webthings.io/things/virtual-things-23> <https://www.w3.org/2019/wot/td#hasLink> _:B4a5baedcX2Df467X2D40f2X2D8c78X2D89edd83f5e21 <td:https://plugfest.webthings.io/things/virtual-things-23> .
 <https://plugfest.webthings.io/things/virtual-things-23> <https://www.w3.org/2019/wot/td#href> "/things/virtual-things-23" <td:https://plugfest.webthings.io/things/virtual-things-23> .
 <https://plugfest.webthings.io/things/virtual-things-23> <https://www.w3.org/2019/wot/td#description> "" <td:https://plugfest.webthings.io/things/virtual-things-23> .
@@ -1832,8 +1832,8 @@ _:B75680819X2Dbd14X2D4fb2X2Dbc4eX2D00ac26349bb6 <https://www.w3.org/2019/wot/hyp
 <https://plugfest.webthings.io/things/virtual-things-23> <https://www.w3.org/2019/wot/td#hasSecurityConfiguration> <http://localhost:5000/https://plugfest.webthings.io/things/virtual-things-23/oauth2_sc> <td:https://plugfest.webthings.io/things/virtual-things-23> .
 <https://plugfest.webthings.io/things/virtual-things-23> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/td#ColorControl> <td:https://plugfest.webthings.io/things/virtual-things-23> .
 <https://plugfest.webthings.io/things/virtual-things-23> <https://www.w3.org/2019/wot/td#hasForm> _:B75680819X2Dbd14X2D4fb2X2Dbc4eX2D00ac26349bb6 <td:https://plugfest.webthings.io/things/virtual-things-23> .
-_:Bda9d3f1fX2D27f8X2D4d58X2Da53eX2Ddcf66002c6a3 <https://www.w3.org/2021/wot/discovery#dateModified> "2022-10-21T11:18:41.843634+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-23> .
-_:Bda9d3f1fX2D27f8X2D4d58X2Da53eX2Ddcf66002c6a3 <https://www.w3.org/2021/wot/discovery#dateCreated> "2022-10-21T11:18:41.843634+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-23> .
+_:Bda9d3f1fX2D27f8X2D4d58X2Da53eX2Ddcf66002c6a3 <https://www.w3.org/2022/wot/discovery-ontology#dateModified> "2022-10-21T11:18:41.843634+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-23> .
+_:Bda9d3f1fX2D27f8X2D4d58X2Da53eX2Ddcf66002c6a3 <https://www.w3.org/2022/wot/discovery-ontology#dateCreated> "2022-10-21T11:18:41.843634+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-23> .
 _:B72741ff2X2D22e7X2D4a0dX2D8e0aX2D50e28b805f62 <https://www.w3.org/2019/wot/json-schema#readOnly> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> <td:https://plugfest.webthings.io/things/virtual-things-23> .
 _:B72741ff2X2D22e7X2D4a0dX2D8e0aX2D50e28b805f62 <https://www.w3.org/2019/wot/td#hasForm> _:B48895410X2D23ffX2D4c55X2DacbaX2D8b65e4dd81fe <td:https://plugfest.webthings.io/things/virtual-things-23> .
 _:B72741ff2X2D22e7X2D4a0dX2D8e0aX2D50e28b805f62 <https://www.w3.org/2019/wot/json-schema#value> "#ffffff" <td:https://plugfest.webthings.io/things/virtual-things-23> .
@@ -1870,8 +1870,8 @@ _:B5a13c499X2D8b3cX2D4eebX2D8dd5X2D45e5a16df24a <https://www.w3.org/2019/wot/jso
 _:B5a13c499X2D8b3cX2D4eebX2D8dd5X2D45e5a16df24a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#StringSchema> <td:urn:dev:ops:32473-HueSwitch-1234> .
 _:B6ebfa4eaX2Df9bfX2D4fd3X2Db610X2D17e8603fb8f8 <https://www.w3.org/2019/wot/json-schema#propertyName> "reachable"@en <td:urn:dev:ops:32473-HueSwitch-1234> .
 _:B6ebfa4eaX2Df9bfX2D4fd3X2Db610X2D17e8603fb8f8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#BooleanSchema> <td:urn:dev:ops:32473-HueSwitch-1234> .
-_:B4ca3ce69X2D860bX2D4187X2Db20cX2Ddea041865130 <https://www.w3.org/2021/wot/discovery#dateModified> "2022-10-21T11:18:38.314530+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueSwitch-1234> .
-_:B4ca3ce69X2D860bX2D4187X2Db20cX2Ddea041865130 <https://www.w3.org/2021/wot/discovery#dateCreated> "2022-10-21T11:18:38.314530+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueSwitch-1234> .
+_:B4ca3ce69X2D860bX2D4187X2Db20cX2Ddea041865130 <https://www.w3.org/2022/wot/discovery-ontology#dateModified> "2022-10-21T11:18:38.314530+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueSwitch-1234> .
+_:B4ca3ce69X2D860bX2D4187X2Db20cX2Ddea041865130 <https://www.w3.org/2022/wot/discovery-ontology#dateCreated> "2022-10-21T11:18:38.314530+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:urn:dev:ops:32473-HueSwitch-1234> .
 _:B68af4776X2Dc51dX2D4440X2D80afX2D5aaefd5e34a2 <https://www.w3.org/2019/wot/json-schema#const> "ZLLSwitch"@en <td:urn:dev:ops:32473-HueSwitch-1234> .
 _:B68af4776X2Dc51dX2D4440X2D80afX2D5aaefd5e34a2 <https://www.w3.org/2019/wot/json-schema#propertyName> "type"@en <td:urn:dev:ops:32473-HueSwitch-1234> .
 _:B68af4776X2Dc51dX2D4440X2D80afX2D5aaefd5e34a2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#StringSchema> <td:urn:dev:ops:32473-HueSwitch-1234> .
@@ -1899,7 +1899,7 @@ _:B61adc6edX2D9135X2D41faX2D84a3X2Df3ca8bc81b83 <https://www.w3.org/2019/wot/jso
 _:Bad51483fX2Dc482X2D4d2dX2Da08cX2D56bfe259a7d0 <https://www.w3.org/2019/wot/json-schema#format> "date-time"@en <td:urn:dev:ops:32473-HueSwitch-1234> .
 _:Bad51483fX2Dc482X2D4d2dX2Da08cX2D56bfe259a7d0 <https://www.w3.org/2019/wot/json-schema#propertyName> "lastupdated"@en <td:urn:dev:ops:32473-HueSwitch-1234> .
 _:Bad51483fX2Dc482X2D4d2dX2Da08cX2D56bfe259a7d0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#StringSchema> <td:urn:dev:ops:32473-HueSwitch-1234> .
-<urn:dev:ops:32473-HueSwitch-1234> <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation> _:B4ca3ce69X2D860bX2D4187X2Db20cX2Ddea041865130 <td:urn:dev:ops:32473-HueSwitch-1234> .
+<urn:dev:ops:32473-HueSwitch-1234> <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation> _:B4ca3ce69X2D860bX2D4187X2Db20cX2Ddea041865130 <td:urn:dev:ops:32473-HueSwitch-1234> .
 <urn:dev:ops:32473-HueSwitch-1234> <https://www.w3.org/2019/wot/td#definesSecurityScheme> _:B02d57b46X2D2d14X2D42ffX2Da47eX2D9fbfff813442 <td:urn:dev:ops:32473-HueSwitch-1234> .
 <urn:dev:ops:32473-HueSwitch-1234> <https://www.w3.org/2019/wot/td#hasPropertyAffordance> _:B8ebba40bX2D9b48X2D48edX2D876aX2Dd2e5d8fa514d <td:urn:dev:ops:32473-HueSwitch-1234> .
 <urn:dev:ops:32473-HueSwitch-1234> <https://www.w3.org/2019/wot/td#title> "Hue Dimmer Switch"@en <td:urn:dev:ops:32473-HueSwitch-1234> .
@@ -1946,7 +1946,7 @@ _:B37010144X2D7a22X2D432bX2Db22aX2D68a32772fcef <https://www.w3.org/2019/wot/hyp
 _:B0a6b0291X2Dfda6X2D43e7X2Da931X2D855b202130eb <https://www.w3.org/2019/wot/hypermedia#hasTarget> "/things/virtual-things-29/properties" <td:https://plugfest.webthings.io/things/virtual-things-29> .
 _:B0a6b0291X2Dfda6X2D43e7X2Da931X2D855b202130eb <https://www.w3.org/2019/wot/hypermedia#hasOperationType> <https://www.w3.org/2019/wot/td#readAllProperties> <td:https://plugfest.webthings.io/things/virtual-things-29> .
 <https://plugfest.webthings.io/things/virtual-things-29> <https://www.w3.org/2019/wot/td#hasSecurityConfiguration> <http://localhost:5000/https://plugfest.webthings.io/things/virtual-things-29/oauth2_sc> <td:https://plugfest.webthings.io/things/virtual-things-29> .
-<https://plugfest.webthings.io/things/virtual-things-29> <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation> _:B5a59b4c2X2Db523X2D45aaX2Da38bX2D114b3784e607 <td:https://plugfest.webthings.io/things/virtual-things-29> .
+<https://plugfest.webthings.io/things/virtual-things-29> <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation> _:B5a59b4c2X2Db523X2D45aaX2Da38bX2D114b3784e607 <td:https://plugfest.webthings.io/things/virtual-things-29> .
 <https://plugfest.webthings.io/things/virtual-things-29> <https://www.w3.org/2019/wot/td#definesSecurityScheme> _:B27ded2fdX2D02d1X2D4e33X2D873fX2D8ea1e629675d <td:https://plugfest.webthings.io/things/virtual-things-29> .
 <https://plugfest.webthings.io/things/virtual-things-29> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/td#Thing> <td:https://plugfest.webthings.io/things/virtual-things-29> .
 <https://plugfest.webthings.io/things/virtual-things-29> <https://www.w3.org/2019/wot/td#title> "Virtual Barometric Pressure Sensor" <td:https://plugfest.webthings.io/things/virtual-things-29> .
@@ -1960,8 +1960,8 @@ _:B0a6b0291X2Dfda6X2D43e7X2Da931X2D855b202130eb <https://www.w3.org/2019/wot/hyp
 <https://plugfest.webthings.io/things/virtual-things-29> <https://www.w3.org/2019/wot/td#hasLink> _:B37010144X2D7a22X2D432bX2Db22aX2D68a32772fcef <td:https://plugfest.webthings.io/things/virtual-things-29> .
 <https://plugfest.webthings.io/things/virtual-things-29> <https://www.w3.org/2019/wot/td#layoutIndex> "27"^^<http://www.w3.org/2001/XMLSchema#integer> <td:https://plugfest.webthings.io/things/virtual-things-29> .
 <https://plugfest.webthings.io/things/virtual-things-29> <https://www.w3.org/2019/wot/td#hasLink> _:B5792ddb2X2D87b3X2D4ea6X2D9a56X2Dc2247204b3b5 <td:https://plugfest.webthings.io/things/virtual-things-29> .
-_:B5a59b4c2X2Db523X2D45aaX2Da38bX2D114b3784e607 <https://www.w3.org/2021/wot/discovery#dateModified> "2022-10-21T11:18:43.703058+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-29> .
-_:B5a59b4c2X2Db523X2D45aaX2Da38bX2D114b3784e607 <https://www.w3.org/2021/wot/discovery#dateCreated> "2022-10-21T11:18:43.703058+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-29> .
+_:B5a59b4c2X2Db523X2D45aaX2Da38bX2D114b3784e607 <https://www.w3.org/2022/wot/discovery-ontology#dateModified> "2022-10-21T11:18:43.703058+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-29> .
+_:B5a59b4c2X2Db523X2D45aaX2Da38bX2D114b3784e607 <https://www.w3.org/2022/wot/discovery-ontology#dateCreated> "2022-10-21T11:18:43.703058+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-29> .
 _:B611190c9X2D49d5X2D449fX2D9253X2D02fb539c2efa <https://www.w3.org/2019/wot/json-schema#readOnly> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> <td:https://plugfest.webthings.io/things/virtual-things-29> .
 _:B611190c9X2D49d5X2D449fX2D9253X2D02fb539c2efa <https://www.w3.org/2019/wot/td#hasForm> _:Bb940a12fX2D13bdX2D49c2X2D94d4X2Da40058f4e110 <td:https://plugfest.webthings.io/things/virtual-things-29> .
 _:B611190c9X2D49d5X2D449fX2D9253X2D02fb539c2efa <https://www.w3.org/2019/wot/json-schema#value> "20"^^<http://www.w3.org/2001/XMLSchema#integer> <td:https://plugfest.webthings.io/things/virtual-things-29> .
@@ -1975,8 +1975,8 @@ _:Bb940a12fX2D13bdX2D49c2X2D94d4X2Da40058f4e110 <https://www.w3.org/2019/wot/hyp
 _:B9dca0845X2D6d47X2D4144X2D8ab0X2Dfd91c6484024 <https://www.w3.org/2019/wot/hypermedia#hasTarget> "/things/virtual-things-28" <td:https://plugfest.webthings.io/things/virtual-things-28> .
 _:B9dca0845X2D6d47X2D4144X2D8ab0X2Dfd91c6484024 <https://www.w3.org/2019/wot/hypermedia#hasRelationType> <https://www.w3.org/2019/wot/hypermedia#alternate> <td:https://plugfest.webthings.io/things/virtual-things-28> .
 _:B9dca0845X2D6d47X2D4144X2D8ab0X2Dfd91c6484024 <https://www.w3.org/2019/wot/hypermedia#hintsAtMediaType> "text/html" <td:https://plugfest.webthings.io/things/virtual-things-28> .
-_:B8fa94ee4X2Db1e3X2D4a75X2D81c2X2D61b26b715ffe <https://www.w3.org/2021/wot/discovery#dateModified> "2022-10-21T11:18:39.422638+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-28> .
-_:B8fa94ee4X2Db1e3X2D4a75X2D81c2X2D61b26b715ffe <https://www.w3.org/2021/wot/discovery#dateCreated> "2022-10-21T11:18:39.422638+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-28> .
+_:B8fa94ee4X2Db1e3X2D4a75X2D81c2X2D61b26b715ffe <https://www.w3.org/2022/wot/discovery-ontology#dateModified> "2022-10-21T11:18:39.422638+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-28> .
+_:B8fa94ee4X2Db1e3X2D4a75X2D81c2X2D61b26b715ffe <https://www.w3.org/2022/wot/discovery-ontology#dateCreated> "2022-10-21T11:18:39.422638+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-28> .
 <https://plugfest.webthings.io/things/virtual-things-28> <https://www.w3.org/2019/wot/td#href> "/things/virtual-things-28" <td:https://plugfest.webthings.io/things/virtual-things-28> .
 <https://plugfest.webthings.io/things/virtual-things-28> <https://www.w3.org/2019/wot/td#description> "" <td:https://plugfest.webthings.io/things/virtual-things-28> .
 <https://plugfest.webthings.io/things/virtual-things-28> <https://www.w3.org/2019/wot/td#selectedCapability> "AirQualitySensor" <td:https://plugfest.webthings.io/things/virtual-things-28> .
@@ -1988,7 +1988,7 @@ _:B8fa94ee4X2Db1e3X2D4a75X2D81c2X2D61b26b715ffe <https://www.w3.org/2021/wot/dis
 <https://plugfest.webthings.io/things/virtual-things-28> <https://www.w3.org/2019/wot/td#hasForm> _:Bde25e152X2Ddd30X2D45b7X2Daa9fX2D0dd700ea4e61 <td:https://plugfest.webthings.io/things/virtual-things-28> .
 <https://plugfest.webthings.io/things/virtual-things-28> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/td#Thing> <td:https://plugfest.webthings.io/things/virtual-things-28> .
 <https://plugfest.webthings.io/things/virtual-things-28> <https://www.w3.org/2019/wot/td#hasLink> _:B9dca0845X2D6d47X2D4144X2D8ab0X2Dfd91c6484024 <td:https://plugfest.webthings.io/things/virtual-things-28> .
-<https://plugfest.webthings.io/things/virtual-things-28> <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation> _:B8fa94ee4X2Db1e3X2D4a75X2D81c2X2D61b26b715ffe <td:https://plugfest.webthings.io/things/virtual-things-28> .
+<https://plugfest.webthings.io/things/virtual-things-28> <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation> _:B8fa94ee4X2Db1e3X2D4a75X2D81c2X2D61b26b715ffe <td:https://plugfest.webthings.io/things/virtual-things-28> .
 <https://plugfest.webthings.io/things/virtual-things-28> <https://www.w3.org/2019/wot/td#definesSecurityScheme> _:B6eb15a7bX2D99a5X2D4b81X2Dbc88X2Ddc11566ea2ab <td:https://plugfest.webthings.io/things/virtual-things-28> .
 <https://plugfest.webthings.io/things/virtual-things-28> <https://www.w3.org/2019/wot/td#baseURI> "https://plugfest.webthings.io/" <td:https://plugfest.webthings.io/things/virtual-things-28> .
 <https://plugfest.webthings.io/things/virtual-things-28> <https://www.w3.org/2019/wot/td#layoutIndex> "26"^^<http://www.w3.org/2001/XMLSchema#integer> <td:https://plugfest.webthings.io/things/virtual-things-28> .
@@ -2054,7 +2054,7 @@ _:B2bf7dd4fX2Dc87fX2D4d4aX2Da335X2Dc1cf16116699 <https://www.w3.org/2019/wot/hyp
 <https://plugfest.webthings.io/things/virtual-things-26> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/td#Thing> <td:https://plugfest.webthings.io/things/virtual-things-26> .
 <https://plugfest.webthings.io/things/virtual-things-26> <https://www.w3.org/2019/wot/td#layoutIndex> "24"^^<http://www.w3.org/2001/XMLSchema#integer> <td:https://plugfest.webthings.io/things/virtual-things-26> .
 <https://plugfest.webthings.io/things/virtual-things-26> <https://www.w3.org/2019/wot/td#href> "/things/virtual-things-26" <td:https://plugfest.webthings.io/things/virtual-things-26> .
-<https://plugfest.webthings.io/things/virtual-things-26> <https://www.w3.org/2021/wot/discovery#hasRegistrationInformation> _:B17c5191aX2D5a1fX2D4092X2Db7d8X2D78add59c97f5 <td:https://plugfest.webthings.io/things/virtual-things-26> .
+<https://plugfest.webthings.io/things/virtual-things-26> <https://www.w3.org/2022/wot/discovery-ontology#hasRegistrationInformation> _:B17c5191aX2D5a1fX2D4092X2Db7d8X2D78add59c97f5 <td:https://plugfest.webthings.io/things/virtual-things-26> .
 <https://plugfest.webthings.io/things/virtual-things-26> <https://www.w3.org/2019/wot/td#hasPropertyAffordance> _:Bf3e5696bX2D607bX2D457cX2D926aX2D7ce1e3025cca <td:https://plugfest.webthings.io/things/virtual-things-26> .
 <https://plugfest.webthings.io/things/virtual-things-26> <https://www.w3.org/2019/wot/td#hasSecurityConfiguration> <http://localhost:5000/https://plugfest.webthings.io/things/virtual-things-26/oauth2_sc> <td:https://plugfest.webthings.io/things/virtual-things-26> .
 <https://plugfest.webthings.io/things/virtual-things-26> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/td#ColorSensor> <td:https://plugfest.webthings.io/things/virtual-things-26> .
@@ -2064,5 +2064,5 @@ _:B2bf7dd4fX2Dc87fX2D4d4aX2Da335X2Dc1cf16116699 <https://www.w3.org/2019/wot/hyp
 <https://plugfest.webthings.io/things/virtual-things-26> <https://www.w3.org/2019/wot/td#hasLink> _:B2bf7dd4fX2Dc87fX2D4d4aX2Da335X2Dc1cf16116699 <td:https://plugfest.webthings.io/things/virtual-things-26> .
 <https://plugfest.webthings.io/things/virtual-things-26> <https://www.w3.org/2019/wot/td#selectedCapability> "ColorSensor" <td:https://plugfest.webthings.io/things/virtual-things-26> .
 _:B04209847X2D208eX2D4539X2Db57cX2Da96bd758b439 <https://www.w3.org/2019/wot/hypermedia#hasTarget> "/things/virtual-things-26/properties/color" <td:https://plugfest.webthings.io/things/virtual-things-26> .
-_:B17c5191aX2D5a1fX2D4092X2Db7d8X2D78add59c97f5 <https://www.w3.org/2021/wot/discovery#dateModified> "2022-10-21T11:18:39.668408+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-26> .
-_:B17c5191aX2D5a1fX2D4092X2Db7d8X2D78add59c97f5 <https://www.w3.org/2021/wot/discovery#dateCreated> "2022-10-21T11:18:39.668408+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-26> .
+_:B17c5191aX2D5a1fX2D4092X2Db7d8X2D78add59c97f5 <https://www.w3.org/2022/wot/discovery-ontology#dateModified> "2022-10-21T11:18:39.668408+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-26> .
+_:B17c5191aX2D5a1fX2D4092X2Db7d8X2D78add59c97f5 <https://www.w3.org/2022/wot/discovery-ontology#dateCreated> "2022-10-21T11:18:39.668408+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <td:https://plugfest.webthings.io/things/virtual-things-26> .

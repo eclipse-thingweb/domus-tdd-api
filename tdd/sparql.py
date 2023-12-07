@@ -12,7 +12,7 @@ CONSTRUCT_FROM_GRAPH = (
 
 GET_URI_BY_ONTOLOGY = """
     PREFIX td: <https://www.w3.org/2019/wot/td#>
-    PREFIX disco: <https://www.w3.org/2021/wot/discovery#>
+    PREFIX disco: <https://www.w3.org/2022/wot/discovery-ontology#>
     SELECT DISTINCT ?graph ?id WHERE {{
          GRAPH <urn:tdd:metadata> {{
             ?graph <urn:tdd:expressedIn> <{ontology}>.
@@ -24,7 +24,7 @@ GET_URI_BY_ONTOLOGY = """
 """
 
 GET_TD_CREATION_DATE = """
-    PREFIX disc: <https://www.w3.org/2021/wot/discovery#>
+    PREFIX disc: <https://www.w3.org/2022/wot/discovery-ontology#>
     PREFIX td: <https://www.w3.org/2019/wot/td#>
     SELECT ?created WHERE {{
         GRAPH <td:{uri}> {{
@@ -89,7 +89,7 @@ DELETE_GRAPHS = """
 GET_EXPIRED_TD_GRAPHS = """
     PREFIX td: <https://www.w3.org/2019/wot/td#>
     PREFIX schema: <http://schema.org/>
-    PREFIX discovery: <https://www.w3.org/2021/wot/discovery#>
+    PREFIX discovery: <https://www.w3.org/2022/wot/discovery-ontology#>
     SELECT ?graph WHERE {
         GRAPH ?graph {
             ?td a td:Thing.

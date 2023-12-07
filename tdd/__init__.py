@@ -267,7 +267,7 @@ def register_routes(app):
             )
 
             response = {
-                "@context": "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld",
+                "@context": "https://www.w3.org/2022/wot/discovery",
                 "@type": "ThingCollection",
                 "total": number_total,
                 "members": all_tds,
