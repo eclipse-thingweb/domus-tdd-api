@@ -87,10 +87,7 @@ def test_GET_thing_discovery_collection(test_client, mock_sparql_17_things):
     assert tds["@type"] == "ThingCollection"
     assert tds["total"] == 17
     assert len(tds["members"]) == 15
-    assert (
-        tds["@context"]
-        == "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
-    )
+    assert tds["@context"] == "https://www.w3.org/2022/wot/discovery"
     assert "next" in tds
     assert "etag" in tds
     assert tds["etag"] == get_collection_etag()
@@ -103,10 +100,7 @@ def test_GET_thing_discovery_collection(test_client, mock_sparql_17_things):
     assert tds["@type"] == "ThingCollection"
     assert tds["total"] == 17
     assert len(tds["members"]) == 2
-    assert (
-        tds["@context"]
-        == "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
-    )
+    assert tds["@context"] == "https://www.w3.org/2022/wot/discovery"
     assert "next" not in tds
     assert tds["etag"] == get_collection_etag()
     assert_etag_in_headers(get_response.headers, format_param="collection")
@@ -138,10 +132,7 @@ def test_GET_thing_discovery_collection_sort_by_desc(
     assert tds["@type"] == "ThingCollection"
     assert tds["total"] == 17
     assert len(tds["members"]) == 2
-    assert (
-        tds["@context"]
-        == "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
-    )
+    assert tds["@context"] == "https://www.w3.org/2022/wot/discovery"
     assert "next" in tds
     assert (
         tds["next"]

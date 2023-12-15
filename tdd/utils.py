@@ -4,13 +4,11 @@ from rdflib import Namespace, Graph
 
 from tdd.config import CONFIG
 
-TDD = Namespace("https://www.w3.org/2021/wot/discovery#")
+TDD = Namespace("https://www.w3.org/2022/wot/discovery-ontology#")
 TD = Namespace("https://www.w3.org/2019/wot/td#")
 
 DEFAULT_THING_CONTEXT_URI = "https://www.w3.org/2022/wot/td/v1.1"
-DEFAULT_DISCOVERY_CONTEXT_URI = (
-    "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
-)
+DEFAULT_DISCOVERY_CONTEXT_URI = "https://www.w3.org/2022/wot/discovery"
 
 
 def get_collection_etag():
@@ -39,7 +37,7 @@ POSSIBLE_MIMETYPES = {
 TD_PREFIX = {
     "td": "https://www.w3.org/2019/wot/td#",
     "td-jsonschema": "https://www.w3.org/2019/wot/json-schema#",
-    "td-discovery": "https://www.w3.org/2021/wot/discovery#",
+    "td-discovery": "https://www.w3.org/2022/wot/discovery-ontology#",
     "td-hypermedia": "https://www.w3.org/2019/wot/hypermedia#",
 }
 

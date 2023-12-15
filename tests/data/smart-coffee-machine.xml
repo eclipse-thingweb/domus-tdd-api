@@ -1,6 +1,6 @@
 <rdf:RDF
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:j.0="https://www.w3.org/2021/wot/discovery#"
+    xmlns:j.0="https://www.w3.org/2022/wot/discovery-ontology#"
     xmlns:j.1="https://www.w3.org/2019/wot/security#"
     xmlns:j.2="http://www.w3.org/2011/http#"
     xmlns:j.3="https://www.w3.org/2019/wot/hypermedia#"

@@ -1,6 +1,6 @@
 {
   "@context": {
-    "discovery": "https://www.w3.org/2021/wot/discovery#",
+    "discovery": "https://www.w3.org/2022/wot/discovery-ontology#",
     "ThingDirectory": {
       "@id": "discovery:ThingDirectory",
       "@type": "@id"
@@ -13,20 +13,20 @@
       "@id": "discovery:ThingCollection",
       "@type": "@id"
     },
-   "next": {
+    "next": {
       "@id": "discovery:nextThingCollection",
       "@type": "@id"
-   },
-   "total": {
+    },
+    "total": {
       "@id": "discovery:contains",
       "@type": "xsd:integer"
-   },
-   "members": {
+    },
+    "members": {
       "@id": "discovery:hasCollectionMember",
       "@type": "@id",
       "@container": "@set"
-   },
-   "registration": {
+    },
+    "registration": {
       "@id": "discovery:hasRegistrationInformation",
       "@type": "@id",
       "@context": {

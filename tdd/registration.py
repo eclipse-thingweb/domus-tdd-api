@@ -15,7 +15,7 @@ def validate_ttl(ld_content, mandate_ttl):
 
 def get_registration_dict(uri, rdf_graph):
     registration_query = (
-        "PREFIX discovery: <https://www.w3.org/2021/wot/discovery#>"
+        "PREFIX discovery: <https://www.w3.org/2022/wot/discovery-ontology#>"
         "SELECT DISTINCT ?created ?modified ?expires ?ttl "
         "WHERE {"
         f"  <{uri}> discovery:hasRegistrationInformation ?reg."

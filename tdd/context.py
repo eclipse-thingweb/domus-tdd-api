@@ -1,5 +1,6 @@
 import base64
 import json
+from tdd.config import CONFIG
 
 from tdd.utils import DEFAULT_THING_CONTEXT_URI, DEFAULT_DISCOVERY_CONTEXT_URI
 from tdd.sparql import (
@@ -37,6 +38,8 @@ def overwrite_thing_context(ld_content):
 
 
 def overwrite_discovery_context(ld_content):
+    if not CONFIG["OVERWRITE_DISCOVERY"]:
+        return
     if "@context" not in ld_content:
         return
     if type(ld_content["@context"]) not in (tuple, list):

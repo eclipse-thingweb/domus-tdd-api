@@ -38,19 +38,20 @@ The `config.toml` file can also be used to define FLask server configuration (c.
 
 ### Configuration variables
 
-| Variable name             | default value                             | description                                                                                                                                                    |
-| ------------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [TDD__]TD_REPO_URL        | http://localhost:5000                     | The URL to access the TDD API server                                                                                                                           |
-| [TDD__]SPARQLENDPOINT_URL | http://localhost:3030/things              | The SPARQL endpoint URL                                                                                                                                        |
-| [TDD__]CHECK_SCHEMA       | False                                     | Define if TDD API will check the TDs regarding to the JSON-Schema and SHACL shapes                                                                             |
-| [TDD__]MAX_TTL            | None                                      | Integer, maximum time-to-live (in seconds) that a TD will be kept on the server (unlimited if None)                                                            |
-| [TDD__]MANDATE_TTL        | False                                     | Boolean value, if set to True, it will only upload TDs having a time-to-live (ttl) value. The server will send a 400 HTTP code if the TD does not contain one. |
-| [TDD__]LIMIT_BATCH_TDS    | 25                                        | Default limit of returned TDs by batch (used for pagination)                                                                                                   |
-| [TDD__]ENDPOINT_TYPE      | None                                      | Special configuration to workaround SPARQL endpoints which do not follow the SPARQL standard. Possible values: `GRAPHDB` or `VIRTUOSO`                         |
-| [TDD__]TD_JSONSCHEMA      | ./tdd/data/td-json-schema-validation.json | The path to the file containing JSON-Schema to validate the TDs                                                                                                |
-| [TDD__]TD_ONTOLOGY        | ./tdd/data/td.ttl                         | The path to the file containing the TD OWL Ontology (only used for SHACL validation)                                                                           |
-| [TDD__]TD_SHACL_VALIDATOR | ./tdd/data/td-validation.ttl              | The path to the file containing the SHACL shapes (only used for SHACL validation)                                                                              |
-| [TDD__]PERIOD_CLEAR_EXPIRE_TD |   3600                                | The number of seconds between each clearing of expired TDs (0 to disable clearing expired TD)                                                                     |
+| Variable name                 | default value                             | description                                                                                                                                                    |
+| ----------------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [TDD__]TD_REPO_URL            | http://localhost:5000                     | The URL to access the TDD API server                                                                                                                           |
+| [TDD__]SPARQLENDPOINT_URL     | http://localhost:3030/things              | The SPARQL endpoint URL                                                                                                                                        |
+| [TDD__]CHECK_SCHEMA           | False                                     | Define if TDD API will check the TDs regarding to the JSON-Schema and SHACL shapes                                                                             |
+| [TDD__]MAX_TTL                | None                                      | Integer, maximum time-to-live (in seconds) that a TD will be kept on the server (unlimited if None)                                                            |
+| [TDD__]MANDATE_TTL            | False                                     | Boolean value, if set to True, it will only upload TDs having a time-to-live (ttl) value. The server will send a 400 HTTP code if the TD does not contain one. |
+| [TDD__]LIMIT_BATCH_TDS        | 25                                        | Default limit of returned TDs by batch (used for pagination)                                                                                                   |
+| [TDD__]ENDPOINT_TYPE          | None                                      | Special configuration to workaround SPARQL endpoints which do not follow the SPARQL standard. Possible values: `GRAPHDB` or `VIRTUOSO`                         |
+| [TDD__]TD_JSONSCHEMA          | ./tdd/data/td-json-schema-validation.json | The path to the file containing JSON-Schema to validate the TDs                                                                                                |
+| [TDD__]TD_ONTOLOGY            | ./tdd/data/td.ttl                         | The path to the file containing the TD OWL Ontology (only used for SHACL validation)                                                                           |
+| [TDD__]TD_SHACL_VALIDATOR     | ./tdd/data/td-validation.ttl              | The path to the file containing the SHACL shapes (only used for SHACL validation)                                                                              |
+| [TDD__]PERIOD_CLEAR_EXPIRE_TD | 3600                                      | The number of seconds between each clearing of expired TDs (0 to disable clearing expired TD)                                                                  |
+| [TDD__]OVERWRITE_DISCOVERY    | False                                     | Use custom discovery context (for offline purposes)                                                                                                            |
 
 ## Deploy to develop on the API
 

@@ -12,6 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jsonld": "^5.2.0"
+    "jsonld": "^8.3.1"
   }
 }
