@@ -12,9 +12,17 @@ from tdd.sparql import (
 )
 from tdd.metadata import insert_metadata, delete_metadata
 from tdd.errors import IDNotFound
+from tdd.config import CONFIG
 
 import re
 
+
+def get_check_schema_from_url_params(request):
+    check_schema_param = request.args.get("check-schema")
+    check_schema = CONFIG["CHECK_SCHEMA"]
+    if check_schema_param in ["false", "False", "0"]:
+        check_schema = False
+    return check_schema
 
 def delete_id(uri):
     resp = query(

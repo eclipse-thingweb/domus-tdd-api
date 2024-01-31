@@ -7,6 +7,8 @@ import json_merge_patch
 import httpx
 import toml
 
+from importlib_metadata import entry_points
+
 from tdd.errors import (
     AppException,
     JSONDecodeError,
@@ -27,6 +29,7 @@ from tdd.td import (
 )
 from tdd.common import (
     delete_id,
+    get_check_schema_from_url_params,
 )
 from tdd.sparql import query, sparql_query
 from tdd.utils import (
@@ -79,6 +82,14 @@ def create_app():
     register_error_handler(app)
     register_routes(app)
 
+    # import all blueprints from imported modules
+    for entry_point in entry_points(group="tdd_api.plugins"):
+        try:
+            app.register_blueprint(entry_point.load())
+        except Exception as exc:
+            print(f"ERROR ({entry_point.name}): {exc}")
+            print(f"Tried to load bluepints from {entry_point.value} but an error occured, module not loaded")
+
     # Launch thread to clear expired TDs periodically
     if CONFIG["PERIOD_CLEAR_EXPIRE_TD"] != 0:
         t = Thread(target=thread_clear_expire_td)
@@ -113,12 +124,6 @@ def register_routes(app):
         )
         return response
 
-    def get_check_schema_from_url_params(request):
-        check_schema_param = request.args.get("check-schema")
-        check_schema = CONFIG["CHECK_SCHEMA"]
-        if check_schema_param in ["false", "False", "0"]:
-            check_schema = False
-        return check_schema
 
     @app.route("/", methods=["GET"])
     def directory_description():
