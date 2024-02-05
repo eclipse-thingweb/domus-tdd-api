@@ -45,6 +45,8 @@ from tdd.config import CONFIG
 LIMIT_SPARQLENDPOINT_TEST = 10
 
 
+TD_TRANSFORMERS = []
+
 def wait_for_sparqlendpoint():
     test_num = 0
     while test_num < LIMIT_SPARQLENDPOINT_TEST:
@@ -83,12 +85,19 @@ def create_app():
     register_routes(app)
 
     # import all blueprints from imported modules
-    for entry_point in entry_points(group="tdd_api.plugins"):
+    for entry_point in entry_points(group="tdd_api.plugins.blueprints"):
         try:
             app.register_blueprint(entry_point.load())
         except Exception as exc:
             print(f"ERROR ({entry_point.name}): {exc}")
-            print(f"Tried to load bluepints from {entry_point.value} but an error occured, module not loaded")
+            print(f"Tried to {entry_point.value} but an error occured, blueprint not loaded")
+    # import all transformers from imported modules
+    for entry_point in entry_points(group="tdd_api.plugins.transformers"):
+        try:
+            TD_TRANSFORMERS.append(entry_point.load())
+        except Exception as exc:
+            print(f"ERROR ({entry_point.name}): {exc}")
+            print(f"Tried to load {entry_point.value} but an error occured, transformer not loaded")
 
     # Launch thread to clear expired TDs periodically
     if CONFIG["PERIOD_CLEAR_EXPIRE_TD"] != 0:
@@ -152,6 +161,8 @@ def register_routes(app):
             )
         else:
             raise WrongMimeType(mimetype)
+        for transformer in TD_TRANSFORMERS:
+            transformer(id)
         update_collection_etag()
         return Response(status=201 if not updated else 204, headers={"Location": uri})
 
@@ -172,6 +183,8 @@ def register_routes(app):
             if not validated:
                 raise JSONSchemaError(errors, td_id=id)
         put_td_json_in_sparql(td_updated)
+        for transformer in TD_TRANSFORMERS:
+            transformer(id)
         update_collection_etag()
         return Response(status=204)
 
@@ -192,6 +205,8 @@ def register_routes(app):
             )
         else:  # wrong mimetype
             raise WrongMimeType(mimetype)
+        for transformer in TD_TRANSFORMERS:
+            transformer(uri)
         update_collection_etag()
         return Response(status=201 if not updated else 204, headers={"Location": uri})
 
