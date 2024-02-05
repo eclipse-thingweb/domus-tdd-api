@@ -3,7 +3,7 @@ from jsoncomparison import Compare
 
 from tdd.utils import get_collection_etag
 
-from tests.conftest import (
+from tdd.tests.conftest import (
     DATA_PATH,
     assert_only_on_known_errors,
 )

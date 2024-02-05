@@ -9,7 +9,7 @@ from tdd.registration import (
     update_registration,
     validate_ttl,
 )
-from tests.conftest import DATA_PATH
+from tdd.tests.conftest import DATA_PATH
 
 
 def test_get_registration_dict_from_rdf():

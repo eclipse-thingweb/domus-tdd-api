@@ -1,6 +1,6 @@
 import json
 
-from tests.conftest import (
+from tdd.tests.conftest import (
     DATA_PATH,
 )
 
