@@ -1,13 +1,14 @@
 from config import config_from_env, config_from_toml, config_from_dict
 from config.configuration_set import ConfigurationSet
 
+from tdd.paths import DATA_PATH
 
 _default_config = {
     "TD_REPO_URL": "http://localhost:5000",
     "SPARQLENDPOINT_URL": "http://127.0.0.1:3030/things",
-    "TD_JSONSCHEMA": "./tdd/data/td-json-schema-validation.json",
-    "TD_ONTOLOGY": "./tdd/data/td.ttl",
-    "TD_SHACL_VALIDATOR": "./tdd/data/td-validation.ttl",
+    "TD_JSONSCHEMA": DATA_PATH / "td-json-schema-validation.json",
+    "TD_ONTOLOGY": DATA_PATH / "td.ttl",
+    "TD_SHACL_VALIDATOR": DATA_PATH / "td-validation.ttl",
     "ENDPOINT_TYPE": None,
     "LIMIT_BATCH_TDS": 25,
     "CHECK_SCHEMA": False,

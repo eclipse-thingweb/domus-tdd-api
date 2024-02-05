@@ -1,5 +1,6 @@
 import subprocess
 import json
+from pathlib import Path
 
 from flask import Response
 
@@ -13,6 +14,7 @@ from tdd.sparql import (
 from tdd.metadata import insert_metadata, delete_metadata
 from tdd.errors import IDNotFound
 from tdd.config import CONFIG
+from tdd.paths import LIB_PATH
 
 import re
 
@@ -38,7 +40,7 @@ def delete_id(uri):
 
 def json_ld_to_ntriples(ld_content):
     p = subprocess.Popen(
-        ["node", "tdd/lib/transform-to-nt.js", json.dumps(ld_content)],
+        ["node", LIB_PATH / "transform-to-nt.js", json.dumps(ld_content)],
         stdout=subprocess.PIPE,
     )
     nt_content = p.stdout.read()
@@ -81,7 +83,7 @@ def put_rdf_in_sparql(g, uri, context, delete_if_exists, ontology, forced_type=N
 
 def frame_nt_content(id, nt_content, frame):
     p = subprocess.Popen(
-        ["node", "tdd/lib/frame-jsonld.js", nt_content, json.dumps(frame)],
+        ["node", LIB_PATH / "frame-jsonld.js", nt_content, json.dumps(frame)],
         stdout=subprocess.PIPE,
     )
     json_ld_compacted = p.stdout.read()
