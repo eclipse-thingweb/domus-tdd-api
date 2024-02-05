@@ -26,7 +26,6 @@ tdd.CONFIG["CHECK_SCHEMA"] = True
 tdd.CONFIG["PERIOD_CLEAR_EXPIRE_TD"] = 0
 tdd.CONFIG["OVERWRITE_DISCOVERY"] = True
 
-
 @pytest.fixture(autouse=True)
 def patch_datetime_now(monkeypatch):
     class mydatetime(datetime.datetime):
@@ -47,12 +46,11 @@ def test_client(httpx_mock):
     with app.test_client() as test_client:
         return test_client
 
-
 class SparqlGraph:
-    def __init__(self, filename=None, format="nquads"):
+    def __init__(self, filename=None, format="nquads", data_path = DATA_PATH):
         self.graph = ConjunctiveGraph()
         if filename is not None:
-            self.graph.parse(DATA_PATH / filename, format=format)
+            self.graph.parse(data_path / filename, format=format)
 
     def sparql_get_query(self, query, content_type):
         if "json" not in content_type or content_type == "application/ld+json":
