@@ -176,3 +176,14 @@ black .
 flake8
 pytests tests
 ```
+
+## Plugin
+
+To use a specific plugin you can juste pip install the module and relaunch your
+TDD-API server. The new plugins routes and transformers will then been available.
+
+### Develop your own plugin
+
+You can develop your own plugin to add features to your TDD-API server.
+To do so you can create a new project and follow the instructions defined in the
+[Plugin Documentation](doc/plugin.md) to add it to the TDD-API.
