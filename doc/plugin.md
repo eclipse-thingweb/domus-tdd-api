@@ -2,8 +2,9 @@
 
 You can find a plugin example here [https://github.com/wiresio/tdd-api-plugin-example](https://github.com/wiresio/tdd-api-plugin-example).
 
-To develop your own plugin, the first thing to do is to create a `setup.py` file containing the common information,
-then add the entrypoints needed bu TDD-AI to consider it as a plugin.
+To develop your own plugin, the first thing to do is to create a `setup.py` file
+at the root of your new python project containing the usual python project information,
+then add the entrypoints needed for TDD-API to consider it as a plugin.
 
 ```python
 #!/usr/bin/env python
@@ -39,7 +40,7 @@ We have defined two entrypoints. The first one is `tdd_api.plugins.blueprints` w
 define where to find the [Flask blueprint](https://flask.palletsprojects.com/en/3.0.x/blueprints/) for
 the plugin.
 The second one is `tdd_api.plugins.transformers` to specify the function to use to transform a TD to
-what you want, here an `Example`.
+what you want, here an `example`.
 
 Then you can develop the function for the routes using the blueprint and the transformer feature.
 
@@ -52,14 +53,13 @@ as follow:
 blueprint = Blueprint("tdd_api_plugin_example", __name__, url_prefix="/example")
 ```
 
-We could have name the variable as we prefere since we have defined in the `setup.py` the right
-variable name in the entrypoint.
+We can give any name to the variable since the `setup.py` links it to the `tdd_api.plugins.blueprints`.
 
 The first parameter `"tdd_api_plugin_example"` is the name of the blueprint, the second parameter is the
 import module (here `__name__` since this is the same module) and we define a `url_prefix` to not redeclare it
 on each route.
-This `url_prefix` will be what distinguish the plugin routes to other. Be sure to not redefine an already imported
-prefix.
+This `url_prefix` make sure that if we use different plugins, the routes they declare will be unique `/plugin1/route1`, `/plugin2/route1`.
+This requires that all plugins have _different prefix_.
 
 This blueprint can be used to define all the routes you want to add to the TDD-API server regarding to
 this plugin.
@@ -78,7 +78,7 @@ other examples.
 
 ## Transformer
 
-We have defined a transformer to be sure, each time a TD is uploaded to transform it to our `Example` format
+We have defined a transformer to be sure, each time a TD is uploaded to transform it to our `example` format
 and store in the SparqlEndpoint. To do, we declare the function to use in the entrypoint (here
 `tdd_api_plugin_example.example:td_to_example` since we use the function `td_to_example` which is define in the
 `tdd_api_plugin_example/example.py` file.
@@ -97,17 +97,17 @@ thing to do can be fetching the TD content, which can be done with:
 content = get_id_description(uri, "application/n-triples", {"prefix": "td"})
 ```
 
-Using this content we can do whatever is needed to transform one format to another.
+Using this content we can do whatever is needed to manipulate the data : transform it,
+change its format, etc.
 Then we can store the result using the helper method `put_json_in_sparql` or `put_rdf_in_sparql` from the
 `tdd.common` module.
-You can look at the [`tdd_api_plugin_example/example.py`](https://github.com/wiresio/blobl/main/tdd_api_plugin_example/example.py) file to see how it
-is defined.
+You can look at the [`tdd_api_plugin_example/example.py`](https://github.com/wiresio/blobl/main/tdd_api_plugin_example/example.py) file to see how it is defined.
 
 ## Tests
 
 This example plugin come with some tests example to present how it can be done.
 You can find it in the folder [`tdd_api_plugin_example/tests`](https://github.com/wiresio/blobl/main/tdd_api_plugin_example/tests).
-The `test_example.py` define some tests for the `example.py` module, where the `test_td_to_example.py`
+`test_example.py` defines some tests for the `example.py` module, where the `test_td_to_example.py`
 define tests for the routes.
 
 These tests simulate the existence of a real SparqlEndpoint using a RDFLib Graph abstraction. Then you
@@ -122,6 +122,6 @@ def mock_sparql_example_and_td(httpx_mock):
 
 Where `DATA_PATH` is where the tests data are stored and `td_example.trig` the data to fill the SparqlEndpoint.
 
-There are some generic mock defined in the `TDD-API` module. You have to import them to use them in your tests.
+There are some generic mocks defined in the `TDD-API` module. You have to import them to use them in your tests.
 You can find for example the `mock_sparql_empty_endpoint` from `tdd.tests.conftest` module. This mock can be used
-to simulate an empty SparqlEndpoint at the begining of your test.
+to simulate an empty SparqlEndpoint at the beginning of your test.
