@@ -2,7 +2,6 @@ include ./tdd/*.py
 include ./tdd/data/*.ttl
 include ./tdd/data/*.json
 include ./tdd/lib/*.js
-recursive-include tdd/jsonld *.js
 
 include ./scripts/*.py
 
@@ -16,16 +15,9 @@ include package.json
 include package-lock.json
 include config.toml
 
-include deployment/*.yaml
-
 include fuseki-docker/**/*.ttl
 include fuseki-docker/*.ttl
-include fuseki-docker/databases/.hg_keep
 
-exclude .gitlab-ci.yml
-exclude .gitlab-ci-extended.yml
-
-exclude pytest.ini
 recursive-include tdd/tests/data *.json *.jsonld *.nquads *.ttl *.xml *.n3
 recursive-include tdd/tests *.py
 
