@@ -26,13 +26,8 @@ exclude .gitlab-ci.yml
 exclude .gitlab-ci-extended.yml
 
 exclude pytest.ini
-recursive-exclude tests *.json
-recursive-exclude tests *.py
-recursive-exclude tests *.jsonld
-recursive-exclude tests *.ttl
-recursive-exclude tests *.nquads
-exclude tests/data/smart-coffee-machine.n3
-exclude tests/data/smart-coffee-machine.xml
+recursive-include tdd/tests/data *.json *.jsonld *.nquads *.ttl *.xml *.n3
+recursive-include tdd/tests *.py
 
 prune doc
 prune node_modules
