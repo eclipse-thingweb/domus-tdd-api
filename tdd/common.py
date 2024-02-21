@@ -1,7 +1,5 @@
 import subprocess
 import json
-from pathlib import Path
-
 from flask import Response
 
 from tdd.sparql import (
@@ -25,6 +23,7 @@ def get_check_schema_from_url_params(request):
     if check_schema_param in ["false", "False", "0"]:
         check_schema = False
     return check_schema
+
 
 def delete_id(uri):
     resp = query(

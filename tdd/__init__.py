@@ -47,6 +47,7 @@ LIMIT_SPARQLENDPOINT_TEST = 10
 
 TD_TRANSFORMERS = []
 
+
 def wait_for_sparqlendpoint():
     test_num = 0
     while test_num < LIMIT_SPARQLENDPOINT_TEST:
@@ -90,14 +91,18 @@ def create_app():
             app.register_blueprint(entry_point.load())
         except Exception as exc:
             print(f"ERROR ({entry_point.name}): {exc}")
-            print(f"Tried to {entry_point.value} but an error occured, blueprint not loaded")
+            print(
+                f"Tried to {entry_point.value} but an error occurred, blueprint not loaded"
+            )
     # import all transformers from imported modules
     for entry_point in entry_points(group="tdd_api.plugins.transformers"):
         try:
             TD_TRANSFORMERS.append(entry_point.load())
         except Exception as exc:
             print(f"ERROR ({entry_point.name}): {exc}")
-            print(f"Tried to load {entry_point.value} but an error occured, transformer not loaded")
+            print(
+                f"Tried to load {entry_point.value} but an error occurred, transformer not loaded"
+            )
 
     # Launch thread to clear expired TDs periodically
     if CONFIG["PERIOD_CLEAR_EXPIRE_TD"] != 0:
@@ -132,7 +137,6 @@ def register_routes(app):
             "Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE"
         )
         return response
-
 
     @app.route("/", methods=["GET"])
     def directory_description():
@@ -270,9 +274,9 @@ def register_routes(app):
             response = Response(
                 stream_with_context(generate()), content_type="application/ld+json"
             )
-            response.headers[
-                "Link"
-            ] = f'</things>; rel="canonical"; etag="{get_collection_etag()}"'
+            response.headers["Link"] = (
+                f'</things>; rel="canonical"; etag="{get_collection_etag()}"'
+            )
             return response
 
         elif format == "collection":
@@ -298,9 +302,9 @@ def register_routes(app):
             next_offset = params["offset"] + params["limit"]
             if next_offset < number_total:
                 new_params = {**params, "offset": next_offset}
-                response[
-                    "next"
-                ] = f"/things?{create_link_params(new_params)}&format=collection"
+                response["next"] = (
+                    f"/things?{create_link_params(new_params)}&format=collection"
+                )
             response = Response(
                 json.dumps(response), content_type="application/ld+json"
             )
