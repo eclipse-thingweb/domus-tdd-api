@@ -17,6 +17,7 @@ setup(
         "python-configuration[toml]",
         "pyshacl",
         "importlib-metadata",
+        "toml",
     ],
     extras_require={
         "prod": [
