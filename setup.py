@@ -16,6 +16,7 @@ setup(
         "json-merge-patch",
         "python-configuration[toml]",
         "pyshacl",
+        "importlib-metadata",
     ],
     extras_require={
         "prod": [
