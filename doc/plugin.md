@@ -46,7 +46,7 @@ Then you can develop the function for the routes using the blueprint and the tra
 
 ## Blueprint
 
-As we defined in the [`tdd_api_plugin_example/__init__.py`](https://github.com/wiresio/blobl/main/tdd_api_plugin_example/__init__.py) we define the blueprint
+As we defined in the [`tdd_api_plugin_example/__init__.py`](https://github.com/wiresio/tdd-api-plugin/blob/main/tdd_api_plugin_example/__init__.py) we define the blueprint
 as follow:
 
 ```python
@@ -73,14 +73,21 @@ def describe_example(id):
 
 We use the blueprint as decorator to add the route, the path is defined regarding the `url_prefix` and we
 specify a dedicated method to match.
-You can look at the [`tdd_api_plugin_example/__init__.py`](https://github.com/wiresio/blobl/main/tdd_api_plugin_example/__init__.py) file to see
+You can look at the [`tdd_api_plugin_example/__init__.py`](https://github.com/wiresio/tdd-api-plugin/blob/main/tdd_api_plugin_example/__init__.py) file to see
 other examples.
 
 ## Transformer
 
+Transformers are functions that will be called each time a thing is created/updated on the /things routes,
+you can find the calls to these transformers in the [`tdd/__init__.py`](../tdd/__init__.py) file, in the functions:
+
+- `create_td`
+- `update_td`
+- `create_anonymous_td`
+
 We have defined a transformer to be sure, each time a TD is uploaded to transform it to our `example` format
-and store in the SparqlEndpoint. To do, we declare the function to use in the entrypoint (here
-`tdd_api_plugin_example.example:td_to_example` since we use the function `td_to_example` which is define in the
+and store in the SparqlEndpoint. To do, we declare the function to use in the entrypoint: here
+`tdd_api_plugin_example.example:td_to_example` since we use the function `td_to_example` which is defined in the
 `tdd_api_plugin_example/example.py` file.
 
 This method is declared like this:
