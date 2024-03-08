@@ -22,6 +22,7 @@ from flask import Response
 from tdd.config import CONFIG
 from tdd.errors import FusekiError
 
+
 # general queries
 CONSTRUCT_FROM_GRAPH = (
     "CONSTRUCT {{ ?s ?p ?o }} WHERE {{ GRAPH <{named_graph}> {{ ?s ?p ?o }} }}"
