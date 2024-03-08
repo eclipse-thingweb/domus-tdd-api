@@ -33,7 +33,6 @@ from tdd.context import (
     #  because of hasSecurityConfiguration framing
     overwrite_discovery_context,
 )
-
 from tdd.errors import (
     FusekiError,
     IDMismatchError,
@@ -42,7 +41,6 @@ from tdd.errors import (
     OrderbyError,
     RDFValidationError,
 )
-
 from tdd.utils import (
     uri_to_base,
     DEFAULT_THING_CONTEXT_URI,
@@ -50,7 +48,6 @@ from tdd.utils import (
     TD,
     create_binded_graph,
 )
-
 from tdd.registration import (
     validate_ttl,
     yield_registration_triples,
@@ -58,7 +55,6 @@ from tdd.registration import (
     delete_registration_information,
     get_registration_dict,
 )
-
 from tdd.sparql import (
     DELETE_GRAPHS,
     GET_EXPIRED_TD_GRAPHS,
@@ -68,13 +64,13 @@ from tdd.sparql import (
     query,
 )
 from tdd.config import CONFIG
-
 from tdd.common import (
     put_json_in_sparql,
     put_rdf_in_sparql,
     frame_nt_content,
     get_id_description,
 )
+
 
 with open(CONFIG["TD_JSONSCHEMA"]) as fp:
     schema = json.load(fp)
