@@ -17,9 +17,8 @@
 import subprocess
 import json
 import re
-
-
 from flask import Response
+
 
 from tdd.sparql import (
     CONSTRUCT_FROM_GRAPH,
