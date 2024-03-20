@@ -1,6 +1,6 @@
 # TDD-API Plugin
 
-You can find a plugin example here [https://github.com/wiresio/tdd-api-plugin-example](https://github.com/wiresio/tdd-api-plugin-example).
+You can find a plugin example here [https://github.com/wiresio/domus-tdd-api-plugin-example](https://github.com/wiresio/domus-tdd-api-plugin-example).
 
 To develop your own plugin, the first thing to do is to create a `setup.py` file
 at the root of your new python project containing the usual python project information,
