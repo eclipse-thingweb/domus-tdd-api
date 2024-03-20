@@ -1,15 +1,29 @@
+'''******************************************************************************
+ * Copyright (c) 2018 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License v. 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0, or the W3C Software Notice and
+ * Document License (2015-05-13) which is available at
+ * https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document.
+ *
+ * SPDX-License-Identifier: EPL-2.0 OR W3C-20150513
+ ********************************************************************************'''
+
+
 import concurrent.futures
 from copy import copy
-
 from datetime import datetime
 import json
 from jsonschema import Draft7Validator
 import uuid
-
 from rdflib import Graph, RDF
 from rdflib.exceptions import ParserError
-
 import pyshacl
+
 
 from tdd.context import (
     get_context,
@@ -19,7 +33,6 @@ from tdd.context import (
     #  because of hasSecurityConfiguration framing
     overwrite_discovery_context,
 )
-
 from tdd.errors import (
     FusekiError,
     IDMismatchError,
@@ -28,7 +41,6 @@ from tdd.errors import (
     OrderbyError,
     RDFValidationError,
 )
-
 from tdd.utils import (
     uri_to_base,
     DEFAULT_THING_CONTEXT_URI,
@@ -36,7 +48,6 @@ from tdd.utils import (
     TD,
     create_binded_graph,
 )
-
 from tdd.registration import (
     validate_ttl,
     yield_registration_triples,
@@ -44,7 +55,6 @@ from tdd.registration import (
     delete_registration_information,
     get_registration_dict,
 )
-
 from tdd.sparql import (
     DELETE_GRAPHS,
     GET_EXPIRED_TD_GRAPHS,
@@ -54,13 +64,13 @@ from tdd.sparql import (
     query,
 )
 from tdd.config import CONFIG
-
 from tdd.common import (
     put_json_in_sparql,
     put_rdf_in_sparql,
     frame_nt_content,
     get_id_description,
 )
+
 
 with open(CONFIG["TD_JSONSCHEMA"]) as fp:
     schema = json.load(fp)

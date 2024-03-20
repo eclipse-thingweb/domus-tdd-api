@@ -1,10 +1,17 @@
-# TDD API
+# Domus TDD API
 
 A Python and SPARQL based Thing Description Directory API compliant to:
 https://www.w3.org/TR/wot-discovery/
 
 To learn more about the routes and function of this server, see
 the [API documentation](doc/api.md).
+
+## Motivation
+
+According to [World History Encyclopedia](https://www.worldhistory.org/article/77/the-roman-domus/) the
+> Roman domus was much more than a place of dwelling for a Roman familia. It also served as a place of business and a religious center for worship. The size of a domus could range from a very small house to a luxurious mansion. In some cases, one domus took up an entire city-block, while more commonly, there were up to 8 domus per insula (city-block). All domus were free-standing structures. Some were constructed like modern-day townhouses with common walls between them, while others were detached.
+
+In the same way the Domus TDD API does not just offer a standards-conformant interface as specified in the link above, but also allows for flexible and scalable deployment, and has the possibility for extensions to carry out a bit more than just store & retrieve operations.
 
 ## Configuration
 
