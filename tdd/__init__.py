@@ -22,6 +22,7 @@ import json
 import json_merge_patch
 import httpx
 import toml
+from importlib_metadata import entry_points
 
 
 from tdd.errors import (
@@ -44,6 +45,7 @@ from tdd.td import (
 )
 from tdd.common import (
     delete_id,
+    get_check_schema_from_url_params,
 )
 from tdd.sparql import query, sparql_query
 from tdd.utils import (
@@ -57,6 +59,9 @@ from tdd.config import CONFIG
 
 
 LIMIT_SPARQLENDPOINT_TEST = 10
+
+
+TD_TRANSFORMERS = []
 
 
 def wait_for_sparqlendpoint():
@@ -96,6 +101,25 @@ def create_app():
     register_error_handler(app)
     register_routes(app)
 
+    # import all blueprints from imported modules
+    for entry_point in entry_points(group="tdd_api.plugins.blueprints"):
+        try:
+            app.register_blueprint(entry_point.load())
+        except Exception as exc:
+            print(f"ERROR ({entry_point.name}): {exc}")
+            print(
+                f"Tried to {entry_point.value} but an error occurred, blueprint not loaded"
+            )
+    # import all transformers from imported modules
+    for entry_point in entry_points(group="tdd_api.plugins.transformers"):
+        try:
+            TD_TRANSFORMERS.append(entry_point.load())
+        except Exception as exc:
+            print(f"ERROR ({entry_point.name}): {exc}")
+            print(
+                f"Tried to load {entry_point.value} but an error occurred, transformer not loaded"
+            )
+
     # Launch thread to clear expired TDs periodically
     if CONFIG["PERIOD_CLEAR_EXPIRE_TD"] != 0:
         t = Thread(target=thread_clear_expire_td)
@@ -130,13 +154,6 @@ def register_routes(app):
         )
         return response
 
-    def get_check_schema_from_url_params(request):
-        check_schema_param = request.args.get("check-schema")
-        check_schema = CONFIG["CHECK_SCHEMA"]
-        if check_schema_param in ["false", "False", "0"]:
-            check_schema = False
-        return check_schema
-
     @app.route("/", methods=["GET"])
     def directory_description():
         with open("tdd/data/tdd-description.json", "r") as f:
@@ -164,6 +181,8 @@ def register_routes(app):
             )
         else:
             raise WrongMimeType(mimetype)
+        for transformer in TD_TRANSFORMERS:
+            transformer(id)
         update_collection_etag()
         return Response(status=201 if not updated else 204, headers={"Location": uri})
 
@@ -184,6 +203,8 @@ def register_routes(app):
             if not validated:
                 raise JSONSchemaError(errors, td_id=id)
         put_td_json_in_sparql(td_updated)
+        for transformer in TD_TRANSFORMERS:
+            transformer(id)
         update_collection_etag()
         return Response(status=204)
 
@@ -204,6 +225,8 @@ def register_routes(app):
             )
         else:  # wrong mimetype
             raise WrongMimeType(mimetype)
+        for transformer in TD_TRANSFORMERS:
+            transformer(uri)
         update_collection_etag()
         return Response(status=201 if not updated else 204, headers={"Location": uri})
 
@@ -267,9 +290,9 @@ def register_routes(app):
             response = Response(
                 stream_with_context(generate()), content_type="application/ld+json"
             )
-            response.headers[
-                "Link"
-            ] = f'</things>; rel="canonical"; etag="{get_collection_etag()}"'
+            response.headers["Link"] = (
+                f'</things>; rel="canonical"; etag="{get_collection_etag()}"'
+            )
             return response
 
         elif format == "collection":
@@ -295,9 +318,9 @@ def register_routes(app):
             next_offset = params["offset"] + params["limit"]
             if next_offset < number_total:
                 new_params = {**params, "offset": next_offset}
-                response[
-                    "next"
-                ] = f"/things?{create_link_params(new_params)}&format=collection"
+                response["next"] = (
+                    f"/things?{create_link_params(new_params)}&format=collection"
+                )
             response = Response(
                 json.dumps(response), content_type="application/ld+json"
             )

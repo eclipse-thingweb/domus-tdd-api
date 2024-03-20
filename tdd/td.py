@@ -337,13 +337,15 @@ def get_paginated_tds(limit, offset, sort_by, sort_order):
             offset=offset,
             ontology=ONTOLOGY["base"],
             orderby_variable=f"?{sort_by}" if sort_by else "?id",
-            orderby_sparql=f"""
+            orderby_sparql=(
+                f"""
             OPTIONAL {{ GRAPH ?graph {{
                 {ORDERBY[sort_by]}
             }}}}
             """
-            if sort_by
-            else "",
+                if sort_by
+                else ""
+            ),
             orderby_direction=sort_order if sort_order else "ASC",
         ),
     )

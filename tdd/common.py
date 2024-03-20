@@ -29,6 +29,16 @@ from tdd.sparql import (
 )
 from tdd.metadata import insert_metadata, delete_metadata
 from tdd.errors import IDNotFound
+from tdd.config import CONFIG
+from tdd.paths import LIB_PATH
+
+
+def get_check_schema_from_url_params(request):
+    check_schema_param = request.args.get("check-schema")
+    check_schema = CONFIG["CHECK_SCHEMA"]
+    if check_schema_param in ["false", "False", "0"]:
+        check_schema = False
+    return check_schema
 
 
 def delete_id(uri):
@@ -45,7 +55,7 @@ def delete_id(uri):
 
 def json_ld_to_ntriples(ld_content):
     p = subprocess.Popen(
-        ["node", "tdd/lib/transform-to-nt.js", json.dumps(ld_content)],
+        ["node", LIB_PATH / "transform-to-nt.js", json.dumps(ld_content)],
         stdout=subprocess.PIPE,
     )
     nt_content = p.stdout.read()
@@ -88,7 +98,7 @@ def put_rdf_in_sparql(g, uri, context, delete_if_exists, ontology, forced_type=N
 
 def frame_nt_content(id, nt_content, frame):
     p = subprocess.Popen(
-        ["node", "tdd/lib/frame-jsonld.js", nt_content, json.dumps(frame)],
+        ["node", LIB_PATH / "frame-jsonld.js", nt_content, json.dumps(frame)],
         stdout=subprocess.PIPE,
     )
     json_ld_compacted = p.stdout.read()

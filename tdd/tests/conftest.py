@@ -65,10 +65,10 @@ def test_client(httpx_mock):
 
 
 class SparqlGraph:
-    def __init__(self, filename=None, format="nquads"):
+    def __init__(self, filename=None, format="nquads", data_path=DATA_PATH):
         self.graph = ConjunctiveGraph()
         if filename is not None:
-            self.graph.parse(DATA_PATH / filename, format=format)
+            self.graph.parse(data_path / filename, format=format)
 
     def sparql_get_query(self, query, content_type):
         if "json" not in content_type or content_type == "application/ld+json":

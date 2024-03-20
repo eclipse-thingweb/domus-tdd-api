@@ -18,6 +18,7 @@ import base64
 import json
 
 
+from tdd.paths import DATA_PATH
 from tdd.config import CONFIG
 from tdd.utils import DEFAULT_THING_CONTEXT_URI, DEFAULT_DISCOVERY_CONTEXT_URI
 from tdd.sparql import (
@@ -45,7 +46,7 @@ def overwrite_thing_context(ld_content):
         return
     if type(ld_content["@context"]) not in (tuple, list):
         return
-    with open("tdd/data/fixed-ctx.json") as fp:
+    with open(DATA_PATH / "fixed-ctx.json") as fp:
         fixed_ctx = fp.read()
         try:
             index_wot_ctx = ld_content["@context"].index(DEFAULT_THING_CONTEXT_URI)
@@ -61,7 +62,7 @@ def overwrite_discovery_context(ld_content):
         return
     if type(ld_content["@context"]) not in (tuple, list):
         return
-    with open("tdd/data/fixed-discovery-ctx.json") as fp:
+    with open(DATA_PATH / "fixed-discovery-ctx.json") as fp:
         fixed_discovery_ctx = fp.read()
         try:
             index_discovery_ctx = ld_content["@context"].index(

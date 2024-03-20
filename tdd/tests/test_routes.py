@@ -20,7 +20,7 @@ from rdflib import Graph
 from rdflib.compare import graph_diff
 from tdd.td import clear_expired_td
 
-from tests.conftest import (
+from tdd.tests.conftest import (
     DATA_PATH,
     add_registration_to_td,
     assert_only_on_known_errors,
