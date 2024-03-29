@@ -13,7 +13,6 @@
  * SPDX-License-Identifier: EPL-2.0 OR W3C-20150513
  ********************************************************************************"""
 
-#!/usr/bin/env python
 from setuptools import setup, find_packages
 
 from pathlib import Path

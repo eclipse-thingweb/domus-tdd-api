@@ -13,7 +13,7 @@
  * SPDX-License-Identifier: EPL-2.0 OR W3C-20150513
  ********************************************************************************"""
 
-"python import_all_plugfest.py [dirname|filename] [import_route_url]"
+# python import_all_plugfest.py [dirname|filename] [import_route_url]
 import os
 import sys
 import httpx
