@@ -38,6 +38,9 @@ jobs:
       - name: Install node modules
         run: npm ci
 
+      - name: Install node modules
+        run: npm run build
+
       - name: Install tox
         run: python -m pip install tox
 
