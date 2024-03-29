@@ -2,24 +2,26 @@ include ./tdd/*.py
 include ./tdd/data/*.ttl
 include ./tdd/data/*.json
 include ./tdd/lib/*.js
-
-include ./scripts/*.py
+include ./js-src/*.js
 
 include app.py
 include *.md
-include Dockerfile
-include docker-compose.yml
-include tox.ini
+recursive-include doc *.md *.odg
 include setup.py
 include package.json
 include package-lock.json
+include webpack.config.js
 include config.toml
 
-include fuseki-docker/**/*.ttl
-include fuseki-docker/*.ttl
+include LICENSE/*.txt
 
 recursive-include tdd/tests/data *.json *.jsonld *.nquads *.ttl *.xml *.n3
 recursive-include tdd/tests *.py
 
-prune doc
 prune node_modules
+prune scripts
+prune fuseki-docker
+exclude Dockerfile
+exclude docker-compose.yml
+exclude tox.ini
+
