@@ -13,17 +13,16 @@
  * SPDX-License-Identifier: EPL-2.0 OR W3C-20150513
  **********************************************************************************/
 
-
-const jsonld = require("jsonld");
+import { fromRDF, frame as jsonldFrame } from "jsonld";
 const data = process.argv[2];
 const framedata = process.argv[3];
 
 async function frame() {
-  const doc = await jsonld.fromRDF(data, {
+  const doc = await fromRDF(data, {
     format: "application/n-quads",
     useNativeTypes: "true",
   });
-  const framed = await jsonld.frame(doc, JSON.parse(framedata));
+  const framed = await jsonldFrame(doc, JSON.parse(framedata));
   return JSON.stringify(framed, null, 2);
 }
 
