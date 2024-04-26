@@ -1,5 +1,5 @@
 {
-  "name": "wot",
+  "name": "dom",
   "version": "1.0.0",
   "description": "For a quick launch of the TDD API with docker-compose:",
   "main": "tdd/lib/transform-to-nt.js",
@@ -7,11 +7,15 @@
     "doc": "doc"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode=development"
   },
   "author": "Eclipse Thingweb <thingweb-dev@eclipse.org> (https://thingweb.io/)",
   "license": "EPL-2.0 OR W3C-20150513",
   "dependencies": {
     "jsonld": "^8.3.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
   }
 }

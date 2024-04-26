@@ -1,4 +1,4 @@
-'''******************************************************************************
+"""******************************************************************************
  * Copyright (c) 2018 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
@@ -11,8 +11,7 @@
  * https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document.
  *
  * SPDX-License-Identifier: EPL-2.0 OR W3C-20150513
- ********************************************************************************'''
-
+ ********************************************************************************"""
 
 import datetime
 from copy import copy

@@ -9,6 +9,7 @@ the [API documentation](doc/api.md).
 ## Motivation
 
 According to [World History Encyclopedia](https://www.worldhistory.org/article/77/the-roman-domus/) the
+
 > Roman domus was much more than a place of dwelling for a Roman familia. It also served as a place of business and a religious center for worship. The size of a domus could range from a very small house to a luxurious mansion. In some cases, one domus took up an entire city-block, while more commonly, there were up to 8 domus per insula (city-block). All domus were free-standing structures. Some were constructed like modern-day townhouses with common walls between them, while others were detached.
 
 In the same way the Domus TDD API does not just offer a standards-conformant interface as specified in the link above, but also allows for flexible and scalable deployment, and has the possibility for extensions to carry out a bit more than just store & retrieve operations.
@@ -194,3 +195,21 @@ TDD-API server. The new plugins routes and transformers will then be available.
 You can develop your own plugin to add features to your TDD-API server.
 To do so you can create a new project and follow the instructions defined in the
 [Plugin Documentation](doc/plugin.md) to add it to the TDD-API.
+
+### Installing a plugin from pypi
+
+Plugins are python packages. If the plugin you want to add is on Pypi, you
+can simply `pip install` it.
+
+## Publishing domus-tdd-api to pypi.org
+
+To publish the package on pypi:
+
+- bump the package version in setup.py
+- tag the commit with the version
+- run `npm ci && npm run build` to recreate the javascript bundles
+- remove existing local dist and .egg folders `rm -rf build dist .egg .egg-info`
+- build python package `python3 setup.py sdist bdist_wheel`
+- install twine `pip install twine`
+- verify package with twine `twine check dist/*`
+- upload package to pypi `twine upload --skip-existing dist/*`
