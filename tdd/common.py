@@ -13,6 +13,7 @@
  * SPDX-License-Identifier: EPL-2.0 OR W3C-20150513
  ********************************************************************************"""
 
+from importlib import resources
 import subprocess
 import json
 import re
@@ -29,7 +30,6 @@ from tdd.sparql import (
 from tdd.metadata import insert_metadata, delete_metadata
 from tdd.errors import IDNotFound
 from tdd.config import CONFIG
-from tdd.paths import LIB_PATH
 
 
 def get_check_schema_from_url_params(request):
@@ -53,11 +53,16 @@ def delete_id(uri):
 
 
 def json_ld_to_ntriples(ld_content):
-    p = subprocess.Popen(
-        ["node", LIB_PATH / "transform-to-nt.js", json.dumps(ld_content)],
-        stdout=subprocess.PIPE,
-    )
-    nt_content = p.stdout.read()
+    with resources.path("tdd.lib", "transform-to-nt.js") as transform_lib_path:
+        p = subprocess.Popen(
+            [
+                "node",
+                transform_lib_path,
+                json.dumps(ld_content),
+            ],
+            stdout=subprocess.PIPE,
+        )
+        nt_content = p.stdout.read()
     return nt_content.decode("utf-8")
 
 
@@ -96,11 +101,17 @@ def put_rdf_in_sparql(g, uri, context, delete_if_exists, ontology, forced_type=N
 
 
 def frame_nt_content(id, nt_content, frame):
-    p = subprocess.Popen(
-        ["node", LIB_PATH / "frame-jsonld.js", nt_content, json.dumps(frame)],
-        stdout=subprocess.PIPE,
-    )
-    json_ld_compacted = p.stdout.read()
+    with resources.path("tdd.lib", "frame-jsonld.js") as frame_lib_path:
+        p = subprocess.Popen(
+            [
+                "node",
+                frame_lib_path,
+                nt_content,
+                json.dumps(frame),
+            ],
+            stdout=subprocess.PIPE,
+        )
+        json_ld_compacted = p.stdout.read()
     return json_ld_compacted
 
 

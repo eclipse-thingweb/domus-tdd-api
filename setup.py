@@ -66,4 +66,7 @@ setup(
             "requests",
         ],
     },
+    entry_points={
+        "console_scripts": ["domus-tdd-api = tdd:cli"],
+    },
 )

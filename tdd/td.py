@@ -16,6 +16,7 @@
 import concurrent.futures
 from copy import copy
 from datetime import datetime
+from importlib import resources
 import json
 from jsonschema import Draft7Validator
 import uuid
@@ -71,7 +72,7 @@ from tdd.common import (
 )
 
 
-with open(CONFIG["TD_JSONSCHEMA"]) as fp:
+with resources.open_text("tdd.data", "td-json-schema-validation.json") as fp:
     schema = json.load(fp)
 
 validator = Draft7Validator(schema=schema)
@@ -183,10 +184,11 @@ def put_td_rdf_in_sparql(
 
     if check_schema:
         ontology_graph = create_binded_graph()
-        ontology_graph.parse(location=CONFIG["TD_ONTOLOGY"], format="turtle")
-
-        shacl_shapes_graph = create_binded_graph()
-        shacl_shapes_graph.parse(location=CONFIG["TD_SHACL_VALIDATOR"], format="turtle")
+        with resources.path("tdd.data", "td.ttl") as onto_path:
+            ontology_graph.parse(location=onto_path, format="turtle")
+        with resources.path("tdd.data", "td-validation.ttl") as shacl_path:
+            shacl_shapes_graph = create_binded_graph()
+            shacl_shapes_graph.parse(location=shacl_path, format="turtle")
 
         conforms, graph_reports, text_reports = pyshacl.validate(
             g,
