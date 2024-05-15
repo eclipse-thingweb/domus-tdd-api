@@ -4,7 +4,7 @@ A Python and SPARQL based Thing Description Directory API compliant to:
 https://www.w3.org/TR/wot-discovery/
 
 To learn more about the routes and function of this server, see
-the [API documentation](doc/api.md).
+the [API documentation](https://github.com/eclipse-thingweb/domus-tdd-api/blob/main/doc/api.md).
 
 ## Motivation
 
@@ -16,8 +16,15 @@ In the same way the Domus TDD API does not just offer a standards-conformant int
 
 ## Install from pypi
 
+Use pip to install the domus-tdd-api package
+
 ```
 pip install domus-tdd-api
+```
+
+Run the flask server with the following command
+
+```
 domus-tdd-api run
 ```
 
@@ -99,12 +106,12 @@ npm ci
 The TDD API relies on a SPARQL endpoint as database connection.
 You need to set up one before you run the project.
 
-In the [SPARQL endpoint documentation](doc/sparql-endpoints/README.md) we provide
+In the [SPARQL endpoint documentation](https://github.com/eclipse-thingweb/domus-tdd-api/blob/main/doc/sparql-endpoints/README.md) we provide
 you with guidelines on how to set-up your SPARQL endpoint.
 
 ### Run the flask server
 
-First, set up your configuration (the SPARQL endpoint URL) (see [configuration](#configuration))
+First, set up your configuration (the SPARQL endpoint URL) (see [configuration](https://github.com/eclipse-thingweb/domus-tdd-api#configuration))
 if your SPARQL endpoint URL is not the default http://localhost:3030/things.
 
 Then run the flask server at the root of this project in your python virtual environment.
@@ -141,7 +148,7 @@ docker-compose up # runs api and sparqlendpoint
 
 If you want to deploy only the TDD API using docker-compose and use an
 existing SPARQL endpoint then you should edit the `config.toml` file with the
-appropriate `SPARQLENDPOINT_URL` value (see [configuration](#configuration)).
+appropriate `SPARQLENDPOINT_URL` value (see [configuration](https://github.com/eclipse-thingweb/domus-tdd-api#configuration)).
 Then run only the api image.
 If the api image is already built you do not have to rebuild, relaunching it
 will use the new config.
@@ -198,7 +205,7 @@ TDD-API server. The new plugins routes and transformers will then be available.
 
 You can develop your own plugin to add features to your TDD-API server.
 To do so you can create a new project and follow the instructions defined in the
-[Plugin Documentation](doc/plugin.md) to add it to the TDD-API.
+[Plugin Documentation](https://github.com/eclipse-thingweb/domus-tdd-api/blob/main/doc/plugin.md) to add it to the TDD-API.
 
 ### Installing a plugin from pypi
 
