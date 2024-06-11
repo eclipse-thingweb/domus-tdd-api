@@ -4,7 +4,7 @@ A Python and SPARQL based Thing Description Directory API compliant to:
 https://www.w3.org/TR/wot-discovery/
 
 To learn more about the routes and function of this server, see
-the [API documentation](doc/api.md).
+the [API documentation](https://github.com/eclipse-thingweb/domus-tdd-api/blob/main/doc/api.md).
 
 ## Motivation
 
@@ -13,6 +13,20 @@ According to [World History Encyclopedia](https://www.worldhistory.org/article/7
 > Roman domus was much more than a place of dwelling for a Roman familia. It also served as a place of business and a religious center for worship. The size of a domus could range from a very small house to a luxurious mansion. In some cases, one domus took up an entire city-block, while more commonly, there were up to 8 domus per insula (city-block). All domus were free-standing structures. Some were constructed like modern-day townhouses with common walls between them, while others were detached.
 
 In the same way the Domus TDD API does not just offer a standards-conformant interface as specified in the link above, but also allows for flexible and scalable deployment, and has the possibility for extensions to carry out a bit more than just store & retrieve operations.
+
+## Install from pypi
+
+Use pip to install the domus-tdd-api package
+
+```
+pip install domus-tdd-api
+```
+
+Run the flask server with the following command
+
+```
+domus-tdd-api run
+```
 
 ## Configuration
 
@@ -26,7 +40,7 @@ The TDD API can be configured using two methods.
      export TDD__CHECK_SCHEMA=True
    ```
 
-2. Editing the `config.toml` file using the direct name of the variable
+2. Create and edit a `config.toml` file at the root of the folder where you run the API using the direct name of the variable
 
    ```
      SPARQLENDPOINT_URL="http://my-new-sparql.endpoint/address"
@@ -55,9 +69,6 @@ The `config.toml` file can also be used to define FLask server configuration (c.
 | [TDD__]MANDATE_TTL            | False                                     | Boolean value, if set to True, it will only upload TDs having a time-to-live (ttl) value. The server will send a 400 HTTP code if the TD does not contain one. |
 | [TDD__]LIMIT_BATCH_TDS        | 25                                        | Default limit of returned TDs by batch (used for pagination)                                                                                                   |
 | [TDD__]ENDPOINT_TYPE          | None                                      | Special configuration to workaround SPARQL endpoints which do not follow the SPARQL standard. Possible values: `GRAPHDB` or `VIRTUOSO`                         |
-| [TDD__]TD_JSONSCHEMA          | ./tdd/data/td-json-schema-validation.json | The path to the file containing JSON-Schema to validate the TDs                                                                                                |
-| [TDD__]TD_ONTOLOGY            | ./tdd/data/td.ttl                         | The path to the file containing the TD OWL Ontology (only used for SHACL validation)                                                                           |
-| [TDD__]TD_SHACL_VALIDATOR     | ./tdd/data/td-validation.ttl              | The path to the file containing the SHACL shapes (only used for SHACL validation)                                                                              |
 | [TDD__]PERIOD_CLEAR_EXPIRE_TD | 3600                                      | The number of seconds between each clearing of expired TDs (0 to disable clearing expired TD)                                                                  |
 | [TDD__]OVERWRITE_DISCOVERY    | False                                     | Use custom discovery context (for offline purposes)                                                                                                            |
 
@@ -95,12 +106,12 @@ npm ci
 The TDD API relies on a SPARQL endpoint as database connection.
 You need to set up one before you run the project.
 
-In the [SPARQL endpoint documentation](doc/sparql-endpoints/README.md) we provide
+In the [SPARQL endpoint documentation](https://github.com/eclipse-thingweb/domus-tdd-api/blob/main/doc/sparql-endpoints/README.md) we provide
 you with guidelines on how to set-up your SPARQL endpoint.
 
 ### Run the flask server
 
-First, set up your configuration (the SPARQL endpoint URL) (see [configuration](#configuration))
+First, set up your configuration (the SPARQL endpoint URL) (see [configuration](https://github.com/eclipse-thingweb/domus-tdd-api#configuration))
 if your SPARQL endpoint URL is not the default http://localhost:3030/things.
 
 Then run the flask server at the root of this project in your python virtual environment.
@@ -137,7 +148,7 @@ docker-compose up # runs api and sparqlendpoint
 
 If you want to deploy only the TDD API using docker-compose and use an
 existing SPARQL endpoint then you should edit the `config.toml` file with the
-appropriate `SPARQLENDPOINT_URL` value (see [configuration](#configuration)).
+appropriate `SPARQLENDPOINT_URL` value (see [configuration](https://github.com/eclipse-thingweb/domus-tdd-api#configuration)).
 Then run only the api image.
 If the api image is already built you do not have to rebuild, relaunching it
 will use the new config.
@@ -194,7 +205,7 @@ TDD-API server. The new plugins routes and transformers will then be available.
 
 You can develop your own plugin to add features to your TDD-API server.
 To do so you can create a new project and follow the instructions defined in the
-[Plugin Documentation](doc/plugin.md) to add it to the TDD-API.
+[Plugin Documentation](https://github.com/eclipse-thingweb/domus-tdd-api/blob/main/doc/plugin.md) to add it to the TDD-API.
 
 ### Installing a plugin from pypi
 

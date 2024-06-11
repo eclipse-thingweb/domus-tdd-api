@@ -13,15 +13,19 @@
  * SPDX-License-Identifier: EPL-2.0 OR W3C-20150513
  ********************************************************************************"""
 
+from importlib import resources
 import sys
 import time
 from threading import Thread
+import click
 from flask import Flask, request, Response, stream_with_context
 import json
+from flask.cli import FlaskGroup
 import json_merge_patch
 import httpx
 import toml
 from importlib_metadata import entry_points
+from pathlib import Path
 
 
 from tdd.errors import (
@@ -95,7 +99,8 @@ def thread_clear_expire_td():
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_file("../config.toml", load=toml.load)
+    if Path("config.toml").is_file():
+        app.config.from_file(Path("config.toml").absolute(), load=toml.load)
     wait_for_sparqlendpoint()
     register_error_handler(app)
     register_routes(app)
@@ -127,6 +132,11 @@ def create_app():
     return app
 
 
+@click.group(cls=FlaskGroup, create_app=create_app)
+def cli():
+    """Management script for the API application."""
+
+
 def register_error_handler(app):
     @app.errorhandler(AppException)
     def error_response(e):
@@ -155,7 +165,7 @@ def register_routes(app):
 
     @app.route("/", methods=["GET"])
     def directory_description():
-        with open("tdd/data/tdd-description.json", "r") as f:
+        with resources.open_text("tdd.data", "tdd-description.json") as f:
             tdd_description = json.loads(f.read())
             tdd_description["base"] = CONFIG["TD_REPO_URL"]
             return Response(

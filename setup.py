@@ -33,6 +33,10 @@ setup(
     author="Eclipse Thingweb Project",
     maintainer="Eclipse Thingweb Project",
     url="https://github.com/eclipse-thingweb/domus-tdd-api",
+    project_urls={
+        "Releases": "https://github.com/eclipse-thingweb/domus-tdd-api/tags",
+        "Source": "https://github.com/eclipse-thingweb/domus-tdd-api",
+    },
     keywords=[
         "web of things",
         "thing description directory",
@@ -65,5 +69,8 @@ setup(
             "flake8",
             "requests",
         ],
+    },
+    entry_points={
+        "console_scripts": ["domus-tdd-api = tdd:cli"],
     },
 )

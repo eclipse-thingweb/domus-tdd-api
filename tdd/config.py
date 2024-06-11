@@ -15,15 +15,12 @@
 
 from config import config_from_env, config_from_toml, config_from_dict
 from config.configuration_set import ConfigurationSet
+from pathlib import Path
 
-from tdd.paths import DATA_PATH
 
 _default_config = {
     "TD_REPO_URL": "http://localhost:5000",
     "SPARQLENDPOINT_URL": "http://127.0.0.1:3030/things",
-    "TD_JSONSCHEMA": DATA_PATH / "td-json-schema-validation.json",
-    "TD_ONTOLOGY": DATA_PATH / "td.ttl",
-    "TD_SHACL_VALIDATOR": DATA_PATH / "td-validation.ttl",
     "ENDPOINT_TYPE": None,
     "LIMIT_BATCH_TDS": 25,
     "CHECK_SCHEMA": False,
@@ -33,11 +30,18 @@ _default_config = {
     "OVERWRITE_DISCOVERY": False,
 }
 
-CONFIG = ConfigurationSet(
-    config_from_env(prefix="TDD", interpolate=True),
-    config_from_toml("config.toml", read_from_file=True),
-    config_from_dict(_default_config),
-)
+
+if Path("config.toml").is_file():
+    CONFIG = ConfigurationSet(
+        config_from_env(prefix="TDD", interpolate=True),
+        config_from_toml("config.toml", read_from_file=True),
+        config_from_dict(_default_config),
+    )
+else:
+    CONFIG = ConfigurationSet(
+        config_from_env(prefix="TDD", interpolate=True),
+        config_from_dict(_default_config),
+    )
 
 # Remove trailing /
 if CONFIG["SPARQLENDPOINT_URL"][-1] == "/":
