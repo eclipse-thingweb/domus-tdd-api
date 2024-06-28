@@ -13,7 +13,7 @@
  * SPDX-License-Identifier: EPL-2.0 OR W3C-20150513
  ********************************************************************************"""
 
-from importlib import resources
+from importlib.resources import files
 import sys
 import time
 from threading import Thread
@@ -165,8 +165,8 @@ def register_routes(app):
 
     @app.route("/", methods=["GET"])
     def directory_description():
-        with resources.open_text("tdd.data", "tdd-description.json") as f:
-            tdd_description = json.loads(f.read())
+        with files(__package__).joinpath("data/tdd-description.json").open() as strm:
+            tdd_description = json.load(strm)
             tdd_description["base"] = CONFIG["TD_REPO_URL"]
             return Response(
                 json.dumps(tdd_description), content_type="application/td+json"

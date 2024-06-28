@@ -1,8 +1,8 @@
-include ./tdd/*.py
-include ./tdd/data/*.ttl
-include ./tdd/data/*.json
-include ./tdd/lib/*.js
-include ./js-src/*.js
+include tdd/*.py
+include tdd/data/*.ttl
+include tdd/data/*.json
+include tdd/lib/*.js
+include js-src/*.js
 
 include app.py
 include *.md

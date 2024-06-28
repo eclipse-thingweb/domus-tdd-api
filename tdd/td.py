@@ -16,13 +16,13 @@
 import concurrent.futures
 from copy import copy
 from datetime import datetime
-from importlib import resources
 import json
 from jsonschema import Draft7Validator
 import uuid
 from rdflib import Graph, RDF
 from rdflib.exceptions import ParserError
 import pyshacl
+from importlib.resources import files, path
 
 
 from tdd.context import (
@@ -72,10 +72,11 @@ from tdd.common import (
 )
 
 
-with resources.open_text("tdd.data", "td-json-schema-validation.json") as fp:
-    schema = json.load(fp)
+with files(__package__).joinpath("data/td-json-schema-validation.json").open() as strm:
+    schema = json.load(strm)
 
 validator = Draft7Validator(schema=schema)
+
 
 TYPE = "https://www.w3.org/2019/wot/td#Thing"
 ONTOLOGY = {"prefix": "td", "base": "https://www.w3.org/2019/wot/td"}
@@ -137,6 +138,7 @@ def validate_td(td, id=None, check_schema=CONFIG["CHECK_SCHEMA"]):
 
 
 def validate_td_json_schema(td):
+
     errors = list(validator.iter_errors(td))
     if errors:
         return False, errors
@@ -184,9 +186,9 @@ def put_td_rdf_in_sparql(
 
     if check_schema:
         ontology_graph = create_binded_graph()
-        with resources.path("tdd.data", "td.ttl") as onto_path:
+        with path("tdd.data", "td.ttl") as onto_path:
             ontology_graph.parse(location=onto_path, format="turtle")
-        with resources.path("tdd.data", "td-validation.ttl") as shacl_path:
+        with path("tdd.data", "td-validation.ttl") as shacl_path:
             shacl_shapes_graph = create_binded_graph()
             shacl_shapes_graph.parse(location=shacl_path, format="turtle")
 
