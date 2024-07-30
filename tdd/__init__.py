@@ -74,7 +74,7 @@ def wait_for_sparqlendpoint():
             resp = query("SELECT * WHERE {?a ?b ?c} LIMIT 1")
             if resp.status_code == 200:
                 return True
-        except httpx.NetworkError:
+        except (httpx.NetworkError, httpx.RemoteProtocolError):
             pass
         print(
             f"{LIMIT_SPARQLENDPOINT_TEST - test_num} - Waiting for the SPARQL endpoint"
