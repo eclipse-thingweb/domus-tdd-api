@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM node:10-buster-slim
+FROM node:lts-bullseye-slim
 
 RUN apt-get update && apt-get -y --no-install-recommends install \
     python3-pip \
