@@ -198,7 +198,7 @@ pytests tests
 
 ## Plugin
 
-To use a specific plugin you can juste pip install the module and relaunch your
+To use a specific plugin you can just pip install the module and relaunch your
 TDD-API server. The new plugins routes and transformers will then be available.
 
 ### Develop your own plugin

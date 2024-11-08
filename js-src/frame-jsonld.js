@@ -14,10 +14,13 @@
  **********************************************************************************/
 
 import { fromRDF, frame as jsonldFrame } from "jsonld";
-const data = process.argv[2];
+import fs from "fs";
+
+const dataFilePath = process.argv[2];
 const framedata = process.argv[3];
 
 async function frame() {
+  const data = fs.readFileSync(dataFilePath, "utf-8");
   const doc = await fromRDF(data, {
     format: "application/n-quads",
     useNativeTypes: "true",

@@ -18,6 +18,7 @@ import subprocess
 import json
 import re
 from flask import Response
+import tempfile
 
 
 from tdd.sparql import (
@@ -101,12 +102,16 @@ def put_rdf_in_sparql(g, uri, context, delete_if_exists, ontology, forced_type=N
 
 
 def frame_nt_content(id, nt_content, frame):
+    with tempfile.NamedTemporaryFile(delete=False, mode='w') as temp_file:
+        temp_file.write(nt_content)
+        temp_file_path = temp_file.name
+
     with resources.path("tdd.lib", "frame-jsonld.js") as frame_lib_path:
         p = subprocess.Popen(
             [
                 "node",
                 frame_lib_path,
-                nt_content,
+                temp_file, #nt_content,
                 json.dumps(frame),
             ],
             stdout=subprocess.PIPE,
