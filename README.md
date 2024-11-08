@@ -141,6 +141,7 @@ For a quick launch of the SPARQL endpoint and TDD API with docker-compose:
 
 ```bash
 chmod a+rwx fuseki-docker/configuration
+mkdir a+rwx fuseki-docker/databases
 chmod a+rwx fuseki-docker/databases
 docker-compose build # builds api and sparqlendpoint
 docker-compose up # runs api and sparqlendpoint
