@@ -14,11 +14,11 @@
  ********************************************************************************"""
 
 from setuptools import setup, find_packages
-#from pathlib import Path
+from pathlib import Path
 
 
-#this_directory = Path(__file__).parent
-#long_description = (this_directory / "README.md").read_text()
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="domus-tdd-api",
@@ -27,8 +27,8 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
-    #long_description=long_description,
-    #long_description_content_type="text/markdown",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     author="Eclipse Thingweb Project",
     maintainer="Eclipse Thingweb Project",
     url="https://github.com/eclipse-thingweb/domus-tdd-api",

@@ -1,1 +1,1 @@
-SPARQLENDPOINT_URL="http://localhost:3030/things/"
+SPARQLENDPOINT_URL="http:/localhost:3030/things/"

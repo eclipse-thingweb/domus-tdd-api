@@ -194,6 +194,7 @@ def query(
     :rtype: Response
     """
     sparqlendpoint = CONFIG["SPARQLENDPOINT_URL"]
+
     if route != "":
         sparqlendpoint = urljoin(f"{sparqlendpoint}/", route)
     if request_type == "query":
@@ -211,6 +212,7 @@ def query(
                 sparqlendpoint,
                 data={"update": querystring},
             )
+    print(resp)
     if resp.status_code not in status_codes:
         raise FusekiError(resp)
     return resp
