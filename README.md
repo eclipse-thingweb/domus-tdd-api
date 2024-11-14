@@ -74,19 +74,19 @@ The `config.toml` file can also be used to define FLask server configuration (c.
 
 ## Deploy to develop on the API
 
-### Create and activate a virtual environment
+### Install inside a virtual environment
 
 Create the [virtual environment](https://docs.python.org/3/library/venv.html)
 
 ```bash
-python3 -m venv .venv
+python3 -m venv domus
 ```
 
 Activate the virtual environment (in each new terminal where you need the libraries
 or the project)
 
 ```bash
-source .venv/bin/activate
+source domus/bin/activate
 ```
 
 Install the project and it dependencies in the virtual environment by running:
