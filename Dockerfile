@@ -17,7 +17,7 @@ COPY tdd /tdd-api/tdd
 COPY app.py /tdd-api/app.py
 COPY package.json /tdd-api/
 COPY package-lock.json /tdd-api/
-COPY config.toml /tdd-api/config.toml
+#COPY config.toml /tdd-api/config.toml
 COPY README.md /tdd-api/README.md
 
 WORKDIR /tdd-api
