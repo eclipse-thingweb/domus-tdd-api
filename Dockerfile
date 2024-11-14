@@ -27,12 +27,12 @@ RUN npm ci
 #RUN virtualenv domus
 #RUN chmod a+x domus/bin/activate
 #RUN domus/bin/activate
-RUN pip3 install .[prod]
+RUN pip3 install -e ".[prod]"
 
 #Install AID plugin
 RUN git clone https://github.com/wiresio/domus-tdd-api-plugin-aid.git
 WORKDIR /tdd-api/domus-tdd-api-plugin-aid
-RUN pip install -e .
+RUN pip3 install -e .
 
 WORKDIR /tdd-api
 RUN useradd proxyapi --create-home

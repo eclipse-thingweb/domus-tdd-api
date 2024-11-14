@@ -92,7 +92,7 @@ source domus/bin/activate
 Install the project and it dependencies in the virtual environment by running:
 
 ```bash
-pip install -e . dev
+pip install -e ".[dev]"
 ```
 
 Install the JavaScript dependencies (the project relies on jsonld.js for JSON-LD framing)
@@ -165,7 +165,7 @@ If you want to deploy production without using docker or docker-compose you can 
 the following commands:
 
 ```bash
-pip install . prod
+pip install -e ".[prod]"
 gunicorn -b 0.0.0.0:5050 app:app
 ```
 
