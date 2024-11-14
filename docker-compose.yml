@@ -4,9 +4,10 @@ services:
   api:
     build: .
     ports:
-      - "5000:5000"
+      - "5050:5050"
     environment:
       TDD__SPARQLENDPOINT_URL: "http://sparqlendpoint:3030/things/"
+      TDD__TD_REPO_URL: "https://plugfest.thingweb.io/domus-tdd/api/v1.0"
     depends_on:
       - sparqlendpoint
   sparqlendpoint:

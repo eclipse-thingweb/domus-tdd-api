@@ -4,10 +4,12 @@ FROM node:lts-bullseye-slim
 RUN apt-get update && apt-get -y --no-install-recommends install \
     python3-pip \
     python3-setuptools \
+    python3-virtualenv \
+    git \
     && rm -rf /var/lib/apt/lists/*
 
 ENV FLASK_RUN_HOST=0.0.0.0
-ENV TD_REPO_URL="http://localhost:5000"
+ENV TD_REPO_URL="http://localhost:5050"
 
 RUN mkdir /tdd-api
 COPY setup.py /tdd-api/
@@ -22,11 +24,20 @@ WORKDIR /tdd-api
 RUN npm ci
 
 #RUN apk add --no-cache gcc musl-dev linux-headers
+#RUN virtualenv domus
+#RUN chmod a+x domus/bin/activate
+#RUN domus/bin/activate
 RUN pip3 install .[prod]
 
+#Install AID plugin
+RUN git clone https://github.com/wiresio/domus-tdd-api-plugin-aid.git
+WORKDIR /tdd-api/domus-tdd-api-plugin-aid
+RUN pip install -e .
+
+WORKDIR /tdd-api
 RUN useradd proxyapi --create-home
 RUN mkdir /database
 USER proxyapi
 
-EXPOSE 5000
-CMD ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]
+EXPOSE 5050
+CMD ["gunicorn", "-b", "0.0.0.0:5050", "app:app"]

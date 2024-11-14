@@ -109,6 +109,9 @@ def create_app():
     for entry_point in entry_points(group="tdd_api.plugins.blueprints"):
         try:
             app.register_blueprint(entry_point.load())
+            print(
+                f"Imported {entry_point.value} blueprint"
+            )
         except Exception as exc:
             print(f"ERROR ({entry_point.name}): {exc}")
             print(
@@ -118,6 +121,9 @@ def create_app():
     for entry_point in entry_points(group="tdd_api.plugins.transformers"):
         try:
             TD_TRANSFORMERS.append(entry_point.load())
+            print(
+                f"Imported {entry_point.value} transformer"
+            )
         except Exception as exc:
             print(f"ERROR ({entry_point.name}): {exc}")
             print(

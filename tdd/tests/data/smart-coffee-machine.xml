@@ -155,7 +155,7 @@
     <j.3:forContentType xml:lang="en">application/json</j.3:forContentType>
   </rdf:Description>
   <rdf:Description rdf:nodeID="A28">
-    <j.5:hasInstanceConfiguration rdf:resource="http://localhost:5000/urn:55f01138-5c96-4b3d-a5d0-81319a2db677/nosec_sc"/>
+    <j.5:hasInstanceConfiguration rdf:resource="http://localhost:5050/urn:55f01138-5c96-4b3d-a5d0-81319a2db677/nosec_sc"/>
     <rdf:type rdf:resource="https://www.w3.org/2019/wot/security#NoSecurityScheme"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="A29">
@@ -168,7 +168,7 @@
   </rdf:Description>
   <rdf:Description rdf:about="urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677">
     <j.5:supportContact rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">git://github.com/eclipse/thingweb.node-wot.git</j.5:supportContact>
-    <j.5:hasSecurityConfiguration rdf:resource="http://localhost:5000/urn:55f01138-5c96-4b3d-a5d0-81319a2db677/nosec_sc"/>
+    <j.5:hasSecurityConfiguration rdf:resource="http://localhost:5050/urn:55f01138-5c96-4b3d-a5d0-81319a2db677/nosec_sc"/>
     <j.5:hasPropertyAffordance rdf:nodeID="A32"/>
     <j.5:hasPropertyAffordance rdf:nodeID="A20"/>
     <j.5:hasEventAffordance rdf:nodeID="A29"/>

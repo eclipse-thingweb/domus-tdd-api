@@ -19,7 +19,7 @@ from pathlib import Path
 
 
 _default_config = {
-    "TD_REPO_URL": "http://localhost:5000",
+    "TD_REPO_URL": "http://localhost:5050",
     "SPARQLENDPOINT_URL": "http://127.0.0.1:3030/things",
     "ENDPOINT_TYPE": None,
     "LIMIT_BATCH_TDS": 25,

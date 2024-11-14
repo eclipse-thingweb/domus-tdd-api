@@ -2,7 +2,7 @@ _:B9d1e25e0X2D5a71X2D4cc1X2DbedaX2De4b2893a3413 <https://www.w3.org/2019/wot/hyp
 _:B9d1e25e0X2D5a71X2D4cc1X2DbedaX2De4b2893a3413 <https://www.w3.org/2019/wot/hypermedia#hasOperationType> <https://www.w3.org/2019/wot/td#readProperty> <td:urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> .
 _:B9d1e25e0X2D5a71X2D4cc1X2DbedaX2De4b2893a3413 <https://www.w3.org/2019/wot/hypermedia#forContentType> "application/json"@en <td:urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> .
 _:B9d1e25e0X2D5a71X2D4cc1X2DbedaX2De4b2893a3413 <http://www.w3.org/2011/http#methodName> "GET"@en <td:urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> .
-_:B1521d7f8X2D8488X2D4fb8X2D83e6X2Db2dae9a0a4d2 <https://www.w3.org/2019/wot/td#hasInstanceConfiguration> <http://localhost:5000/urn:55f01138-5c96-4b3d-a5d0-81319a2db677/nosec_sc> <td:urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> .
+_:B1521d7f8X2D8488X2D4fb8X2D83e6X2Db2dae9a0a4d2 <https://www.w3.org/2019/wot/td#hasInstanceConfiguration> <http://localhost:5050/urn:55f01138-5c96-4b3d-a5d0-81319a2db677/nosec_sc> <td:urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> .
 _:B1521d7f8X2D8488X2D4fb8X2D83e6X2Db2dae9a0a4d2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/security#NoSecurityScheme> <td:urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> .
 _:B7bc78458X2Df3e0X2D4425X2Da616X2Df9ca6e328cf6 <https://www.w3.org/2019/wot/json-schema#propertyName> "result"@en <td:urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> .
 _:B7bc78458X2Df3e0X2D4425X2Da616X2Df9ca6e328cf6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#BooleanSchema> <td:urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> .
@@ -82,7 +82,7 @@ _:B01371d96X2D071bX2D42adX2Db33eX2D6ed41dc948cd <https://www.w3.org/2019/wot/jso
 _:B01371d96X2D071bX2D42adX2Db33eX2D6ed41dc948cd <https://www.w3.org/2019/wot/json-schema#propertyName> "chocolate"@en <td:urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> .
 _:B01371d96X2D071bX2D42adX2Db33eX2D6ed41dc948cd <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2019/wot/json-schema#IntegerSchema> <td:urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> .
 <urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> <https://www.w3.org/2019/wot/td#supportContact> "git://github.com/eclipse/thingweb.node-wot.git"^^<http://www.w3.org/2001/XMLSchema#anyURI> <td:urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> .
-<urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> <https://www.w3.org/2019/wot/td#hasSecurityConfiguration> <http://localhost:5000/urn:55f01138-5c96-4b3d-a5d0-81319a2db677/nosec_sc> <td:urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> .
+<urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> <https://www.w3.org/2019/wot/td#hasSecurityConfiguration> <http://localhost:5050/urn:55f01138-5c96-4b3d-a5d0-81319a2db677/nosec_sc> <td:urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> .
 <urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> <https://www.w3.org/2019/wot/td#hasPropertyAffordance> _:B28ae81c4X2DecdaX2D4e49X2Da522X2Dc0018be71aed <td:urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> .
 <urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> <https://www.w3.org/2019/wot/td#hasPropertyAffordance> _:B198a2182X2Df658X2D45a6X2Da943X2D7f111272d61a <td:urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> .
 <urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> <https://www.w3.org/2019/wot/td#hasEventAffordance> _:B1958fb1eX2Dac5cX2D4008X2D9bb1X2Ddba6647d26c5 <td:urn:uuid:55f01138-5c96-4b3d-a5d0-81319a2db677> .

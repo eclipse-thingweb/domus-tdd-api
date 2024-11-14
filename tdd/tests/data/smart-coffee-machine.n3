@@ -3,7 +3,7 @@
         <https://www.w3.org/2019/wot/td#definesSecurityScheme>
                 [ a       <https://www.w3.org/2019/wot/security#NoSecurityScheme> ;
                   <https://www.w3.org/2019/wot/td#hasInstanceConfiguration>
-                          <http://localhost:5000/urn:55f01138-5c96-4b3d-a5d0-81319a2db677/nosec_sc>
+                          <http://localhost:5050/urn:55f01138-5c96-4b3d-a5d0-81319a2db677/nosec_sc>
                 ] ;
         <https://www.w3.org/2019/wot/td#description>
                 "A smart coffee machine with a range of capabilities.\nA complementary tutorial is available at http://www.thingweb.io/smart-coffee-machine.html."@en ;
@@ -497,7 +497,7 @@
                           "maintenanceNeeded"@en
                 ] ;
         <https://www.w3.org/2019/wot/td#hasSecurityConfiguration>
-                <http://localhost:5000/urn:55f01138-5c96-4b3d-a5d0-81319a2db677/nosec_sc> ;
+                <http://localhost:5050/urn:55f01138-5c96-4b3d-a5d0-81319a2db677/nosec_sc> ;
         <https://www.w3.org/2019/wot/td#supportContact>
                 "git://github.com/eclipse/thingweb.node-wot.git"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
         <https://www.w3.org/2019/wot/td#title>

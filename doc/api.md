@@ -6,10 +6,10 @@ We created a small script to import a TD or a folder of TDs `scripts/import_all_
 This script takes two arguments:
 
 - the path towards the TD file or TD folder
-- the tdd-api import route (e.g., http://localhost:5000/things)
+- the tdd-api import route (e.g., http://localhost:5050/things)
 
 ```
-python scripts/import_all_plugfest.py /path/to/TD http://localhost:5000/things
+python scripts/import_all_plugfest.py /path/to/TD http://localhost:5050/things
 ```
 
 Note: when importing a folder of TDs, only the files with the `.td.json` extension

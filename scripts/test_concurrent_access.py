@@ -36,7 +36,7 @@ async def send_concurrent_requests(requests):
 
 
 if __name__ == "__main__":
-    base_url = posixpath.join("http://127.0.0.1:5000", "things")
+    base_url = posixpath.join("http://127.0.0.1:5050", "things")
     with open("tests/data/smart-coffee-machine.td.jsonld") as fp:
         data = fp.read()
     requests = (

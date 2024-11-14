@@ -25,7 +25,7 @@ pip install domus-tdd-api
 Run the flask server with the following command
 
 ```
-domus-tdd-api run
+domus-tdd-api run -p 5050
 ```
 
 ## Configuration
@@ -62,7 +62,7 @@ The `config.toml` file can also be used to define FLask server configuration (c.
 
 | Variable name                 | default value                             | description                                                                                                                                                    |
 | ----------------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [TDD__]TD_REPO_URL            | http://localhost:5000                     | The URL to access the TDD API server                                                                                                                           |
+| [TDD__]TD_REPO_URL            | http://localhost:5050                     | The URL to access the TDD API server                                                                                                                           |
 | [TDD__]SPARQLENDPOINT_URL     | http://localhost:3030/things              | The SPARQL endpoint URL                                                                                                                                        |
 | [TDD__]CHECK_SCHEMA           | False                                     | Define if TDD API will check the TDs regarding to the JSON-Schema and SHACL shapes                                                                             |
 | [TDD__]MAX_TTL                | None                                      | Integer, maximum time-to-live (in seconds) that a TD will be kept on the server (unlimited if None)                                                            |
@@ -92,7 +92,7 @@ source .venv/bin/activate
 Install the project and it dependencies in the virtual environment by running:
 
 ```bash
-pip install -e .[dev]
+pip install -e . dev
 ```
 
 Install the JavaScript dependencies (the project relies on jsonld.js for JSON-LD framing)
@@ -165,8 +165,8 @@ If you want to deploy production without using docker or docker-compose you can 
 the following commands:
 
 ```bash
-pip install .[prod]
-gunicorn -b 0.0.0.0:5000 app:app
+pip install . prod
+gunicorn -b 0.0.0.0:5050 app:app
 ```
 
 You can change the `-b` parameter if you want to deploy only for localhost
