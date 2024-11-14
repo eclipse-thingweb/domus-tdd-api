@@ -111,7 +111,7 @@ def frame_nt_content(id, nt_content, frame):
             [
                 "node",
                 frame_lib_path,
-                temp_file, #nt_content,
+                temp_file_path,
                 json.dumps(frame),
             ],
             stdout=subprocess.PIPE,
