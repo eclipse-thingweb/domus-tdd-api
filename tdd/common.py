@@ -105,18 +105,18 @@ def frame_nt_content(id, nt_content, frame):
     with tempfile.NamedTemporaryFile(delete=False, mode='w') as temp_file:
         temp_file.write(nt_content)
         temp_file_path = temp_file.name
-
-    with resources.path("tdd.lib", "frame-jsonld.js") as frame_lib_path:
-        p = subprocess.Popen(
-            [
-                "node",
-                frame_lib_path,
-                temp_file_path,
-                json.dumps(frame),
-            ],
-            stdout=subprocess.PIPE,
-        )
-        json_ld_compacted = p.stdout.read()
+    #with resources.path("tdd.lib", "frame-jsonld.js") as frame_lib_path:
+    frame_lib_path = "tdd/lib/frame-jsonld.js"
+    p = subprocess.Popen(
+        [
+            "node",
+            frame_lib_path,
+            temp_file_path,
+            json.dumps(frame),
+        ],
+        stdout=subprocess.PIPE,
+    )
+    json_ld_compacted = p.stdout.read()
     return json_ld_compacted
 
 

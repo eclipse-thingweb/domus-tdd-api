@@ -88,7 +88,7 @@ def wait_for_sparqlendpoint():
 
 def thread_clear_expire_td():
     while True:
-        print("Clearing expired TD ...")
+        print("Clearing expired TDs ...")
         clear_expired_td()
         print(
             "Expired TDs cleared (next clear in "
@@ -104,7 +104,7 @@ def create_app():
     wait_for_sparqlendpoint()
     register_error_handler(app)
     register_routes(app)
-    
+
     # import all blueprints from imported modules
     for entry_point in entry_points(group="tdd_api.plugins.blueprints"):
         try:
