@@ -13,20 +13,23 @@
  * SPDX-License-Identifier: EPL-2.0 OR W3C-20150513
  **********************************************************************************/
 
-import { fromRDF, frame as jsonldFrame } from "jsonld";
-import fs from "fs";
+const readline = require('readline');
+const { fromRDF, frame: jsonldFrame } = require("jsonld");
 
-const dataFilePath = process.argv[2];
-const framedata = process.argv[3];
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-async function frame() {
-  const data = fs.readFileSync(dataFilePath, "utf-8");
-  const doc = await fromRDF(data, {
+rl.on('line', async (input) => {
+  const inputObjects = JSON.parse(input);
+  const ntriples = inputObjects[0]["ntriples"];
+  const framedata = inputObjects[1];
+  const doc = await fromRDF(ntriples, {
     format: "application/n-quads",
     useNativeTypes: "true",
   });
-  const framed = await jsonldFrame(doc, JSON.parse(framedata));
-  return JSON.stringify(framed, null, 2);
-}
-
-frame().then(console.log);
+  const framed = await jsonldFrame(doc, framedata);
+  console.log(JSON.stringify(framed, null, 2));
+  rl.close();
+});

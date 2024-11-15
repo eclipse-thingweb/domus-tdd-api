@@ -13,14 +13,18 @@
  * SPDX-License-Identifier: EPL-2.0 OR W3C-20150513
  **********************************************************************************/
 
-import { toRDF } from "jsonld";
-const data = process.argv[2];
+const readline = require('readline');
+const { toRDF } = require("jsonld");
 
-async function transform() {
-  const rdf = await toRDF(JSON.parse(data), {
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.on('line', async (input) => {
+  const rdf = await toRDF(JSON.parse(input), {
     format: "application/n-quads",
   });
-  return rdf;
-}
-
-transform().then(console.log);
+  console.log(rdf);
+  rl.close();
+});

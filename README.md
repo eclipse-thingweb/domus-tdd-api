@@ -117,7 +117,7 @@ if your SPARQL endpoint URL is not the default http://localhost:3030/things.
 Then run the flask server at the root of this project in your python virtual environment.
 
 ```bash
-flask run
+flask run -p 5050
 ```
 
 ## Import data using script

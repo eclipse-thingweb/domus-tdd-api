@@ -18,7 +18,8 @@ import subprocess
 import json
 import re
 from flask import Response
-import tempfile
+import sys
+import asyncio
 
 
 from tdd.sparql import (
@@ -54,16 +55,22 @@ def delete_id(uri):
 
 
 def json_ld_to_ntriples(ld_content):
+    input_data = json.dumps(ld_content) + "\n"
     with resources.path("tdd.lib", "transform-to-nt.js") as transform_lib_path:
         p = subprocess.Popen(
             [
                 "node",
-                transform_lib_path,
-                json.dumps(ld_content),
+                transform_lib_path
             ],
+            stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            universal_newlines=True
         )
+        p.stdin.write(input_data)
+        p.stdin.flush()
         nt_content = p.stdout.read()
+        p.wait()
     return nt_content.decode("utf-8")
 
 
@@ -102,22 +109,24 @@ def put_rdf_in_sparql(g, uri, context, delete_if_exists, ontology, forced_type=N
 
 
 def frame_nt_content(id, nt_content, frame):
-    with tempfile.NamedTemporaryFile(delete=False, mode='w') as temp_file:
-        temp_file.write(nt_content)
-        temp_file_path = temp_file.name
+    ntriples = {"ntriples": nt_content}
+    input_data = json.dumps([ntriples, frame]) + "\n"
     with resources.path("tdd.lib", "frame-jsonld.js") as frame_lib_path:
-    #frame_lib_path = "tdd/lib/frame-jsonld.js"
         p = subprocess.Popen(
             [
                 "node",
-                frame_lib_path,
-                temp_file_path,
-                json.dumps(frame),
+                frame_lib_path
             ],
+            stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            universal_newlines=True
         )
-        json_ld_compacted = p.stdout.read()
-    return json_ld_compacted
+        p.stdin.write(input_data)
+        p.stdin.flush()
+        jsonld_compacted = p.stdout.read()
+        p.wait()
+    return jsonld_compacted
 
 
 def get_id_description(uri, content_type, ontology):
