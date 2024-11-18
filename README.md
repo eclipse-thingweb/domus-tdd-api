@@ -98,7 +98,7 @@ pip install -e ".[dev]"
 Install the JavaScript dependencies (the project relies on jsonld.js for JSON-LD framing)
 
 ```bash
-npm ci && npm run build
+npm ci && npm run build && touch tdd/lib/__init__.py
 ```
 
 ### Deploy a SPARQL endpoint
