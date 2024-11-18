@@ -24,6 +24,7 @@ WORKDIR /tdd-api
 RUN pip3 install -e ".[prod]"
 RUN npm ci
 RUN npm run build
+RUN touch /tdd-api/tdd/lib/__init__.py
 
 #Uncomment to install AID plugin
 #RUN git clone https://github.com/wiresio/domus-tdd-api-plugin-aid.git

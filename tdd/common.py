@@ -18,8 +18,6 @@ import subprocess
 import json
 import re
 from flask import Response
-import sys
-import asyncio
 
 
 from tdd.sparql import (
@@ -71,7 +69,7 @@ def json_ld_to_ntriples(ld_content):
         p.stdin.flush()
         nt_content = p.stdout.read()
         p.wait()
-    return nt_content.decode("utf-8")
+    return nt_content
 
 
 def put_in_sparql(content, uri, context, delete_if_exists, ontology):
@@ -108,7 +106,7 @@ def put_rdf_in_sparql(g, uri, context, delete_if_exists, ontology, forced_type=N
     put_in_sparql(nt_content, uri, context, delete_if_exists, ontology)
 
 
-def frame_nt_content(id, nt_content, frame):
+def frame_nt_content(nt_content, frame):
     ntriples = {"ntriples": nt_content}
     input_data = json.dumps([ntriples, frame]) + "\n"
     with resources.path("tdd.lib", "frame-jsonld.js") as frame_lib_path:

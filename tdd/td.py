@@ -289,7 +289,7 @@ def frame_td_nt_content(td_id, nt_content, original_context):
     # no need since the published context is up to date
     overwrite_thing_context(frame)
     overwrite_discovery_context(frame)
-    jsonld_compacted = frame_nt_content(td_id, nt_content, frame)
+    jsonld_compacted = frame_nt_content(nt_content, frame)
 
     jsonld_response = json.loads(jsonld_compacted)
     jsonld_response["@context"] = original_context
