@@ -17,7 +17,7 @@ from importlib import resources
 import subprocess
 import json
 import re
-from flask import Response
+from flask import Response, abort
 
 
 from tdd.sparql import (
@@ -136,5 +136,6 @@ def get_id_description(uri, content_type, ontology):
     if not resp.text.strip() or not (
         re.search(r"^[^\#]", resp.text, re.MULTILINE)
     ):  # because some SPARQL endpoint may send "# Empty file" as response
-        raise IDNotFound()
+        #raise IDNotFound()
+        abort(404)
     return resp.text

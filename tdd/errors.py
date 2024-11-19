@@ -193,7 +193,7 @@ class TTLMandatoryError(AppException):
 
 
 class IDNotFound(AppException):
-    title = "ID Not Found"
+    title = "Not found"
     status_code = 404
 
 
