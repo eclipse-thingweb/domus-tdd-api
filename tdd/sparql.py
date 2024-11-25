@@ -212,7 +212,7 @@ def query(
                 sparqlendpoint,
                 data={"update": querystring},
             )
-    
+
     if resp.status_code not in status_codes:
         raise FusekiError(resp)
     return resp

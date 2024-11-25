@@ -28,7 +28,6 @@ from tdd.sparql import (
     query,
 )
 from tdd.metadata import insert_metadata, delete_metadata
-from tdd.errors import IDNotFound
 from tdd.config import CONFIG
 
 
@@ -56,14 +55,11 @@ def json_ld_to_ntriples(ld_content):
     input_data = json.dumps(ld_content) + "\n"
     with resources.path("tdd.lib", "transform-to-nt.js") as transform_lib_path:
         p = subprocess.Popen(
-            [
-                "node",
-                transform_lib_path
-            ],
+            ["node", transform_lib_path],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            universal_newlines=True
+            universal_newlines=True,
         )
         p.stdin.write(input_data)
         p.stdin.flush()
@@ -111,14 +107,11 @@ def frame_nt_content(nt_content, frame):
     input_data = json.dumps([ntriples, frame]) + "\n"
     with resources.path("tdd.lib", "frame-jsonld.js") as frame_lib_path:
         p = subprocess.Popen(
-            [
-                "node",
-                frame_lib_path
-            ],
+            ["node", frame_lib_path],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            universal_newlines=True
+            universal_newlines=True,
         )
         p.stdin.write(input_data)
         p.stdin.flush()
@@ -136,6 +129,6 @@ def get_id_description(uri, content_type, ontology):
     if not resp.text.strip() or not (
         re.search(r"^[^\#]", resp.text, re.MULTILINE)
     ):  # because some SPARQL endpoint may send "# Empty file" as response
-        #raise IDNotFound()
+        # raise IDNotFound()
         abort(404)
     return resp.text
