@@ -139,7 +139,7 @@
     }
   },
   "properties": {
-    "retrieveTD": {
+    "retrieveThing": {
       "description": "Retrieve a Thing Description",
       "uriVariables": {
         "id": {
@@ -168,7 +168,7 @@
         }
       ]
     },
-    "retrieveTDs": {
+    "things": {
       "description": "Retrieve Thing Descriptions in batch",
       "uriVariables": {
         "format": {
