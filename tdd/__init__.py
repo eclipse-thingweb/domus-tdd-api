@@ -68,6 +68,36 @@ LIMIT_SPARQLENDPOINT_TEST = 10
 TD_TRANSFORMERS = []
 
 
+def apply_response_content_type_fix(thing_description):
+    """
+    This function applies the workaround described in WoT Discovery issue
+    https://github.com/w3c/wot-discovery/issues/465 to let the TD exposed
+    by the TDD pass JSON Schema validation.
+
+    The workaround is needed since in the TD specification the contentType field
+    in the "response" objects has been defined as mandatory without providing a
+    default, making the TD for TDDs included in the Discovery Recommendation
+    invalid (also see https://github.com/w3c/wot-thing-description/issues/1780).
+    This issue should probably be fixed in the 2.0 version of the TD
+    specification, which render this workaround obsolete.
+    """
+    actionsToFix = ["createThing", "updateThing", "deleteThing"]
+
+    print(thing_description["actions"].keys())
+    for key in actionsToFix:
+
+        forms = thing_description["actions"].get(key, {}).get("forms", [])
+
+        for form in forms:
+            response = form.get("response")
+
+            if response is None:
+                continue
+
+            if response.get("contentType") is None:
+                response["contentType"] = "application/x-empty"
+
+
 def wait_for_sparqlendpoint():
     test_num = 0
     while test_num < LIMIT_SPARQLENDPOINT_TEST:
@@ -171,6 +201,7 @@ def register_routes(app):
         with files(__package__).joinpath("data/tdd-description.json").open() as strm:
             tdd_description = json.load(strm)
             tdd_description["base"] = CONFIG["TD_REPO_URL"]
+            apply_response_content_type_fix(tdd_description)
             return Response(
                 json.dumps(tdd_description), content_type="application/td+json"
             )
