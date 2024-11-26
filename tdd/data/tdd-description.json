@@ -10,7 +10,7 @@
   "security": "no_sec",
   "base": "{{TD_REPO_URL}}",
   "actions": {
-    "createTD": {
+    "createThing": {
       "description": "Create a Thing Description",
       "uriVariables": {
         "id": {
@@ -63,7 +63,7 @@
         }
       ]
     },
-    "updateTD": {
+    "updateThing": {
       "description": "Update a Thing Description",
       "uriVariables": {
         "id": {
@@ -109,7 +109,7 @@
         }
       ]
     },
-    "deleteTD": {
+    "deleteThing": {
       "description": "Delete a Thing Description",
       "uriVariables": {
         "id": {
