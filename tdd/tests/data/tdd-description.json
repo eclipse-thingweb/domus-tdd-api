@@ -10,7 +10,7 @@
   "security": "no_sec",
   "base": "http://localhost:5050",
   "actions": {
-    "createTD": {
+    "createThing": {
       "description": "Create a Thing Description",
       "uriVariables": {
         "id": {
@@ -63,7 +63,7 @@
         }
       ]
     },
-    "updateTD": {
+    "updateThing": {
       "description": "Update a Thing Description",
       "uriVariables": {
         "id": {
@@ -109,7 +109,7 @@
         }
       ]
     },
-    "deleteTD": {
+    "deleteThing": {
       "description": "Delete a Thing Description",
       "uriVariables": {
         "id": {
@@ -139,7 +139,7 @@
     }
   },
   "properties": {
-    "retrieveTD": {
+    "retrieveThing": {
       "description": "Retrieve a Thing Description",
       "uriVariables": {
         "id": {
@@ -168,7 +168,7 @@
         }
       ]
     },
-    "retrieveTDs": {
+    "things": {
       "description": "Retrieve Thing Descriptions in batch",
       "uriVariables": {
         "format": {
@@ -187,7 +187,7 @@
       },
       "forms": [
         {
-          "href": "/things?format={format}&offset={offset}&limit={limit}",
+          "href": "/things{?offset,limit,format}",
           "htv:methodName": "GET",
           "response": {
             "description": "Success response",

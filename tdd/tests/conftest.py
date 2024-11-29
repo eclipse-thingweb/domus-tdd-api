@@ -98,13 +98,13 @@ class SparqlGraph:
 
 @pytest.fixture
 def mock_sparql_with_one_td(httpx_mock):
-    graph = SparqlGraph("smart_coffe_machine_init.nquads")
+    graph = SparqlGraph("smart_coffee_machine_init.nquads")
     httpx_mock.add_callback(graph.custom)
 
 
 @pytest.fixture
 def mock_sparql_with_one_expired_td(httpx_mock):
-    graph = SparqlGraph("smart_coffe_machine_expired.nquads")
+    graph = SparqlGraph("smart_coffee_machine_expired.nquads")
     httpx_mock.add_callback(graph.custom)
 
 
