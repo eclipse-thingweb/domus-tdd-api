@@ -34,6 +34,7 @@ from tdd.errors import (
     JSONSchemaError,
     IDNotFound,
     WrongMimeType,
+    IncorrectlyDefinedParameter,
 )
 from tdd.td import (
     clear_expired_td,
@@ -109,9 +110,7 @@ def create_app():
     for entry_point in entry_points(group="tdd_api.plugins.blueprints"):
         try:
             app.register_blueprint(entry_point.load())
-            print(
-                f"Imported {entry_point.value} blueprint"
-            )
+            print(f"Imported {entry_point.value} blueprint")
         except Exception as exc:
             print(f"ERROR ({entry_point.name}): {exc}")
             print(
@@ -121,9 +120,7 @@ def create_app():
     for entry_point in entry_points(group="tdd_api.plugins.transformers"):
         try:
             TD_TRANSFORMERS.append(entry_point.load())
-            print(
-                f"Imported {entry_point.value} transformer"
-            )
+            print(f"Imported {entry_point.value} transformer")
         except Exception as exc:
             print(f"ERROR ({entry_point.name}): {exc}")
             print(
@@ -344,6 +341,9 @@ def register_routes(app):
                 f' etag="{get_collection_etag()}"'
             )
             return response
+        raise IncorrectlyDefinedParameter(
+            "'format' parameter is not recognized. Must be 'array' or 'collection' if defined."
+        )
 
     @app.route("/things/<id>", methods=["GET"])
     def describe_td(id):

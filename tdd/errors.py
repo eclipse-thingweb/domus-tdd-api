@@ -205,3 +205,7 @@ class WrongMimeType(AppException):
             f"Provided mimetype '{provided_mimetype}' is not supported. Only "
             f"{', '.join(POSSIBLE_MIMETYPES)}, application/json are allowed"
         )
+
+
+class IncorrectlyDefinedParameter(AppException):
+    title = "Incorrectly defined parameter"
