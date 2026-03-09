@@ -17,7 +17,7 @@ from importlib import resources
 import subprocess
 import json
 import re
-from flask import Response, abort
+from flask import Response
 
 
 from tdd.sparql import (
