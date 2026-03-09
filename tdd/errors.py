@@ -193,7 +193,10 @@ class TTLMandatoryError(AppException):
 
 
 class IDNotFound(AppException):
-    title = "Not found"
+    title = "ID Not Found"
+    message = "The requested Thing Description ID was not found"
+    message_fr = "L'ID de description de chose demandé n'a pas été trouvé"
+    message_de = "Die angeforderte Thing Description ID wurde nicht gefunden"
     status_code = 404
 
 

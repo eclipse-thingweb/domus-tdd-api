@@ -4,3 +4,6 @@ node_modules/
 .tox
 *.egg-info/
 .pytest_cache
+venv/
+tdd/lib/*.js
+tdd/lib/__pycache__/
