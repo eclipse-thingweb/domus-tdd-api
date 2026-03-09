@@ -99,25 +99,25 @@ class SparqlGraph:
 @pytest.fixture
 def mock_sparql_with_one_td(httpx_mock):
     graph = SparqlGraph("smart_coffee_machine_init.nquads")
-    httpx_mock.add_callback(graph.custom)
+    httpx_mock.add_callback(graph.custom, is_reusable=True)
 
 
 @pytest.fixture
 def mock_sparql_with_one_expired_td(httpx_mock):
     graph = SparqlGraph("smart_coffee_machine_expired.nquads")
-    httpx_mock.add_callback(graph.custom)
+    httpx_mock.add_callback(graph.custom, is_reusable=True)
 
 
 @pytest.fixture
 def mock_sparql_empty_endpoint(httpx_mock):
     graph = SparqlGraph()
-    httpx_mock.add_callback(graph.custom)
+    httpx_mock.add_callback(graph.custom, is_reusable=True)
 
 
 @pytest.fixture
 def mock_sparql_17_things(httpx_mock):
     graph = SparqlGraph("17_things.nquads")
-    httpx_mock.add_callback(graph.custom)
+    httpx_mock.add_callback(graph.custom, is_reusable=True)
 
 
 @pytest.fixture
