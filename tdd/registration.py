@@ -114,17 +114,17 @@ def yield_registration_triples(td_uri, registration):
         yield (
             registration_uri,
             TDD["expires"],
-            Literal(registration["expires"], datatype=XSD.datetTime),
+            Literal(registration["expires"], datatype=XSD.dateTime),
         )
     if "ttl" in registration:
         yield (
             registration_uri,
             TDD["ttl"],
-            Literal(registration["ttl"], datatype=XSD.datetTime),
+            Literal(registration["ttl"], datatype=XSD.dateTime),
         )
     if "retrieve" in registration:
         yield (
             registration_uri,
             TDD["retrieve"],
-            Literal(registration["retrieve"], datatype=XSD.datetTime),
+            Literal(registration["retrieve"], datatype=XSD.dateTime),
         )
