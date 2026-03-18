@@ -4,8 +4,6 @@
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/eclipse-thingweb/thingweb/main/brand/logos/domus.svg">
     <img title="Eclipse Thingweb Domus TDD API" alt="Domus logo" src="https://raw.githubusercontent.com/eclipse-thingweb/thingweb/main/brand/logos/domus.svg" width="300">
   </picture>
-  <br>
-  Domus TDD API
 </h1>
 
 A Python and SPARQL based Thing Description Directory API compliant to:
