@@ -16,10 +16,71 @@
 from urllib.parse import urljoin
 import httpx
 from flask import Response
+import re
 
 
 from tdd.config import CONFIG
 from tdd.errors import FusekiError
+
+
+def sanitize_sparql_uri(uri_value):
+    """
+    Sanitize a URI for use in SPARQL queries.
+    
+    Validates and escapes URIs to prevent SPARQL injection attacks.
+    According to SPARQL spec, URIs must be enclosed in angle brackets
+    and certain characters must be escaped.
+    
+    :param str uri_value: The URI to sanitize
+    :returns: Escaped URI safe for SPARQL
+    :rtype: str
+    :raises ValueError: If URI contains invalid characters
+    """
+    uri_str = str(uri_value).strip()
+    
+    # Remove existing angle brackets if present
+    if uri_str.startswith('<') and uri_str.endswith('>'):
+        uri_str = uri_str[1:-1]
+    
+    # Check for obviously malicious patterns (after removing angle brackets)
+    if re.search(r'[>"{}|^`]', uri_str):
+        raise ValueError(f"Invalid characters in URI: {uri_str}")
+    
+    # Escape backslashes (must be done first)
+    uri_str = uri_str.replace('\\', '\\\\')
+    
+    # Escape quotes
+    uri_str = uri_str.replace('"', '\\"')
+    
+    # Return with angle brackets
+    return f"<{uri_str}>"
+
+
+def sanitize_sparql_string(string_value):
+    """
+    Sanitize a string literal for use in SPARQL queries.
+    
+    Escapes special characters in string literals according to SPARQL spec.
+    This is used for literal string values in SPARQL, not URIs.
+    
+    :param str string_value: The string to sanitize
+    :returns: Escaped string safe for SPARQL
+    :rtype: str
+    """
+    string_str = str(string_value)
+    
+    # Escape backslashes first (must be done first)
+    string_str = string_str.replace('\\', '\\\\')
+    
+    # Escape quotes
+    string_str = string_str.replace('"', '\\"')
+    
+    # Escape newlines and other control characters
+    string_str = string_str.replace('\n', '\\n')
+    string_str = string_str.replace('\r', '\\r')
+    string_str = string_str.replace('\t', '\\t')
+    
+    return string_str
 
 # general queries
 CONSTRUCT_FROM_GRAPH = (
@@ -163,12 +224,35 @@ DELETE_METADATA = """
 
 def sparql_query(sparqlquery):
     """Query SPARQL endpoint.
+    
+    Validates user-provided SPARQL queries to prevent injection attacks.
+    Only allows SELECT queries for safety - no UPDATE, INSERT, DELETE allowed.
 
     :param str sparqlquery: SPARQL query
 
     :returns: HTTP response
     :rtype: Response
+    :raises ValueError: If query is invalid or potentially malicious
     """
+    # Basic validation: only allow SELECT queries from user
+    query_upper = sparqlquery.strip().upper()
+    
+    # Whitelist allowed query types
+    allowed_prefixes = ('SELECT', 'DESCRIBE', 'ASK', 'CONSTRUCT')
+    
+    if not any(query_upper.startswith(prefix) for prefix in allowed_prefixes):
+        raise ValueError(
+            "Only SELECT, DESCRIBE, ASK, or CONSTRUCT queries are allowed. "
+            "UPDATE/DELETE operations are not permitted."
+        )
+    
+    # Additional check: block dangerous keywords
+    dangerous_keywords = ('DROP', 'DELETE', 'INSERT', 'UPDATE', 'CLEAR')
+    if any(keyword in query_upper for keyword in dangerous_keywords):
+        raise ValueError(
+            f"Query contains forbidden operations: {', '.join(dangerous_keywords)}"
+        )
+    
     resp = query(sparqlquery)
     return Response(
         status=resp.status_code,

@@ -26,6 +26,7 @@ from tdd.sparql import (
     GET_NAMED_GRAPHS,
     delete_named_graph,
     query,
+    sanitize_sparql_uri,
 )
 from tdd.metadata import insert_metadata, delete_metadata
 from tdd.config import CONFIG
@@ -40,8 +41,9 @@ def get_check_schema_from_url_params(request):
 
 
 def delete_id(uri):
+    sanitized_uri = sanitize_sparql_uri(uri)
     resp = query(
-        GET_NAMED_GRAPHS.format(uri=uri),
+        GET_NAMED_GRAPHS.format(uri=sanitized_uri),
     )
     if resp.status_code == 200:
         results = resp.json()["results"]["bindings"]
