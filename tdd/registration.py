@@ -45,7 +45,7 @@ def get_registration_dict(uri, rdf_graph):
     keys = ["created", "modified", "expires", "ttl"]
     if len(results) == 0:
         return {}
-    
+
     # Handle different datatypes properly
     values = []
     for i, x in enumerate(results[0]):
@@ -57,7 +57,7 @@ def get_registration_dict(uri, rdf_graph):
         else:
             # Date/time fields should be ISO format strings
             values.append(x.value.isoformat())
-    
+
     registration = dict(zip(keys, values))
     for key, value in dict(registration).items():
         if value is None:
