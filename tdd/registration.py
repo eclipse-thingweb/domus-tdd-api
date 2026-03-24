@@ -45,9 +45,20 @@ def get_registration_dict(uri, rdf_graph):
     keys = ["created", "modified", "expires", "ttl"]
     if len(results) == 0:
         return {}
-    registration = dict(
-        zip(keys, [x.value.isoformat() if x is not None else None for x in results[0]])
-    )
+    
+    # Handle different datatypes properly
+    values = []
+    for i, x in enumerate(results[0]):
+        if x is None:
+            values.append(None)
+        elif keys[i] == "ttl":
+            # TTL should be an integer (seconds)
+            values.append(int(x.value))
+        else:
+            # Date/time fields should be ISO format strings
+            values.append(x.value.isoformat())
+    
+    registration = dict(zip(keys, values))
     for key, value in dict(registration).items():
         if value is None:
             del registration[key]
@@ -120,7 +131,7 @@ def yield_registration_triples(td_uri, registration):
         yield (
             registration_uri,
             TDD["ttl"],
-            Literal(registration["ttl"], datatype=XSD.dateTime),
+            Literal(registration["ttl"], datatype=XSD.nonNegativeInteger),
         )
     if "retrieve" in registration:
         yield (
