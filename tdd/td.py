@@ -262,13 +262,16 @@ def put_td_json_in_sparql(td_content, uri=None, delete_if_exists=True):
 
 
 def delete_graphs(ids):
-    graph_ids_str = ", ".join([f"<{graph_id}>" for graph_id in ids])
+    sanitized_ids = [sanitize_sparql_uri(graph_id) for graph_id in ids]
+    graph_ids_str = ", ".join([f"<{graph_id}>" for graph_id in sanitized_ids])
     delete_td_query = DELETE_GRAPHS.format(graph_ids_str=graph_ids_str)
     resp = query(delete_td_query, request_type="update")
     if resp.status_code not in [200, 201, 204]:
         raise FusekiError(resp)
 
-    delete_graphs_query = "\n".join([f"CLEAR GRAPH <{graph_id}>;" for graph_id in ids])
+    delete_graphs_query = "\n".join(
+        [f"CLEAR GRAPH <{graph_id}>;" for graph_id in sanitized_ids]
+    )
     resp = query(delete_graphs_query, request_type="update")
     if resp.status_code not in [200, 201, 204]:
         raise FusekiError(resp)

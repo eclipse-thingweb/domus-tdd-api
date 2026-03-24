@@ -178,19 +178,6 @@ def register_error_handler(app):
             content_type="application/problem+json",
             status=e.status_code,
         )
-    
-    @app.errorhandler(ValueError)
-    def value_error_response(e):
-        """Handle ValueError from input sanitization"""
-        return Response(
-            json.dumps({
-                "status": 400,
-                "title": "Bad Request",
-                "detail": str(e)
-            }),
-            content_type="application/problem+json",
-            status=400,
-        )
 
 
 def register_routes(app):

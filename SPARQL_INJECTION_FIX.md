@@ -14,6 +14,222 @@ def query_sparql():
 
 @app.route("/search/sparql", methods=["POST"])
 def query_sparql_post():
+    query = request.get_data().decode("utf-8")  # UNSANITIZED USER INPUT
+    return sparql_query(query)
+```
+
+**Attack Scenario**:
+```
+GET /search/sparql?query=DROP%20GRAPH%20%3Curn:tdd:metadata%3E
+POST /search/sparql with body: DELETE WHERE {?s ?p ?o}
+```
+Result: Attacker could delete the entire metadata graph!
+
+**Fix Applied**:
+Added validation in `sparql_query()` that:
+- Strips PREFIX/BASE declarations and inline comments before inspection
+  (prevents bypasses via `PREFIX x: <http://x.org/#> DROP GRAPH …`)
+- Whitelists only SELECT, DESCRIBE, ASK, CONSTRUCT as the first meaningful keyword
+- Rejects everything else (DROP, DELETE, INSERT, UPDATE, CLEAR, …)
+
+---
+
+### 2. **URI Parameter Injection (CWE-89: SQL Injection)**
+**Files**: Multiple locations
+
+**Vulnerable Code Patterns**:
+
+#### In `tdd/td.py` (line 165):
+```python
+resp = query(
+    GET_TD_CREATION_DATE.format(uri=uri),  # ❌ uri passed directly
+)
+```
+
+#### In `tdd/td.py` (line 263): `delete_graphs()`
+```python
+graph_ids_str = ", ".join([f"<{graph_id}>" for graph_id in ids])       # ❌
+delete_graphs_query = "\n".join([f"CLEAR GRAPH <{graph_id}>;" ...])   # ❌
+```
+
+#### In `tdd/common.py` (line 44):
+```python
+resp = query(
+    GET_NAMED_GRAPHS.format(uri=uri),  # ❌ uri not sanitized
+)
+```
+
+#### In `tdd/metadata.py` (line 45):
+```python
+def delete_metadata(uri):
+    query(
+        DELETE_METADATA.format(uri=uri),  # ❌ uri not sanitized
+        request_type="update",
+    )
+```
+
+**Attack Scenario**:
+```
+Input: uri = 'urn:thing"><DROP GRAPH <urn:tdd:metadata>'
+Result SPARQL Query:
+    GRAPH <urn:thing"><DROP GRAPH <urn:tdd:metadata>>
+    # Angle bracket breaks out of the IRIREF, injection executes!
+```
+
+**Fix Applied**:
+Created `sanitize_sparql_uri()` in `tdd/sparql.py` that:
+- Strips any outer angle brackets the caller may have included
+- Rejects all characters that are illegal inside a SPARQL IRIREF:
+  `<`, `>`, `"`, `{`, `}`, `|`, `^`, `` ` ``
+- Returns the raw validated string — **does not add angle brackets**,
+  because every query template already supplies them (`<{uri}>`)
+- Raises `IncorrectlyDefinedParameter` (project error hierarchy) on
+  invalid input so the existing error handler returns a proper 400
+
+All injection sites now pass through sanitization:
+```python
+# Before: GET_TD_CREATION_DATE.format(uri=uri)
+# After:
+sanitized_uri = sanitize_sparql_uri(uri)
+GET_TD_CREATION_DATE.format(uri=sanitized_uri)
+```
+
+---
+
+## Files Modified
+
+### 1. `tdd/sparql.py` — Added `sanitize_sparql_uri()`, fixed `sparql_query()`
+```python
+def sanitize_sparql_uri(uri_value):
+    """
+    Validate a URI for safe interpolation into SPARQL query templates.
+    - Strips outer angle brackets (callers may pass either form)
+    - Rejects characters forbidden in a SPARQL IRIREF: <>"{}|^`
+    - Returns the raw string; templates supply the surrounding <…>
+    - Raises IncorrectlyDefinedParameter on invalid input
+    """
+```
+
+### 2. `tdd/td.py` — Sanitize URI parameters in two functions
+```python
+# get_already_existing_td() — line ~165
+sanitized_uri = sanitize_sparql_uri(uri)
+resp = query(GET_TD_CREATION_DATE.format(uri=sanitized_uri))
+
+# delete_graphs() — line ~263
+sanitized_ids = [sanitize_sparql_uri(graph_id) for graph_id in ids]
+graph_ids_str = ", ".join([f"<{graph_id}>" for graph_id in sanitized_ids])
+delete_graphs_query = "\n".join([f"CLEAR GRAPH <{graph_id}>;" for graph_id in sanitized_ids])
+```
+
+### 3. `tdd/common.py` — Sanitize URI parameters
+```python
+# delete_id()
+sanitized_uri = sanitize_sparql_uri(uri)
+resp = query(GET_NAMED_GRAPHS.format(uri=sanitized_uri))
+```
+
+### 4. `tdd/metadata.py` — Sanitize URI parameters
+```python
+# delete_metadata()
+sanitized_uri = sanitize_sparql_uri(uri)
+query(DELETE_METADATA.format(uri=sanitized_uri), request_type="update")
+```
+
+### 5. `tdd/tests/test_sparql_injection.py` — Comprehensive test suite (28 tests)
+Covers:
+- URI sanitization (plain URIs, already-wrapped URIs, whitespace, forbidden chars)
+- Query validation (blocking DROP/DELETE/INSERT/UPDATE/CLEAR)
+- Query validation (allowing SELECT/DESCRIBE/ASK/CONSTRUCT, with or without PREFIX)
+- No false positives (SELECT with "CLEAR" inside a URI is allowed)
+- Thing-operation injection attempts (DELETE with malicious IDs)
+- POST request injection attempts
+
+---
+
+## Security Impact
+
+### Before Fix:
+```
+Risk Level: CRITICAL (CVSS 9.8)
+- Unauthenticated attacker
+- Full database compromise possible (DROP/DELETE via /search/sparql)
+- Data deletion/modification via crafted Thing IDs
+```
+
+### After Fix:
+```
+Risk Level: LOW
+- /search/sparql endpoint restricted to read-only query types
+- All URI parameters validated before interpolation into SPARQL templates
+- Project error handler returns structured 400 responses on violation
+- Defense in depth: validation at the endpoint AND at every query callsite
+```
+
+---
+
+## SPARQL Spec Compliance
+
+URI validation follows the SPARQL 1.1 IRIREF grammar:
+- Forbidden characters per: https://www.w3.org/TR/sparql11-query/#rIRIREF
+
+---
+
+## Testing Recommendations
+
+Run the test suite:
+```bash
+python3 -m pytest tdd/tests/test_sparql_injection.py -v
+```
+
+Test vulnerable endpoints manually:
+```bash
+# Should be blocked (400 error)
+curl "http://localhost:5050/search/sparql?query=DROP+GRAPH+<urn:tdd:metadata>"
+
+# Should work (200 response)
+curl "http://localhost:5050/search/sparql?query=SELECT+?s+WHERE+{?s+a+?o}"
+
+# Should be rejected (400 — invalid chars in URI)
+curl -X DELETE "http://localhost:5050/things/urn:test%22malicious%22"
+```
+
+---
+
+## Migration Notes
+
+If you have:
+- Custom code calling `query()` with unsanitized URIs
+- Custom SPARQL endpoint implementations
+- Plugins that build SPARQL queries
+
+**Action Required**: Apply `sanitize_sparql_uri()` to every URI value before
+passing it to `.format()` on a SPARQL template string.
+
+---
+
+## Future Improvements
+
+1. Add rate limiting on `/search/sparql` endpoint
+2. Add request size limits to prevent DoS
+3. Add logging of rejected queries for security audit
+4. Consider parameterized query support if the SPARQL client library adds it
+
+
+## Vulnerabilities Fixed
+
+### 1. **Direct SPARQL Query Execution (CWE-89: SQL Injection)**
+**File**: `tdd/__init__.py` (lines 387-393)
+
+**Vulnerability**:
+```python
+@app.route("/search/sparql", methods=["GET"])
+def query_sparql():
+    query = request.args.get("query", "")  # UNSANITIZED USER INPUT
+    return sparql_query(query)
+
+@app.route("/search/sparql", methods=["POST"])
+def query_sparql_post():
     query = request.get_data().decode("utf-8")  #UNSANITIZED USER INPUT 
     return sparql_query(query)
 ```
