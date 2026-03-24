@@ -43,7 +43,7 @@ def sanitize_sparql_uri(uri_value):
         uri_str = uri_str[1:-1]
     
     # Check for obviously malicious patterns (after removing angle brackets)
-    if re.search(r'[>"{}|^`]', uri_str):
+    if re.search(r'[<>"{}|^`]', uri_str):
         raise ValueError(f"Invalid characters in URI: {uri_str}")
     
     # Escape backslashes (must be done first)
