@@ -23,7 +23,7 @@ client = httpx.Client(timeout=60.0)
 
 def upload_file(filepath):
     print(f"Uploading {filepath} ... ", end="")
-    with open(filepath) as fp:
+    with open(filepath, encoding="utf-8") as fp:
         data = fp.read()
         r = client.post(
             sys.argv[2], data=data, headers={"Content-Type": "application/json"}
