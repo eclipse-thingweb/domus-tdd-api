@@ -62,6 +62,7 @@ from tdd.sparql import (
     GET_NUMBER,
     GET_TD_CREATION_DATE,
     query,
+    sanitize_sparql_uri,
 )
 from tdd.config import CONFIG
 from tdd.common import (
@@ -161,8 +162,9 @@ def validate_tds(tds):
 
 
 def get_already_existing_td(uri):
+    sanitized_uri = sanitize_sparql_uri(uri)
     resp = query(
-        GET_TD_CREATION_DATE.format(uri=uri),
+        GET_TD_CREATION_DATE.format(uri=sanitized_uri),
     )
     if resp.status_code == 200:
         if len(resp.json()["results"]["bindings"]) > 0:
