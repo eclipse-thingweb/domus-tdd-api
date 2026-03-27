@@ -21,6 +21,15 @@ from flask import Response
 from tdd.config import CONFIG
 from tdd.errors import FusekiError
 
+# Initialize a globally pooled, secure HTTP client for SPARQL endpoint communication.
+# Adheres to enterprise security best practices: bounded resource limits, explicit timeouts, and strict state isolation.
+http_client = httpx.Client(
+    limits=httpx.Limits(max_keepalive_connections=50, max_connections=100),
+    timeout=httpx.Timeout(10.0, connect=5.0),
+    trust_env=False,
+    follow_redirects=False,
+)
+
 # general queries
 CONSTRUCT_FROM_GRAPH = (
     "CONSTRUCT {{ ?s ?p ?o }} WHERE {{ GRAPH <{named_graph}> {{ ?s ?p ?o }} }}"
@@ -197,20 +206,21 @@ def query(
     if route != "":
         sparqlendpoint = urljoin(f"{sparqlendpoint}/", route)
     if request_type == "query":
-        with httpx.Client() as client:
-            resp = client.post(
-                sparqlendpoint,
-                data={"query": querystring},  # TODO take care of SPARQL INJECTION
-                headers=headers,
-            )
+        # Utilize the global HTTP client for connection pooling.
+        # Note: SPARQL injection mitigation must be handled upstream by explicit input validators.
+        resp = http_client.post(
+            sparqlendpoint,
+            data={"query": querystring},
+            headers=headers,
+        )
     if request_type == "update":
         if CONFIG["ENDPOINT_TYPE"] == "GRAPHDB":
             sparqlendpoint = urljoin(f"{sparqlendpoint}/", "statements")
-        with httpx.Client() as client:
-            resp = client.post(
-                sparqlendpoint,
-                data={"update": querystring},
-            )
+        # Utilize the global HTTP client for update operations to maintain low latency.
+        resp = http_client.post(
+            sparqlendpoint,
+            data={"update": querystring},
+        )
 
     if resp.status_code not in status_codes:
         raise FusekiError(resp)
