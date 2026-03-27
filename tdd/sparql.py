@@ -22,7 +22,7 @@ from tdd.config import CONFIG
 from tdd.errors import FusekiError
 
 # Initialize a globally pooled, secure HTTP client for SPARQL endpoint communication.
-# Adheres to enterprise security best practices: bounded resource limits, explicit timeouts, 
+# Adheres to enterprise security best practices: bounded resource limits, explicit timeouts,
 # and strict state isolation.
 http_client = httpx.Client(
     limits=httpx.Limits(max_keepalive_connections=50, max_connections=100),
