@@ -20,6 +20,7 @@ from rdflib import URIRef, Literal, XSD, BNode
 
 from tdd.errors import TTLMandatoryError
 from tdd.utils import TDD
+from tdd.validators import validate_uri
 
 
 def validate_ttl(ld_content, mandate_ttl):
@@ -30,11 +31,13 @@ def validate_ttl(ld_content, mandate_ttl):
 
 
 def get_registration_dict(uri, rdf_graph):
+    # Upstream validation: Secure the URI before placing it in the SPARQL query string
+    safe_uri = validate_uri(uri)
     registration_query = (
         "PREFIX discovery: <https://www.w3.org/2022/wot/discovery-ontology#>"
         "SELECT DISTINCT ?created ?modified ?expires ?ttl "
         "WHERE {"
-        f"  <{uri}> discovery:hasRegistrationInformation ?reg."
+        f"  <{safe_uri}> discovery:hasRegistrationInformation ?reg."
         "   OPTIONAL{?reg discovery:dateCreated ?created}"
         "   OPTIONAL{?reg discovery:dateModified ?modified}"
         "   OPTIONAL{?reg discovery:expires ?expires}"
@@ -66,7 +69,9 @@ def get_registration_dict(uri, rdf_graph):
 
 
 def delete_registration_information(uri, rdf_graph):
-    rdf_graph.remove((URIRef(uri), TDD.hasRegistrationInformation, None))
+    # Sanitize before processing
+    safe_uri = validate_uri(uri)
+    rdf_graph.remove((URIRef(safe_uri), TDD.hasRegistrationInformation, None))
     rdf_graph.remove((None, TDD.dateCreated, None))
     rdf_graph.remove((None, TDD.dateModified, None))
     rdf_graph.remove((None, TDD.expires, None))

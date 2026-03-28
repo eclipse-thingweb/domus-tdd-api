@@ -70,6 +70,11 @@ from tdd.common import (
     frame_nt_content,
     get_id_description,
 )
+from .validators import (
+    validate_uri,
+    validate_uris,
+    validate_sort_order,
+)
 
 with files(__package__).joinpath("data/td-json-schema-validation.json").open() as strm:
     schema = json.load(strm)
@@ -107,7 +112,7 @@ def use_custom_context(ld_content):
     # No need for now, since the published context is up to date
     overwrite_thing_context(ld_content)
 
-    # replace discovery context uri witht the fixed discovery context
+    # replace discovery context uri with the fixed discovery context
     overwrite_discovery_context(ld_content)
 
     return ld_content
@@ -161,8 +166,10 @@ def validate_tds(tds):
 
 
 def get_already_existing_td(uri):
+    # Upstream validation: Ensure URI is safe before injecting into SPARQL template
+    safe_uri = validate_uri(uri)
     resp = query(
-        GET_TD_CREATION_DATE.format(uri=uri),
+        GET_TD_CREATION_DATE.format(uri=safe_uri),
     )
     if resp.status_code == 200:
         if len(resp.json()["results"]["bindings"]) > 0:
@@ -182,6 +189,8 @@ def put_td_rdf_in_sparql(
     uri, _, _ = next(g.triples((None, RDF.type, TD["Thing"])), (None, None, None))
     if uri is None:
         raise RDFValidationError(f"Did not find any {TD['Thing']}")
+    
+    safe_uri = validate_uri(uri)
 
     if check_schema:
         ontology_graph = create_binded_graph()
@@ -200,37 +209,38 @@ def put_td_rdf_in_sparql(
             raise RDFValidationError(
                 "The RDF triples are not conform with the SHACL validation : \n"
                 f" {text_reports}",
-                td_id=uri,
+                td_id=safe_uri,
                 errors=graph_reports,
                 td_graph=g,
             )
 
-    registration = get_registration_dict(uri, g)
-    delete_registration_information(uri, g)
+    registration = get_registration_dict(safe_uri, g)
+    delete_registration_information(safe_uri, g)
 
-    created_date = get_already_existing_td(uri)
+    created_date = get_already_existing_td(safe_uri)
     registration = update_registration(registration, created_date, CONFIG["MAX_TTL"])
-    for triple in yield_registration_triples(uri, registration):
+    for triple in yield_registration_triples(safe_uri, registration):
         g.add(triple)
     put_rdf_in_sparql(
         g,
-        uri,
+        safe_uri,
         [DEFAULT_THING_CONTEXT_URI, DEFAULT_DISCOVERY_CONTEXT_URI],
         delete_if_exists,
         ONTOLOGY,
         forced_type=TYPE,
     )
-    return (created_date is not None, uri)
+    return (created_date is not None, safe_uri)
 
 
 def get_td_description(id, content_type="application/td+json", context=None):
+    safe_id = validate_uri(id)
     if not content_type.endswith("json"):
-        return get_id_description(id, content_type, ONTOLOGY)
-    content = get_id_description(id, "application/n-triples", ONTOLOGY)
+        return get_id_description(safe_id, content_type, ONTOLOGY)
+    content = get_id_description(safe_id, "application/n-triples", ONTOLOGY)
     if not context:
-        context = get_context(id, ONTOLOGY)
+        context = get_context(safe_id, ONTOLOGY)
     try:
-        td_description = frame_td_nt_content(id, content, context)
+        td_description = frame_td_nt_content(safe_id, content, context)
         return td_description
     except ExpireTDError:
         return ""
@@ -245,7 +255,8 @@ def put_td_json_in_sparql(td_content, uri=None, delete_if_exists=True):
     registration = td_content.get("registration", {})
     td_content = sanitize_td(td_content)
     original_context = copy(td_content["@context"])
-    uri = uri if uri is not None else td_content["id"]
+    # Upstream validation: Sanitize the URI whether it comes from args or the payload ID
+    uri = validate_uri(uri if uri is not None else td_content["id"])
     td_content = use_custom_context(td_content)
 
     created_date = get_already_existing_td(uri)
@@ -260,13 +271,15 @@ def put_td_json_in_sparql(td_content, uri=None, delete_if_exists=True):
 
 
 def delete_graphs(ids):
-    graph_ids_str = ", ".join([f"<{graph_id}>" for graph_id in ids])
+    # Upstream validation: Sanitize all graph IDs before executing bulk DELETE
+    safe_ids = validate_uris(ids)
+    graph_ids_str = ", ".join([f"<{graph_id}>" for graph_id in safe_ids])
     delete_td_query = DELETE_GRAPHS.format(graph_ids_str=graph_ids_str)
     resp = query(delete_td_query, request_type="update")
     if resp.status_code not in [200, 201, 204]:
         raise FusekiError(resp)
 
-    delete_graphs_query = "\n".join([f"CLEAR GRAPH <{graph_id}>;" for graph_id in ids])
+    delete_graphs_query = "\n".join([f"CLEAR GRAPH <{graph_id}>;" for graph_id in safe_ids])
     resp = query(delete_graphs_query, request_type="update")
     if resp.status_code not in [200, 201, 204]:
         raise FusekiError(resp)
@@ -333,11 +346,18 @@ def get_paginated_tds(limit, offset, sort_by, sort_order):
 
     if sort_by is not None and sort_by not in ORDERBY:
         raise OrderbyError(sort_by)
+    
+    # Upstream validation: Enforce strict allowlist for sort_order (ASC/DESC)
+    safe_sort_order = validate_sort_order(sort_order)
+
+    # Convert limit and offset to integers directly to prevent pagination injection
+    safe_limit = int(limit)
+    safe_offset = int(offset)
 
     resp = query(
         GET_URI_BY_ONTOLOGY.format(
-            limit=limit,
-            offset=offset,
+            limit=safe_limit,
+            offset=safe_offset,
             ontology=ONTOLOGY["base"],
             orderby_variable=f"?{sort_by}" if sort_by else "?id",
             orderby_sparql=(
@@ -349,7 +369,7 @@ def get_paginated_tds(limit, offset, sort_by, sort_order):
                 if sort_by
                 else ""
             ),
-            orderby_direction=sort_order if sort_order else "ASC",
+            orderby_direction=safe_sort_order,
         ),
     )
     if resp.status_code not in [200, 201, 204]:
