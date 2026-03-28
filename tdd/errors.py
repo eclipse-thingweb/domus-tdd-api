@@ -212,3 +212,15 @@ class WrongMimeType(AppException):
 
 class IncorrectlyDefinedParameter(AppException):
     title = "Incorrectly defined parameter"
+
+
+class SecurityValidationError(AppException):
+    title = "Security Validation Error"
+    status_code = 400
+
+    def __init__(self, message="Malformed or unsafe input detected."):
+        super().__init__(
+            message=message,
+            message_fr="Entrée mal formée ou non sécurisée détectée.",
+            message_de="Fehlerhafte oder unsichere Eingabe erkannt.",
+        )
