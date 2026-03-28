@@ -189,7 +189,7 @@ def put_td_rdf_in_sparql(
     uri, _, _ = next(g.triples((None, RDF.type, TD["Thing"])), (None, None, None))
     if uri is None:
         raise RDFValidationError(f"Did not find any {TD['Thing']}")
-    
+
     safe_uri = validate_uri(uri)
 
     if check_schema:
@@ -279,7 +279,9 @@ def delete_graphs(ids):
     if resp.status_code not in [200, 201, 204]:
         raise FusekiError(resp)
 
-    delete_graphs_query = "\n".join([f"CLEAR GRAPH <{graph_id}>;" for graph_id in safe_ids])
+    delete_graphs_query = "\n".join(
+        [f"CLEAR GRAPH <{graph_id}>;" for graph_id in safe_ids]
+    )
     resp = query(delete_graphs_query, request_type="update")
     if resp.status_code not in [200, 201, 204]:
         raise FusekiError(resp)
@@ -346,7 +348,7 @@ def get_paginated_tds(limit, offset, sort_by, sort_order):
 
     if sort_by is not None and sort_by not in ORDERBY:
         raise OrderbyError(sort_by)
-    
+
     # Upstream validation: Enforce strict allowlist for sort_order (ASC/DESC)
     safe_sort_order = validate_sort_order(sort_order)
 

@@ -2,6 +2,7 @@
 Security validation module to prevent SPARQL and RDF injection attacks.
 Enforces strict schema compliance and character allowlisting before data reaches the database layer.
 """
+
 import re
 import logging
 from typing import List, Optional
@@ -33,7 +34,9 @@ def validate_uris(uris: List[str]) -> List[str]:
     Validates a list of URIs.
     """
     if not isinstance(uris, list):
-        logger.warning("SECURITY ALERT: Expected a list of URIs, received different type.")
+        logger.warning(
+            "SECURITY ALERT: Expected a list of URIs, received different type."
+        )
         raise SecurityValidationError("Expected a list of URIs.")
     return [validate_uri(u) for u in uris]
 
