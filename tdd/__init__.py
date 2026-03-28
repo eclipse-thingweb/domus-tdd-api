@@ -52,6 +52,7 @@ from tdd.common import (
     get_check_schema_from_url_params,
 )
 from tdd.sparql import query, sparql_query
+from .validators import validate_sort_order
 from tdd.utils import (
     POSSIBLE_MIMETYPES,
     create_link_params,
@@ -285,6 +286,8 @@ def register_routes(app):
 
         sort_by = request.args.get("sort_by")
         sort_order = request.args.get("sort_order")
+
+        sort_order = validate_sort_order(sort_order)
 
         number_total = get_total_number()
 
