@@ -17,7 +17,7 @@ import base64
 import json
 
 
-from tdd.sparql import DELETE_METADATA, INSERT_GRAPH, query
+from tdd.sparql import DELETE_METADATA, INSERT_GRAPH, query, sanitize_sparql_uri
 
 
 def insert_metadata(uri, context, ontology):
@@ -42,7 +42,8 @@ def insert_metadata(uri, context, ontology):
 
 
 def delete_metadata(uri):
+    sanitized_uri = sanitize_sparql_uri(uri)
     query(
-        DELETE_METADATA.format(uri=uri),
+        DELETE_METADATA.format(uri=sanitized_uri),
         request_type="update",
     )
