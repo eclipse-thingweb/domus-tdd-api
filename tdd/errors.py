@@ -224,3 +224,23 @@ class SecurityValidationError(AppException):
             message_fr="Entrée mal formée ou non sécurisée détectée.",
             message_de="Fehlerhafte oder unsichere Eingabe erkannt.",
         )
+
+
+class ExternalDependencyError(AppException):
+    """Exception raised when an external process or upstream URL (like a Context URL)
+    fails to resolve or process the provided data."""
+
+    title = "External Dependency Error"
+    status_code = 502
+
+    def __init__(self, details=""):
+        # Don't include English details in non-English messages for consistency
+        super().__init__(
+            message=(
+                f"An upstream dependency failed to process the data. {details}"
+                if details
+                else "An upstream dependency failed to process the data."
+            ),
+            message_fr="Une dépendance en amont n'a pas pu traiter les données.",
+            message_de="Eine Upstream-Abhängigkeit konnte die Daten nicht verarbeiten.",
+        )

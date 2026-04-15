@@ -17,6 +17,7 @@ import concurrent.futures
 from copy import copy
 from datetime import datetime
 import json
+import logging
 from jsonschema import Draft7Validator
 import uuid
 from rdflib import Graph, RDF
@@ -40,6 +41,7 @@ from tdd.errors import (
     JSONSchemaError,
     OrderbyError,
     RDFValidationError,
+    ExternalDependencyError,
 )
 from tdd.utils import (
     uri_to_base,
@@ -312,9 +314,28 @@ def frame_td_nt_content(td_id, nt_content, original_context):
     # no need since the published context is up to date
     overwrite_thing_context(frame)
     overwrite_discovery_context(frame)
+
+    # Call the safe lower-level function
     jsonld_compacted = frame_nt_content(nt_content, frame)
 
-    jsonld_response = json.loads(jsonld_compacted)
+    # Defense in depth: intercept empty string
+    if not jsonld_compacted or not jsonld_compacted.strip():
+        raise ExternalDependencyError(
+            "Received empty response from JSON-LD framing engine."
+        )
+
+    try:
+        jsonld_response = json.loads(jsonld_compacted)
+    except json.decoder.JSONDecodeError as exc:
+        # Intercept destructive deserialization exception
+        # Don't expose the raw exception message to avoid information leakage
+        # Sanitize td_id to prevent log injection
+        sanitized_td_id = repr(str(td_id)[:200])
+        logging.error(
+            f"JSON decode failed for TD {sanitized_td_id}: {repr(str(exc)[:100])}"
+        )
+        raise ExternalDependencyError("Invalid JSON output from framing engine.")
+
     jsonld_response["@context"] = original_context
     today = datetime.today().astimezone()
 

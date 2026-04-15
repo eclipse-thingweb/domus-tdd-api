@@ -7,4 +7,4 @@ node_modules/
 venv/
 tdd/lib/*.js
 tdd/lib/__pycache__/
-.DS_Store
+.DS_Store.vscode/ 

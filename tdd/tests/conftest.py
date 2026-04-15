@@ -41,6 +41,17 @@ tdd.CONFIG["PERIOD_CLEAR_EXPIRE_TD"] = 0
 tdd.CONFIG["OVERWRITE_DISCOVERY"] = True
 
 
+@pytest.fixture(scope="session", autouse=True)
+def ensure_js_build():
+    """Ensure JavaScript build artifacts exist before running tests"""
+    lib_path = Path(__file__).parent.parent / "lib" / "frame-jsonld.js"
+    if not lib_path.exists():
+        pytest.exit(
+            "tdd/lib/frame-jsonld.js not found. Run 'npm install && npm run build' first.",
+            returncode=1,
+        )
+
+
 @pytest.fixture(autouse=True)
 def patch_datetime_now(monkeypatch):
     class mydatetime(datetime.datetime):

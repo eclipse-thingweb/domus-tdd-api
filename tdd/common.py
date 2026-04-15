@@ -17,6 +17,7 @@ from importlib import resources
 import subprocess
 import json
 import re
+import logging
 from flask import Response
 
 
@@ -29,6 +30,7 @@ from tdd.sparql import (
 )
 from tdd.metadata import insert_metadata, delete_metadata
 from tdd.config import CONFIG
+from tdd.errors import ExternalDependencyError
 
 
 def get_check_schema_from_url_params(request):
@@ -114,11 +116,23 @@ def frame_nt_content(nt_content, frame):
             universal_newlines=True,
             encoding="utf-8",
         )
-        p.stdin.write(input_data)
-        p.stdin.flush()
-        jsonld_compacted = p.stdout.read()
-        p.wait()
-    return jsonld_compacted
+        # Use communicate() to prevent deadlock from OS pipe buffer filling
+        stdout_data, stderr_data = p.communicate(input=input_data)
+
+        # Check subprocess exit code
+        if p.returncode != 0:
+            # Sanitize stderr to prevent log injection attacks
+            # Use repr() to escape newlines and other control characters
+            sanitized_stderr = (
+                repr(stderr_data.strip()[:200]) if stderr_data else "Unknown error"
+            )
+            logging.error(
+                f"frame-jsonld.js failed with exit code {p.returncode}: {sanitized_stderr}"
+            )
+            # Return generic error message without exposing internal details
+            raise ExternalDependencyError("JSON-LD framing process failed.")
+
+    return stdout_data
 
 
 def get_id_description(uri, content_type, ontology):

@@ -22,14 +22,21 @@ const rl = readline.createInterface({
 });
 
 rl.on('line', async (input) => {
-  const inputObjects = JSON.parse(input);
-  const ntriples = inputObjects[0]["ntriples"];
-  const framedata = inputObjects[1];
-  const doc = await fromRDF(ntriples, {
-    format: "application/n-quads",
-    useNativeTypes: "true",
-  });
-  const framed = await jsonldFrame(doc, framedata);
-  console.log(JSON.stringify(framed, null, 2));
-  rl.close();
+  try {
+    const inputObjects = JSON.parse(input);
+    const ntriples = inputObjects[0]["ntriples"];
+    const framedata = inputObjects[1];
+    const doc = await fromRDF(ntriples, {
+      format: "application/n-quads",
+      useNativeTypes: "true",
+    });
+    const framed = await jsonldFrame(doc, framedata);
+    console.log(JSON.stringify(framed, null, 2));
+    rl.close();
+  } catch (error) {
+    // Best practice: write to stderr and return non-zero exit code
+    console.error(`JSON-LD Framing failed: ${error.message}`);
+    rl.close();
+    process.exit(1);
+  }
 });
